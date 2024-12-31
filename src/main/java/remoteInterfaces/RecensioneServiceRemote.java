@@ -1,10 +1,12 @@
 package remoteInterfaces;
 
+import jakarta.ejb.Remote;
 import model.Recensione;
 
 import java.util.Date;
 import java.util.List;
 
+@Remote
 public interface RecensioneServiceRemote {
 
     void addReview(Recensione r);
