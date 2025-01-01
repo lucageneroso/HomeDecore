@@ -4,9 +4,10 @@ import model.Ordine;
 import model.Prodotto;
 import enumerativeTypes.Stato;
 
-import javax.ejb.Remote;
+//import javax.ejb.Remote;
 import java.sql.Date;
 import java.util.List;
+import jakarta.ejb.Remote;
 
 @Remote
 public interface OrderServiceRemote {
