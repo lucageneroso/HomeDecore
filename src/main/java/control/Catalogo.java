@@ -3,6 +3,7 @@ package control;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
 import model.Prodotto;
@@ -12,8 +13,27 @@ import java.util.List;
 
 @Stateless
 public class Catalogo implements CatalogoRemote {
-    @Inject
+
+    @PersistenceContext(unitName="HomeDecorePU")
     private EntityManager em;
+
+        /*
+    private EntityManagerFactory emf;
+    private EntityManager em;
+
+    public Catalogo() {
+        // Create EntityManagerFactory using the persistence unit name
+        emf = Persistence.createEntityManagerFactory("HomeDecorePU");
+        em = emf.createEntityManager();
+    }
+    */
+
+
+    //@PersistenceContext
+    //private EntityManager em;
+
+    //private EntityManagerFactory = Persistence.createEntityManagerFactory("myPersistenceUnit");
+    //private EntityManager em = emf.createEntityManager();
 
     @Override
     public void addProduct(Prodotto prodotto) {
