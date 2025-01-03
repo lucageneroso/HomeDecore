@@ -2,12 +2,10 @@
   <artifact type="war" name="HomeDecore">
     <output-path>$PROJECT_DIR$/out/artifacts/HomeDecore</output-path>
     <root id="archive" name="HomeDecore.war">
-      <element id="directory" name="WEB-INF">
-        <element id="directory" name="classes">
-          <element id="jpa-descriptors" facet="HomeDecore/jpa/JPA" />
-        </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       </element>
-      <element id="library" level="project" name="JPA 2.1-JPA 2.1" />
+      <element id="dir-copy" path="$PROJECT_DIR$/target/HomeDecoreLuca-1.0-SNAPSHOT/WEB-INF" />
       <element id="dir-copy" path="$PROJECT_DIR$/src" />
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
     </root>

@@ -1,6 +1,7 @@
 package model;
 
 public abstract class Utente {
+
     private String nome;
     private String cognome;
     private String email;

@@ -1,6 +1,8 @@
-public class main {
+package control;
+
+public class Main {
     @Inject
-    private Catalogo ejb;
+    private static Catalogo ejb;
 
     public static void main(String[] args) {
         List<Prodotto> tutti=ejb.getProducts();

@@ -1,4 +1,4 @@
-package model;
+package model.Review;
 
 import jakarta.persistence.*;
 
@@ -15,7 +15,7 @@ import java.sql.Date;
 })
 
 @Entity
-public class Recensione implements Serializable extends ReviewComponent {
+public class Recensione implements Serializable,ReviewComponent {
     @Id @GeneratedValue
     private int ID;
 

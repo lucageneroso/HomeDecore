@@ -1,5 +1,7 @@
 package model;
 
+
+
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
 
@@ -34,7 +36,7 @@ public class Prodotto implements Serializable {
     private Categoria categoria;
 
     public Prodotto() {}
-    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria) {
+    public Prodotto(String nome, String descrizione, Double prezzo,ImageIcon image,Categoria categoria) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -55,12 +57,12 @@ public class Prodotto implements Serializable {
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
-    //public ImageIcon getImage() {
+    /*public ImageIcon getImage() {
         return image;
     }
-    //public void setImage(ImageIcon image) {
+    public void setImage(ImageIcon image) {
         this.image = image;
-    }
+    }*/
     public int getId() {
         return id;
     }

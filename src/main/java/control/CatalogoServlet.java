@@ -1,3 +1,5 @@
+package control;
+
 @WebServlet("/catalogo")
 public class CatalogoServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
