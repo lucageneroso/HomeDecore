@@ -1,0 +1,167 @@
+@charset "ISO-8859-1";
+
+/* Reset some default styles */
+body, h1, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Container for product details */
+.cart {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Grid layout */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-md-4, .col-md-6 {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Main product image */
+.img1 {
+    position: relative;
+    text-align: center;
+}
+
+.img1 img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Small product images */
+.small-imgs {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.small-imgs a {
+    margin: 0 5px;
+}
+
+.small-imgs img {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Product title */
+.product-title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+/* Reviews section */
+.reviews {
+    display: flex;
+    align-items: center;
+}
+
+.reviews i {
+    color: #ffd700;
+    margin-right: 5px;
+}
+
+.reviews p {
+    margin-left: 10px;
+}
+
+/* Product price */
+.price {
+    font-size: 1.5em;
+    color: #e74c3c;
+    margin: 10px 0;
+}
+
+/* Quantity available */
+.qty {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+/* Product description */
+.product-inf ul {
+    display: flex;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-inf li {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-top: 2px solid transparent;
+}
+
+.product-inf li.active {
+    border-top: 2px solid #e74c3c;
+    color: #e74c3c;
+}
+
+#Description {
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+/* Buttons section */
+.buttons {
+    margin-top: 20px;
+}
+
+.custom-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e74c3c;
+    color: #fff;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+.custom-btn:hover {
+    background: #c0392b;
+}
+
+.custom-btn i {
+    margin-left: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-4, .col-md-6 {
+        padding: 10px;
+    }
+
+    .img1 img {
+        max-width: 100%;
+    }
+}

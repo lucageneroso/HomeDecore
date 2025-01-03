@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context docBase="C:\Users\rical\HomeDecore\WebContent">
+      
+  <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/ingrosso" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/ingrosso?allowPublicKeyRetrieval=true&amp;useSSL=false" username="root"/>
+  
+</Context>

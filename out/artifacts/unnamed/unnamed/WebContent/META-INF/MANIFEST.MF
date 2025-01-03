@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: lib/gson-2.8.9.jar lib/commons-io-2.11.0.jar lib/javax.servlet-api-3.0.1.jar lib/mysql-connector-java-8.0.28.jar lib/servlet-api.jar lib/json-20140107.jar lib/jakarta.persistence-api-2.2.3-javadoc.jar
