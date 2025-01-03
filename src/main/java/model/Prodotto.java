@@ -30,15 +30,15 @@ public class Prodotto implements Serializable {
     private String nome;
     private String descrizione;
     private Double prezzo;
-    private ImageIcon image;
+    //private ImageIcon image;
     private Categoria categoria;
 
     public Prodotto() {}
-    public Prodotto(String nome, String descrizione, Double prezzo, ImageIcon image, Categoria categoria) {
+    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        this.image = image;
+        //this.image = image;
         this.categoria = categoria;
     }
 
@@ -55,12 +55,12 @@ public class Prodotto implements Serializable {
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
-    public ImageIcon getImage() {
+    /*public ImageIcon getImage() {
         return image;
     }
     public void setImage(ImageIcon image) {
         this.image = image;
-    }
+    }*/
     public int getId() {
         return id;
     }
