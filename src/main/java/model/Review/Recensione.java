@@ -15,18 +15,19 @@ import java.sql.Date;
 })
 
 @Entity
-public class Recensione implements Serializable {
+public class Recensione implements Serializable extends ReviewComponent {
     @Id @GeneratedValue
     private int ID;
 
-    private int rating;
+
+    private double rating;
     private int userID;
     private int productID;
     private String commento;
     private Date date;
 
     public Recensione(){}
-    public Recensione(int rating, int userID, int productID, String commento, Date date) {
+    public Recensione(double rating, int userID, int productID, String commento, Date date) {
         this.rating = rating;
         this.userID = userID;
         this.productID = productID;
@@ -40,10 +41,19 @@ public class Recensione implements Serializable {
     public void setID(int ID) {
         this.ID = ID;
     }
-    public int getRating() {
+
+    @Override
+    public double getRating() {
         return rating;
     }
-    public void setRating(int rating) {
+
+    @Override
+    public List<Recensione> showReview(){
+        List<Recensione> group= new ArrayList<>();
+        group.add(this);
+        return group;
+    }
+    public void setRating(double rating) {
         this.rating = rating;
     }
     public int getUserID() {

@@ -1,3 +1,11 @@
+import java.util.logging.Logger;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
 @Singleton
 @Startup
 @DataSourceDefinition(
