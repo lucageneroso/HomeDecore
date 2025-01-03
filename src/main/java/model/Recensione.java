@@ -7,11 +7,11 @@ import java.sql.Date;
 
 @NamedQueries({
         @NamedQuery(name="TROVA_TUTTE", query="SELECT r FROM Recensione r"),
-        @NamedQuery(name="TROVA_PER_ID", query="SELECT r FROM Recensione r WHERE r.ID= :ID"),
+        @NamedQuery(name="TROVA_PER_IDENT", query="SELECT r FROM Recensione r WHERE r.ID= :ID"),
         @NamedQuery(name="TROVA_PER_RATING", query="SELECT r FROM Recensione r WHERE r.rating= :rating"),
         @NamedQuery(name="TROVA_PER_CLIENTE", query="SELECT r FROM Recensione r WHERE r.userID= :userID"),
         @NamedQuery(name="TROVA_PER_PRODOTTO", query="SELECT r FROM Recensione r WHERE r.productID= :productID"),
-        @NamedQuery(name="TROVA_PER_DATA", query="SELECT r FROM Recensione r WHERE r.date= :date")
+        @NamedQuery(name="TROVA_PER_DATE", query="SELECT r FROM Recensione r WHERE r.date= :date")
 })
 
 @Entity

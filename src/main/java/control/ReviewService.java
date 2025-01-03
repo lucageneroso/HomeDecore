@@ -32,7 +32,7 @@ public class ReviewService implements RecensioneServiceRemote {
 
     @Override
     public Recensione findById(int ID) {
-        TypedQuery<Recensione> query = em.createNamedQuery("TROVA_PER_ID", Recensione.class);
+        TypedQuery<Recensione> query = em.createNamedQuery("TROVA_PER_IDENT", Recensione.class);
         query.setParameter("ID", ID);
         return query.getSingleResult();
     }
@@ -45,7 +45,7 @@ public class ReviewService implements RecensioneServiceRemote {
 
     @Override
     public List<Recensione> findByDate(Date date) {
-        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_PER_DATA", Recensione.class);
+        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_PER_DATE", Recensione.class);
         query.setParameter("date", date);
         return query.getResultList();
     }

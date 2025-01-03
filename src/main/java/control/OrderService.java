@@ -4,6 +4,7 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.Order;
 import model.Ordine;
 import model.Prodotto;
 import enumerativeTypes.Stato;
@@ -28,8 +29,8 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Prodotto> findAllOrders() {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
+    public List<Ordine> findAllOrders() {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_ORDINI", Ordine.class);
         return query.getResultList();
     }
 
@@ -44,29 +45,29 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Prodotto> findOrdersByCostumer(int userId) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_UTENTE", Prodotto.class);
+    public List<Ordine> findOrdersByCostumer(int userId) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_UTENTE", Ordine.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByPrize(Double prezzo) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_TOTALE", Prodotto.class);
+    public List<Ordine> findByPrize(Double prezzo) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_TOTALE", Ordine.class);
         query.setParameter("totale", prezzo);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByDate(Date date) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_DATA", Prodotto.class);
+    public List<Ordine> findByDate(Date date) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_DATA",Ordine.class);
         query.setParameter("date", date);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByState(Stato stato){
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_STATO", Prodotto.class);
+    public List<Ordine> findByState(Stato stato){
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_STATO",Ordine.class);
         query.setParameter("stato", stato);
         return query.getResultList();
     }

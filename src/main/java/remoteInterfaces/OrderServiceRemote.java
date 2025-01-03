@@ -13,11 +13,11 @@ import jakarta.ejb.Remote;
 public interface OrderServiceRemote {
      void addOrder(Ordine order);
      Ordine findOrderById(int id);
-     List<Prodotto> findAllOrders();
+     List<Ordine> findAllOrders();
      void updateOrder(Ordine order);
      void removeOrder(int id);
-     List<Prodotto> findOrdersByCostumer(int userId);
-     List<Prodotto> findByPrize(Double prezzo);
-     List<Prodotto> findByDate(Date date);
-     List<Prodotto> findByState(Stato stato);
+     List<Ordine> findOrdersByCostumer(int userId);
+     List<Ordine> findByPrize(Double prezzo);
+     List<Ordine> findByDate(Date date);
+     List<Ordine> findByState(Stato stato);
 }

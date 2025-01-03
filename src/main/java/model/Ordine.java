@@ -8,8 +8,8 @@ import java.sql.Date;
 
 
 @NamedQueries({
-        @NamedQuery(name="TROVA_TUTTI", query="SELECT o FROM Ordine o"),
-        @NamedQuery(name="TROVA_PER_ID", query="SELECT o FROM Ordine o WHERE o.id = :id "),
+        @NamedQuery(name="TROVA_ORDINI", query="SELECT o FROM Ordine o"),
+        @NamedQuery(name="TROVA_PER_IDENTIFICATIVO", query="SELECT o FROM Ordine o WHERE o.id = :id "),
         @NamedQuery(name="TROVA_PER_UTENTE", query="SELECT o FROM Ordine o WHERE o.userId = :userId"),
         @NamedQuery(name="TROVA_PER_DATA", query="SELECT o FROM Ordine o WHERE o.date =:date "),
         @NamedQuery(name="TROVA_PER_STATO", query="SELECT o FROM Ordine o WHERE o.stato =:stato "),
@@ -17,6 +17,7 @@ import java.sql.Date;
 })
 @Entity
 public class Ordine implements Serializable {
+
     @Id @GeneratedValue
     private Long id;
     private double totale=0.0;
