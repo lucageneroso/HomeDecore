@@ -1,5 +1,5 @@
 package enumerativeTypes;
 
 public enum Categoria {
-    BAGNO, CUCINA, GIARDINO, ZONAGIORNO
+    BAGNO, CUCINA, GIARDINO, SOGGIORNO
 }
