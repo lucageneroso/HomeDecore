@@ -1,10 +1,11 @@
-package control;
+package service;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import model.Recensione;
+import model.Review.*;
+import model.Review.Recensione;
 import remoteInterfaces.RecensioneServiceRemote;
 
 import java.util.Date;
@@ -15,19 +16,20 @@ public class ReviewService implements RecensioneServiceRemote {
     @Inject
     private EntityManager em;
 
+
     @Override
-    public void addReview(Recensione r) {
-        em.persist(r);
+    public void addReview(model.Review.Recensione r) {
+
     }
 
     @Override
-    public void removeReview(Recensione r) {
-        em.remove(em.merge(r));
+    public void removeReview(model.Review.Recensione r) {
+
     }
 
     @Override
-    public void updateReview(Recensione r) {
-        em.merge(r);
+    public void updateReview(model.Review.Recensione r) {
+
     }
 
     @Override

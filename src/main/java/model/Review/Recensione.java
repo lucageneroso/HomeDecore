@@ -1,9 +1,12 @@
-package model;
+package model.Review;
 
 import jakarta.persistence.*;
+import model.Review.ReviewComponent;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name="TROVA_TUTTE", query="SELECT r FROM Recensione r"),
@@ -15,7 +18,7 @@ import java.sql.Date;
 })
 
 @Entity
-public class Recensione implements Serializable extends ReviewComponent {
+public class Recensione implements ReviewComponent, Serializable {
     @Id @GeneratedValue
     private int ID;
 
@@ -49,7 +52,8 @@ public class Recensione implements Serializable extends ReviewComponent {
 
     @Override
     public List<Recensione> showReview(){
-        List<Recensione> group= new ArrayList<>();
+        List<Recensione> group= new ArrayList<>() {
+        };
         group.add(this);
         return group;
     }

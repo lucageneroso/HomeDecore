@@ -1,4 +1,11 @@
-public class ReviewGroup extends ReviewComponent{
+package model.Review;
+
+
+import model.Review.*;
+
+import java.util.List;
+
+public class ReviewGroup implements ReviewComponent {
   List<Recensione> group;
 
     public ReviewGroup(){}
@@ -8,7 +15,7 @@ public class ReviewGroup extends ReviewComponent{
 
     @Override
     public double getRating(){
-        int somma=0;
+        double somma=0;
         for (Recensione r: group){
             somma+=r.getRating();
         }

@@ -1,4 +1,4 @@
-package control;
+package service;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -28,8 +28,8 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Prodotto> findAllOrders() {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
+    public List<Ordine> findAllOrders() {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_TUTTI", Ordine.class);
         return query.getResultList();
     }
 
@@ -44,29 +44,29 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Prodotto> findOrdersByCostumer(int userId) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_UTENTE", Ordine.class);
+    public List<Ordine> findOrdersByCostumer(int userId) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_UTENTE", Ordine.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByPrize(Double prezzo) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_TOTALE", Ordine.class);
+    public List<Ordine> findByPrize(Double prezzo) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_TOTALE", Ordine.class);
         query.setParameter("totale", prezzo);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByDate(Date date) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_DATA", Ordine.class);
+    public List<Ordine> findByDate(Date date) {
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_DATA", Ordine.class);
         query.setParameter("date", date);
         return query.getResultList();
     }
 
     @Override
-    public List<Prodotto> findByState(Stato stato){
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_STATO", Ordine.class);
+    public List<Ordine> findByState(Stato stato){
+        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_STATO", Ordine.class);
         query.setParameter("stato", stato);
         return query.getResultList();
     }

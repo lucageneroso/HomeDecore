@@ -1,10 +1,18 @@
+package database;
+
 import java.util.logging.Logger;
+
+import enumerativeTypes.Categoria;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.annotation.sql.DataSourceDefinition;
+import jakarta.ejb.LocalBean;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import model.Prodotto;
 
 @Singleton
 @Startup
