@@ -1,0 +1,45 @@
+.container {
+    font-family: 'Arial', sans-serif; /* Tipo di carattere predefinito */
+    line-height: 1.6; /* Altezza della riga */
+    background-color: #fff; /* Colore di sfondo */
+    color: #333; /* Colore del testo principale */
+    padding: 20px; /* Spaziatura interna */
+    margin-top: 80px; /* Assicura che il contenuto non venga sovrapposto all'header */
+    max-width: 1200px; /* Limita la larghezza del contenitore per una migliore leggibilità */
+    margin-left: auto; /* Centra il contenitore rispetto alla larghezza massima */
+    margin-right: auto;
+}
+
+.container h1 {
+    font-size: 36px; /* Dimensione del font per il titolo principale */
+    text-align: center; /* Allinea il titolo al centro */
+    margin-bottom: 20px; /* Spaziatura inferiore per il titolo */
+    color: #333; /* Colore del testo del titolo */
+}
+
+.container h2 {
+    font-size: 28px; /* Dimensione del font per i sottotitoli */
+    margin-top: 30px; /* Spaziatura superiore per i sottotitoli */
+    color: #555; /* Colore del testo dei sottotitoli */
+}
+
+.container p {
+    font-size: 16px; /* Dimensione del font per i paragrafi */
+    text-align: justify; /* Allinea il testo giustificato */
+    margin-bottom: 15px; /* Spaziatura inferiore per i paragrafi */
+    color: #666; /* Colore del testo dei paragrafi */
+}
+
+.container a {
+    display: block; /* Mostra il link come blocco */
+    text-align: center; /* Allinea il testo del link al centro */
+    margin: 30px auto 0; /* Spaziatura superiore (30px), nessuna spaziatura inferiore, e margine laterale automatico per centrare */
+    color: #007bff; /* Colore del link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+    font-weight: bold; /* Testo in grassetto */
+    transition: color 0.3s; /* Transizione del colore al passaggio del mouse */
+}
+
+.container a:hover {
+    color: #0056b3; /* Cambia colore al passaggio del mouse */
+}

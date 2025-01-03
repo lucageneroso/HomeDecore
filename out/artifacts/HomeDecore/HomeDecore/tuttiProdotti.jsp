@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%
-    try {
-        Class.forName("control.Catalogo");
-        Class.forName("model.Prodotto");
-    } catch (ClassNotFoundException e) {
-        System.out.println("Errore: " + e.getMessage());
-    }
-%>
 
 
 <%@ page import="service.Catalogo" %>
@@ -47,13 +39,11 @@
 %>
 
 <%
-    Catalogo catalogo = new Catalogo();
     List<Prodotto> prodotti = catalogo.getProducts();
 
     // Verifica se la lista prodotti è vuota o nulla
     if (prodotti.isEmpty()) {
         out.println("N");
-    }
 %>
 <!DOCTYPE html>
 <html lang="it">
@@ -71,26 +61,20 @@
 <div class="content">
     <h1>Prodotti</h1>
     <ul id="product-list">
-        <%
             if (prodotti != null && !prodotti.isEmpty()) {
                 for (Prodotto product : prodotti) {
 
                     //byte[] imageBytes = product.getImage();
                     //String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 
-                    ImageIcon imageIcon = product.getImage(); // Ottieni l'ImageIcon
-                    String base64Image = convertImageIconToBase64(imageIcon);
 
                     out.println("<li><a href='ProductDetails.jsp?id=" + product.getId() + "'>" +
                             product.getNome() + "<br>" +
-                            "<img src='data:image/jpg;base64," + base64Image + "' alt='Immagine Prodotto' style='max-width:100px;'>"+
                             "</a></li>");
                 }
             } else {
                 out.println("<li>Nessun prodotto disponibile</li>");
-            }
         %>
-    </ul>
 </div>
 
 </body>
