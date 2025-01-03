@@ -55,12 +55,12 @@ public class Prodotto implements Serializable {
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
-    //public ImageIcon getImage() {
+    /*public ImageIcon getImage() {
         return image;
     }
-    //public void setImage(ImageIcon image) {
+    public void setImage(ImageIcon image) {
         this.image = image;
-    }
+    }*/
     public int getId() {
         return id;
     }
