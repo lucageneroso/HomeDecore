@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Context docBase="C:\Users\rical\HomeDecore\src\main\webapp">
       
-  <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/HomeDecoreDB" password="root" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/HomeDecoreDB?allowPublicKeyRetrieval=true&amp;useSSL=false" username="root"/>
+  <Resource
+          auth="Container"
+          driverClassName="com.mysql.cj.jdbc.Driver"
+          maxActive="100"
+          maxIdle="30"
+          maxWait="10000"
+
+          name="java:app/jdbc/HomeDecoreDS"
+          username="root"
+          password="root"
+
+          type="javax.sql.DataSource"
+          url="jdbc:mysql://localhost:3306/HomeDecoreDB"
+
+  />
   
 </Context>

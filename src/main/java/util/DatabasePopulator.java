@@ -26,6 +26,7 @@ import javax.swing.*;
         user ="root",
         password ="root"
 )
+
 @LocalBean
 public class DatabasePopulator {
 
@@ -45,6 +46,7 @@ public class DatabasePopulator {
     @PostConstruct
     public void populateDB(){
         System.out.println("HO INIZIATO IL POPOLAMENTOOOOOOOOOs!! \n");
+        System.out.println(em);
         em.persist(p1);
         em.persist(p2);
         em.persist(p3);
