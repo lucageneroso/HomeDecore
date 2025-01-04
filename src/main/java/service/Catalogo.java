@@ -8,14 +8,16 @@ import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
 import model.Prodotto;
 import remoteInterfaces.CatalogoRemote;
+import jakarta.annotation.PostConstruct;
 
 import java.util.List;
 
-@Stateless
+@Stateless(name = "Catalogo")//, mappedName = "java:app/HomeDecore/Catalogo")
 public class Catalogo implements CatalogoRemote {
 
     @PersistenceContext(unitName = "HomeDecorePU")
     private EntityManager em;
+
 
     @Override
     public void addProduct(Prodotto prodotto) {
@@ -34,9 +36,8 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public List<Prodotto> getProducts() {
+        System.out.println(em);
     TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
-    System.out.println("Prodotti");
-    System.out.println(query.getResultList());
     return query.getResultList();
     }
 
