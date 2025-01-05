@@ -3,6 +3,7 @@ package service;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import model.Review.*;
 import model.Review.Recensione;
@@ -13,7 +14,7 @@ import java.util.List;
 
 @Stateless
 public class ReviewService implements RecensioneServiceRemote {
-    @Inject
+    @PersistenceContext(unitName = "HomeDecorePU")
     private EntityManager em;
 
 

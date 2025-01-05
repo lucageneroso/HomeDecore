@@ -3,6 +3,7 @@ package service;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import model.Ordine;
 import model.Prodotto;
@@ -14,7 +15,7 @@ import java.util.List;
 
 @Stateless
 public class OrderService implements OrderServiceRemote {
-    @Inject
+    @PersistenceContext(unitName = "HomeDecorePU")
     private EntityManager em;
 
     @Override

@@ -1,6 +1,7 @@
 package remoteInterfaces;
 
 import enumerativeTypes.Categoria;
+import jakarta.ejb.Local;
 import model.Prodotto;
 
 //import javax.ejb.Remote;
