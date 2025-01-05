@@ -3,7 +3,7 @@
 
 
 <%@ page import="service.Catalogo" %>
-<%@ page import="model.Prodotto" %>
+<%@ page import="model.OrderManagement.Prodotto" %>
 
 
 <%@ page import="java.util.List" %>
