@@ -1,8 +1,7 @@
 package remoteInterfaces;
 
 import jakarta.ejb.Remote;
-import model.Review.*;
-import model.Review.Recensione;
+import model.ReviewManagement.Recensione;
 
 import java.util.Date;
 import java.util.List;

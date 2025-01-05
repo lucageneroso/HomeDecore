@@ -1,4 +1,4 @@
-package model;
+package model.OrderManagement;
 
 import enumerativeTypes.Stato;
 import jakarta.persistence.*;

@@ -1,6 +1,6 @@
 package remoteInterfaces;
 
-import model.User.Utente;
+import model.UserManagement.Utente;
 
 import java.util.List;
 

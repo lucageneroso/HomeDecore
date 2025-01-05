@@ -1,7 +1,6 @@
-package model.Review;
+package model.ReviewManagement;
 
 import jakarta.persistence.*;
-import model.Review.ReviewComponent;
 
 import java.io.Serializable;
 import java.sql.Date;

@@ -1,7 +1,6 @@
 package remoteInterfaces;
 
-import model.Ordine;
-import model.Prodotto;
+import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 
 //import javax.ejb.Remote;

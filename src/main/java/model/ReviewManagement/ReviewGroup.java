@@ -1,7 +1,5 @@
-package model.Review;
+package model.ReviewManagement;
 
-
-import model.Review.*;
 
 import java.util.List;
 

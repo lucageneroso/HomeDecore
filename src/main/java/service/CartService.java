@@ -1,10 +1,9 @@
 package control;
 
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import model.Cart;
+import model.OrderManagement.Cart;
 import remoteInterfaces.CartServiceRemote;
 
 public class CartService implements CartServiceRemote {

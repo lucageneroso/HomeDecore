@@ -1,4 +1,4 @@
-package model.Review;
+package model.ReviewManagement;
 
 import java.util.List;
 

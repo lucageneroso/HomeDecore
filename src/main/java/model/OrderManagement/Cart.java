@@ -1,10 +1,9 @@
-package model;
+package model.OrderManagement;
 
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.ItemCart;
 
 @Entity
 @NamedQueries({

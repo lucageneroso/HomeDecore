@@ -4,7 +4,7 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import model.User.Utente;
+import model.UserManagement.Utente;
 import remoteInterfaces.UserServiceRemote;
 
 import java.util.List;

@@ -1,12 +1,10 @@
 package service;
 
 import jakarta.ejb.Stateless;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import model.Ordine;
-import model.Prodotto;
+import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 import remoteInterfaces.OrderServiceRemote;
 

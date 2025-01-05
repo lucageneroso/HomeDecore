@@ -1,4 +1,4 @@
-package model.User;
+package model.UserManagement;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;

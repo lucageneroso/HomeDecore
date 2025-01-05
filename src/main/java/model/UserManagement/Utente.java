@@ -1,4 +1,4 @@
-package model.User;
+package model.UserManagement;
 
 import enumerativeTypes.Ruolo;
 import jakarta.persistence.*;

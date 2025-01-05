@@ -1,9 +1,8 @@
-package model;
+package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
 
-import javax.swing.*;
 import java.io.Serializable;
 
 

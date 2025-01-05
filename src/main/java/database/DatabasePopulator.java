@@ -1,7 +1,5 @@
 package database;
 
-import java.util.logging.Logger;
-
 import enumerativeTypes.Categoria;
 import enumerativeTypes.Ruolo;
 import jakarta.annotation.PostConstruct;
@@ -12,10 +10,8 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import model.Prodotto;
-import model.User.Cliente;
-import model.User.Utente;
+import model.OrderManagement.Prodotto;
+import model.UserManagement.Utente;
 
 @Singleton
 @Startup
