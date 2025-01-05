@@ -80,4 +80,10 @@ public class Prodotto implements Serializable {
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString(){
+        return "Prodotto: [ Id:"+this.id+", Nome:"+this.nome+", Descrizione:"+this.descrizione+
+                ", Prezzo:"+this.prezzo+", Categoria:"+this.categoria+"]";
+    }
 }

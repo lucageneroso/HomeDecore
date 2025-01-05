@@ -37,7 +37,9 @@ public class CatalogoServlet extends HttpServlet {
         System.out.println("Catalogo "+catalogo);
         // Recupera i prodotti dal database
         List<Prodotto> prodotti = catalogo.getProducts();
-        System.out.println(prodotti);
+        for( Prodotto p : prodotti ) {
+            System.out.println(p.toString());
+        }
         request.setAttribute("prodotti", prodotti);
         request.getRequestDispatcher("tuttiProdotti.jsp").forward(request, response);
     }
