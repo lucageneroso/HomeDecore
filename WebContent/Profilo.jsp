@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="model.Ordine" %>
-<%@ page import="model.Utente" %>
+<%@ page import="model.User.Utente" %>
 <%@ page import="model.UtenteDao" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
