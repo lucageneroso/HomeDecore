@@ -29,8 +29,11 @@ public class Prodotto implements Serializable {
     private String nome;
     private String descrizione;
     private Double prezzo;
+    private int disponibilita;
+
     //private ImageIcon image;
     private Categoria categoria;
+    private boolean inCatalogo;
 
     public Prodotto() {}
     public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria) {
