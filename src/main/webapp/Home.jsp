@@ -14,7 +14,7 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.8), rgba(255, 165, 0, 0.5), rgba(255, 255, 255, 0));
+            background: radial-gradient(circle, rgba(255,215, 0, 0.8), rgba(255, 165, 0, 0.5), rgba(255, 255, 255, 0));
             background-size: cover;
             background-attachment: fixed;
         }

@@ -1,4 +1,10 @@
-public class ReviewGroup extends ReviewComponent{
+package model.Review;
+
+import model.Review.Recensione;
+
+import java.util.List;
+
+public class ReviewGroup implements ReviewComponent{
   List<Recensione> group;
 
     public ReviewGroup(){}

@@ -17,7 +17,7 @@ import java.util.List;
 })
 
 @Entity
-public class Recensione extends ReviewComponent implements Serializable{
+public class Recensione implements ReviewComponent, Serializable{
     @Id @GeneratedValue
     private int ID;
 
