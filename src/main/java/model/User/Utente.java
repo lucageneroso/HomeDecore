@@ -1,5 +1,6 @@
 package model.User;
 
+import enumerativeTypes.Ruolo;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,26 +14,31 @@ import jakarta.persistence.*;
         @NamedQuery(name="Utente.TROVA_PER_NOME", query="SELECT u FROM Utente u WHERE u.nome = :nome"),
         @NamedQuery(name="Utente.TROVA_PER_COGNOME", query="SELECT u FROM Utente u WHERE u.cognome = :cognome"),
         @NamedQuery(name="Utente.TROVA_PER_RUOLO", query="SELECT u FROM Utente u WHERE u.ruolo = :ruolo"),
-
+        @NamedQuery(name="Utente.TROVA_PER_USERNAME", query="SELECT u FROM Utente u WHERE u.username = :username")
 })
-public abstract class Utente {
+public class Utente {
     private String nome;
     private String cognome;
     private String email;
     private String password;
-    private String ruolo;
+
+    @Enumerated(EnumType.STRING)
+    private Ruolo ruolo;
+
+    private String username;
 
     @Id @GeneratedValue
     private Long id;
 
     public Utente(){}
 
-    public Utente(String nome, String cognome, String email, String password, String ruolo) {
+    public Utente(String nome, String cognome, String email, String username, String password, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
         this.ruolo = ruolo;
+        this.username = username;
     }
     public String getNome() {
         return nome;
@@ -58,8 +64,10 @@ public abstract class Utente {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getRuolo() {return ruolo;}
-    public void setRuolo(String ruolo) {this.ruolo = ruolo;}
+    public Ruolo getRuolo() {return ruolo;}
+    public void setRuolo(Ruolo ruolo) {this.ruolo = ruolo;}
+    public String getUsername() {return username;}
+    public void setUsername(String username) {this.username = username;}
     @Override
     public String toString() {
         return "Utente{" +

@@ -6,12 +6,11 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue("CLIENTE")
 public class Cliente extends Utente{
-    private String username;
+
     private String indirizzo;
 
-    public Cliente(String username, String indirizzo){
+    public Cliente(String indirizzo){
         super();
-        this.username = username;
         this.indirizzo = indirizzo;
     }
     public Cliente(){}
@@ -20,22 +19,9 @@ public class Cliente extends Utente{
         return indirizzo;
     }
 
-    public void setIndirizzo(String indirizzo) {}
-
-    public String getUsername() {
-        return username;
+    public void setIndirizzo(String indirizzo) {
+        this.indirizzo = indirizzo;
     }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "username=" + username + '}';
-    }
-
-
-
 
 
 }

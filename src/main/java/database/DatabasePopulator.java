@@ -3,6 +3,7 @@ package database;
 import java.util.logging.Logger;
 
 import enumerativeTypes.Categoria;
+import enumerativeTypes.Ruolo;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.annotation.sql.DataSourceDefinition;
@@ -13,6 +14,8 @@ import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import model.Prodotto;
+import model.User.Cliente;
+import model.User.Utente;
 
 @Singleton
 @Startup
@@ -33,6 +36,17 @@ public class DatabasePopulator {
     Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA);
     Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA);
 
+    Utente cliente = new Utente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", Ruolo.CLIENTE);
+
+
+
+    // Creazione di un admin
+    /*Admin admin = new Admin();
+        admin.setNome("Admin User");
+        admin.setEmail("admin@example.com");
+        admin.setPassword("admin123");
+        admin.setPermessi("GESTIONE_COMPLETA");
+        admin.setRuolo("ADMIN"); */
     // record
 
     @PostConstruct
@@ -42,6 +56,7 @@ public class DatabasePopulator {
         em.persist(p2);
         em.persist(p3);
         em.persist(p4);
+        em.persist(cliente);
     }
 
     @PreDestroy
@@ -50,6 +65,7 @@ public class DatabasePopulator {
         em.remove(p2);
         em.remove(p3);
         em.remove(p4);
+        em.remove(cliente);
         em.clear();
     }
 }
