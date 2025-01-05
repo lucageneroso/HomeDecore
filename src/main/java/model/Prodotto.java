@@ -8,12 +8,12 @@ import java.io.Serializable;
 
 
 @NamedQueries({
-        @NamedQuery(name="TROVA_TUTTI", query="SELECT p FROM Prodotto p"),
-        @NamedQuery(name="TROVA_PER_ID", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
-        @NamedQuery(name="TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
-        @NamedQuery(name="TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
-        @NamedQuery(name="TROVA_PER_CATEGORIA", query="SELECT p FROM Prodotto p WHERE p.categoria= :categoria"),
-        @NamedQuery(name="TROVA_PER_NOME", query="SELECT p FROM Prodotto p WHERE p.nome= :nome")
+        @NamedQuery(name="Prodotto.TROVA_TUTTI", query="SELECT p FROM Prodotto p"),
+        @NamedQuery(name="Prodotto.TROVA_PER_ID", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
+        @NamedQuery(name="Prodotto.TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
+        @NamedQuery(name="Prodotto.TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
+        @NamedQuery(name="Prodotto.TROVA_PER_CATEGORIA", query="SELECT p FROM Prodotto p WHERE p.categoria= :categoria"),
+        @NamedQuery(name="Prodotto.TROVA_PER_NOME", query="SELECT p FROM Prodotto p WHERE p.nome= :nome")
 })
 @Entity
 public class Prodotto implements Serializable {
@@ -79,5 +79,15 @@ public class Prodotto implements Serializable {
     }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+    @Override
+    public String toString() {
+        return "Prodotto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", prezzo=" + prezzo +
+                ", categoria=" + categoria +
+                '}';
     }
 }

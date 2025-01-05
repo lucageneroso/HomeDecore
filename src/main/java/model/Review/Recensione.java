@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedQueries({
-        @NamedQuery(name="TROVA_TUTTE", query="SELECT r FROM Recensione r"),
-        @NamedQuery(name="TROVA_PER_ID", query="SELECT r FROM Recensione r WHERE r.ID= :ID"),
-        @NamedQuery(name="TROVA_PER_RATING", query="SELECT r FROM Recensione r WHERE r.rating= :rating"),
-        @NamedQuery(name="TROVA_PER_CLIENTE", query="SELECT r FROM Recensione r WHERE r.userID= :userID"),
-        @NamedQuery(name="TROVA_PER_PRODOTTO", query="SELECT r FROM Recensione r WHERE r.productID= :productID"),
-        @NamedQuery(name="TROVA_PER_DATA", query="SELECT r FROM Recensione r WHERE r.date= :date")
+        @NamedQuery(name="Recensione.TROVA_TUTTE", query="SELECT r FROM Recensione r"),
+        @NamedQuery(name="Recensione.TROVA_PER_ID", query="SELECT r FROM Recensione r WHERE r.ID= :ID"),
+        @NamedQuery(name="Recensione.TROVA_PER_RATING", query="SELECT r FROM Recensione r WHERE r.rating= :rating"),
+        @NamedQuery(name="Recensione.TROVA_PER_CLIENTE", query="SELECT r FROM Recensione r WHERE r.userID= :userID"),
+        @NamedQuery(name="Recensione.TROVA_PER_PRODOTTO", query="SELECT r FROM Recensione r WHERE r.productID= :productID"),
+        @NamedQuery(name="Recensione.TROVA_PER_DATA", query="SELECT r FROM Recensione r WHERE r.date= :date")
 })
 
 @Entity

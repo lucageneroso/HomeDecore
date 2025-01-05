@@ -30,7 +30,7 @@ public class OrderService implements OrderServiceRemote {
 
     @Override
     public List<Ordine> findAllOrders() {
-        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_TUTTI", Ordine.class);
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_TUTTI", Ordine.class);
         return query.getResultList();
     }
 
@@ -46,28 +46,28 @@ public class OrderService implements OrderServiceRemote {
 
     @Override
     public List<Ordine> findOrdersByCostumer(int userId) {
-        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_UTENTE", Ordine.class);
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_UTENTE", Ordine.class);
         query.setParameter("userId", userId);
         return query.getResultList();
     }
 
     @Override
     public List<Ordine> findByPrize(Double prezzo) {
-        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_TOTALE", Ordine.class);
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_TOTALE", Ordine.class);
         query.setParameter("totale", prezzo);
         return query.getResultList();
     }
 
     @Override
     public List<Ordine> findByDate(Date date) {
-        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_DATA", Ordine.class);
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_DATA", Ordine.class);
         query.setParameter("date", date);
         return query.getResultList();
     }
 
     @Override
     public List<Ordine> findByState(Stato stato){
-        TypedQuery<Ordine> query=em.createNamedQuery("TROVA_PER_STATO", Ordine.class);
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_STATO", Ordine.class);
         query.setParameter("stato", stato);
         return query.getResultList();
     }

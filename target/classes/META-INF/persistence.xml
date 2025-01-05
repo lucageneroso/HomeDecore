@@ -1,13 +1,25 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="HomeDecorePU" transaction-type="JTA">
-        <jta-data-source>jdbc/HomeDecoreDS</jta-data-source>
-
+        <jta-data-source>jdbc/HomeDecoreDB</jta-data-source>
+        <class>model.Prodotto</class>
         <properties>
-            <!-- Azione per la generazione dello schema -->
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
-            <!-- Abilita logging delle query SQL (opzionale per debugging) -->
+
+            <!-- Schema generation action -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>
+
+            <!-- Enable SQL logging (optional for debugging) -->
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+
+            <!-- Database connection properties -->
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/homedecoredb"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="root"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+            <!-- OpenJPA-specific properties -->
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
+            <property name="openjpa.jdbc.Sequence" value="table(Table=openjpa_sequence_table)"/>
         </properties>
     </persistence-unit>
 </persistence>

@@ -28,14 +28,14 @@ public class CartService implements CartServiceRemote {
 
     @Override
     public Cart findCartById(int id) {
-        TypedQuery<Cart> query=em.createNamedQuery("TROVA_ID", Cart.class);
+        TypedQuery<Cart> query=em.createNamedQuery("Cart.TROVA_ID", Cart.class);
         query.setParameter("id", id);
         return query.getSingleResult();
     }
 
     @Override
     public Cart findCartByCostumer(int userId) {
-        TypedQuery<Cart> query=em.createNamedQuery("TROVA_COSTUMER", Cart.class);
+        TypedQuery<Cart> query=em.createNamedQuery("Cart.TROVA_COSTUMER", Cart.class);
         query.setParameter("userId", userId);
         return query.getSingleResult();
     }

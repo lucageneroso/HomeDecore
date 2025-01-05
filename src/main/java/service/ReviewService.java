@@ -35,41 +35,41 @@ public class ReviewService implements RecensioneServiceRemote {
 
     @Override
     public Recensione findById(int ID) {
-        TypedQuery<Recensione> query = em.createNamedQuery("TROVA_PER_ID", Recensione.class);
+        TypedQuery<Recensione> query = em.createNamedQuery("Recensione.TROVA_PER_ID", Recensione.class);
         query.setParameter("ID", ID);
         return query.getSingleResult();
     }
 
     @Override
     public List<Recensione> findAll() {
-        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_TUTTE", Recensione.class);
+        TypedQuery<Recensione> query= em.createNamedQuery("Recensione.TROVA_TUTTE", Recensione.class);
         return query.getResultList();
     }
 
     @Override
     public List<Recensione> findByDate(Date date) {
-        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_PER_DATA", Recensione.class);
+        TypedQuery<Recensione> query= em.createNamedQuery("Recensione.TROVA_PER_DATA", Recensione.class);
         query.setParameter("date", date);
         return query.getResultList();
     }
 
     @Override
     public List<Recensione> findByUser(int userID) {
-        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_PER_CLIENTE", Recensione.class);
+        TypedQuery<Recensione> query= em.createNamedQuery("Recensione.TROVA_PER_CLIENTE", Recensione.class);
         query.setParameter("userID", userID);
         return query.getResultList();
     }
 
     @Override
     public List<Recensione> findByProduct(int productID) {
-        TypedQuery<Recensione> query= em.createNamedQuery("TROVA_PER_PRODOTTO", Recensione.class);
+        TypedQuery<Recensione> query= em.createNamedQuery("Recensione.TROVA_PER_PRODOTTO", Recensione.class);
         query.setParameter("productID", productID);
         return query.getResultList();
     }
 
     @Override
     public List<Recensione> findByRating(int rating) {
-        TypedQuery<Recensione> query=em.createNamedQuery("TROVA_PER_RATING", Recensione.class);
+        TypedQuery<Recensione> query=em.createNamedQuery("Recensione.TROVA_PER_RATING", Recensione.class);
         query.setParameter("rating", rating);
         return query.getResultList();
     }

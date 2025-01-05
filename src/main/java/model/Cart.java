@@ -8,8 +8,8 @@ import model.ItemCart;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name="TROVA_COSTUMER", query="SELECT c FROM Cart c WHERE c.userId = :userId"),
-        @NamedQuery(name="TROVA_ID", query="SELECT c FROM Cart c WHERE c.id= :id")
+        @NamedQuery(name="Cart.TROVA_COSTUMER", query="SELECT c FROM Cart c WHERE c.userId = :userId"),
+        @NamedQuery(name="Cart.TROVA_ID", query="SELECT c FROM Cart c WHERE c.id= :id")
 })
 
 public class Cart {
