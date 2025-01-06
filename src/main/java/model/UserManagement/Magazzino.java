@@ -2,9 +2,10 @@ package model.UserManagement;
 
 import model.OrderManagement.Prodotto;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Magazzino {
+public class Magazzino implements Serializable {
 
     private List<Prodotto> prodotti;
     private Indirizzo indirizzo;
