@@ -60,7 +60,7 @@
     -->
 </head>
 <body>
-    <jsp:include page="header.jsp" />
+
 
     <div class="content">
         <h1>Prodotti</h1>
