@@ -3,7 +3,7 @@
 
 
 <%@ page import="service.Catalogo" %>
-<%@ page import="model.Prodotto" %>
+<%@ page import="model.OrderManagement.Prodotto" %>
 
 
 <%@ page import="java.util.List" %>
@@ -49,20 +49,6 @@
     }
 %>
 
-<%
-    /*
-    System.out.println("Siamo qui");
-    //Catalogo catalogo = new Catalogo();
-
-    System.out.println("Siamo qui2");
-    List<Prodotto> prodotti = catalogo.getProducts();
-    System.out.println("Siamo qui3");
-
-    // Verifica se la lista prodotti è vuota o nulla
-    if (prodotti.isEmpty()) {
-        out.println("N");
-    }*/
-%>
 <!DOCTYPE html>
 <html lang="it">
 <head>

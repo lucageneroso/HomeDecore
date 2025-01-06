@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="HomeDecore:javaEEApplication exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/HomeDecore_javaEEApplication_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="HomeDecore/javaeeApplication/javaEEApplication" />
+      <element id="jpa-descriptors" facet="HomeDecore/jpa/JPA" />
+    </root>
+  </artifact>
+</component>

@@ -1,9 +1,8 @@
-package model;
+package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
 
-import javax.swing.*;
 import java.io.Serializable;
 
 
@@ -33,13 +32,21 @@ public class Prodotto implements Serializable {
     //private ImageIcon image;
     private Categoria categoria;
 
+    private int disponibilita;
+
+
+    private boolean inCatalogo;
+
+
     public Prodotto() {}
-    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria) {
+    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria,int disponibilita,boolean inCatalogo) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
         //this.image = image;
         this.categoria = categoria;
+        this.disponibilita = disponibilita;
+        this.inCatalogo = inCatalogo;
     }
 
     public String getNome() {
@@ -73,11 +80,31 @@ public class Prodotto implements Serializable {
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }
+    public int getDisponibilita() {return disponibilita;}
+    public void setDisponibilita(int disponibilita) {this.disponibilita = disponibilita;}
 
+    public boolean isInCatalogo() {return inCatalogo;}
+    public void setInCatalogo(boolean inCatalogo) {this.inCatalogo = inCatalogo;}
     public Categoria getCategoria() {
         return categoria;
     }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+
+
+    @Override
+    public String toString() {
+        return "Prodotto{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", prezzo=" + prezzo +
+                ", categoria=" + categoria +
+                ", disponibilita=" + disponibilita +
+                ", inCatalogo=" + inCatalogo +
+                '}';
+    }
+
 }
