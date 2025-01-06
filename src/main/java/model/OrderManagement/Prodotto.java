@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 @NamedQueries({
         @NamedQuery(name="Prodotto.TROVA_TUTTI", query="SELECT p FROM Prodotto p"),
+        @NamedQuery(name="Prodotto.TROVA_IN_CATALOGO", query="SELECT p FROM Prodotto p WHERE p.inCatalogo=true"),
         @NamedQuery(name="Prodotto.TROVA_PER_ID", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
         @NamedQuery(name="Prodotto.TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
         @NamedQuery(name="Prodotto.TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
@@ -29,16 +30,21 @@ public class Prodotto implements Serializable {
     private String nome;
     private String descrizione;
     private Double prezzo;
+    private int disponibilita;
+
     //private ImageIcon image;
     private Categoria categoria;
+    private boolean inCatalogo;
 
     public Prodotto() {}
-    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria) {
+    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria, int disponibilita, boolean inCatalogo) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
         //this.image = image;
         this.categoria = categoria;
+        this.disponibilita = disponibilita;
+        this.inCatalogo = inCatalogo;
     }
 
     public String getNome() {
@@ -73,12 +79,19 @@ public class Prodotto implements Serializable {
         this.descrizione = descrizione;
     }
 
+    public int getDisponibilita() {return disponibilita;}
+    public void setDisponibilita(int disponibilita) {this.disponibilita = disponibilita;}
+
+    public boolean isInCatalogo() {return inCatalogo;}
+    public void setInCatalogo(boolean inCatalogo) {this.inCatalogo = inCatalogo;}
+
     public Categoria getCategoria() {
         return categoria;
     }
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
     @Override
     public String toString() {
         return "Prodotto{" +
@@ -87,6 +100,8 @@ public class Prodotto implements Serializable {
                 ", descrizione='" + descrizione + '\'' +
                 ", prezzo=" + prezzo +
                 ", categoria=" + categoria +
+                ", disponibilita=" + disponibilita +
+                ", inCatalogo=" + inCatalogo +
                 '}';
     }
 }
