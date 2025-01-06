@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Login</title>
     <style>
         body {
@@ -71,6 +72,19 @@
         .success {
             color: green;
         }
+
+        .link_register
+        {
+            font-size: small;
+            color: #ff1d00;
+            text-decoration:none;
+        }
+
+        .link_register:hover
+        {
+            color: #2c1402;
+            text-decoration:none;
+        }
     </style>
 </head>
 <body>
@@ -91,6 +105,7 @@
         <div class="form-group">
             <button type="submit">Login</button>
         </div>
+        <a class="link_register" href="register.jsp"><i>Non sei ancora registrato?</i></a>
     </form>
 
     <!-- Success/Error message -->
