@@ -1,21 +1,21 @@
 package service;
 
 import jakarta.ejb.Stateless;
-import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
-import model.Prodotto;
+import model.OrderManagement.Prodotto;
 import remoteInterfaces.CatalogoRemote;
 
 import java.util.List;
 
-@Stateless
+@Stateless(name = "Catalogo")//, mappedName = "java:app/HomeDecore/Catalogo")
 public class Catalogo implements CatalogoRemote {
 
     @PersistenceContext(unitName = "HomeDecorePU")
     private EntityManager em;
+
 
     @Override
     public void addProduct(Prodotto prodotto) {
@@ -34,22 +34,21 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public List<Prodotto> getProducts() {
-    TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
-    System.out.println("Prodotti");
-    System.out.println(query.getResultList());
-    return query.getResultList();
+        System.out.println(em);
+        TypedQuery<Prodotto> query= em.createNamedQuery("Prodotto.TROVA_IN_CATALOGO", Prodotto.class);
+        return query.getResultList();
     }
 
     @Override
     public List<Prodotto> findByName(String nome) {
-        TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_NOME", Prodotto.class);
+        TypedQuery<Prodotto> query=  em.createNamedQuery("Prodotto.TROVA_PER_NOME", Prodotto.class);
         query.setParameter("nome", nome);
         return query.getResultList();
     }
 
     @Override
     public Prodotto findProductByID(int id) {
-        TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_ID", Prodotto.class);
+        TypedQuery<Prodotto> query=  em.createNamedQuery("Prodotto.TROVA_PER_ID", Prodotto.class);
         query.setParameter("ID", id);
         return query.getSingleResult();
     }
@@ -57,21 +56,21 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public List<Prodotto> findByMinusPrize(Double prezzo) {
-       TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_PREZZO_MINORE", Prodotto.class);
+       TypedQuery<Prodotto> query=em.createNamedQuery("Prodotto.TROVA_PER_PREZZO_MINORE", Prodotto.class);
        query.setParameter("prezzo", prezzo);
        return query.getResultList();
     }
 
     @Override
     public List<Prodotto> findByMajorPrize(Double prezzo) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_PREZZO_MAGGIORE", Prodotto.class);
+        TypedQuery<Prodotto> query=em.createNamedQuery("Prodotto.TROVA_PER_PREZZO_MAGGIORE", Prodotto.class);
         query.setParameter("prezzo", prezzo);
         return query.getResultList();
     }
 
     @Override
     public List<Prodotto> findByCategory(Categoria categoria) {
-        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_CATEGORIA", Prodotto.class);
+        TypedQuery<Prodotto> query=em.createNamedQuery("Prodotto.TROVA_PER_CATEGORIA", Prodotto.class);
         query.setParameter("categoria", categoria);
         return query.getResultList();
     }

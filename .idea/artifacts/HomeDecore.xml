@@ -2,8 +2,6 @@
   <artifact type="war" name="HomeDecore">
     <output-path>$PROJECT_DIR$/out/artifacts/HomeDecore</output-path>
     <root id="archive" name="HomeDecore.war">
-      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/WEB-INF/beans.xml" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/WEB-INF/web.xml" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="HomeDecoreLuca" />
@@ -48,6 +46,8 @@
         </element>
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </root>
   </artifact>
 </component>

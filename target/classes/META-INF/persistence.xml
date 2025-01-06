@@ -1,17 +1,5 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
-    <persistence-unit name="HomeDecorePU" transaction-type="RESOURCE_LOCAL">
-        <class>model.Utente</class>
-        <class>model.Prodotto</class>
-        <class>model.Ordine</class>
-        <class>model.Recensione</class>
-        <class>model.Cart</class>
-        <class>model.ItemCart</class><!-- Specifica tutte le entità -->
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/your_database" />
-            <property name="javax.persistence.jdbc.user" value="username" />
-            <property name="javax.persistence.jdbc.password" value="password" />
-            <property name="eclipselink.logging.level" value="FINE" />
         </properties>
     </persistence-unit>
 </persistence>

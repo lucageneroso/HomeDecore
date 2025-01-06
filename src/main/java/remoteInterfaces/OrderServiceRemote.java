@@ -1,7 +1,6 @@
 package remoteInterfaces;
 
-import model.Ordine;
-import model.Prodotto;
+import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 
 //import javax.ejb.Remote;
@@ -13,7 +12,7 @@ import jakarta.ejb.Remote;
 public interface OrderServiceRemote {
      void addOrder(Ordine order);
      Ordine findOrderById(int id);
-     List<Prodotto> findAllOrders();
+     List<Ordine> findAllOrders();
      void updateOrder(Ordine order);
      void removeOrder(int id);
      List<Ordine> findOrdersByCostumer(int userId);
