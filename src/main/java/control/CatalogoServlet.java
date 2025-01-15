@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.OrderManagement.Prodotto;
+import model.UserManagement.Fornitore;
 import remoteInterfaces.CatalogoRemote;
 
 import javax.naming.InitialContext;
@@ -16,22 +17,20 @@ import java.util.List;
 
 @WebServlet("/catalogo")
 public class CatalogoServlet extends HttpServlet {
+
     @EJB
     CatalogoRemote catalogo;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Recupera i prodotti dal database
-        try {
-            InitialContext ctx= new InitialContext();
-            catalogo= (CatalogoRemote) ctx.lookup("java:app/HomeDecore/Catalogo");
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
+
         System.out.println("Catalogo: \n");
         List<Prodotto> prodotti=catalogo.getProducts();
+        System.out.println(prodotti);
+
         for(Prodotto p:prodotti){
-            System.out.println(p.toString());
+            System.out.println(p);
         }
+
         request.setAttribute("prodotti", prodotti);
         request.getRequestDispatcher("tuttiProdotti.jsp").forward(request, response);
 
