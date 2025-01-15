@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/catalogo")
-
 public class CatalogoServlet extends HttpServlet {
     @EJB
     CatalogoRemote catalogo;
