@@ -6,6 +6,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
 import model.OrderManagement.Prodotto;
+import model.UserManagement.Fornitore;
 import remoteInterfaces.CatalogoRemote;
 
 import java.util.List;
@@ -34,7 +35,6 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public List<Prodotto> getProducts() {
-        System.out.println(em);
         TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
         return query.getResultList();
     }
@@ -74,6 +74,14 @@ public class Catalogo implements CatalogoRemote {
         query.setParameter("categoria", categoria);
         return query.getResultList();
     }
+
+    /*
+    @Override
+    public List<Prodotto> findByFornitore(Fornitore fornitore) {
+        TypedQuery<Prodotto> query=em.createNamedQuery("TROVA_PER_FORNITORE", Prodotto.class);
+        query.setParameter("fornitore", fornitore);
+        return query.getResultList();
+    }*/
 
 
 }

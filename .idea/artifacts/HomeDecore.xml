@@ -47,10 +47,8 @@
         </element>
       </element>
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/beans.xml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <element id="javaee-facet-resources" facet="HomeDecore/web/Web" />
-      <element id="javaee-facet-resources" facet="HomeDecore/web/Web2" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" />
     </root>
   </artifact>
 </component>
