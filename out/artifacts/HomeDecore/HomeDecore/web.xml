@@ -7,7 +7,7 @@ http://xmlns.jcp.org/xml/ns/javaee "
 
 
     <welcome-file-list>
-        <welcome-file>Home.jsp</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

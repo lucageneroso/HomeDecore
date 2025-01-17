@@ -2,6 +2,7 @@ package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
+import model.UserManagement.Fornitore;
 
 import java.io.Serializable;
 
@@ -12,7 +13,9 @@ import java.io.Serializable;
         @NamedQuery(name="TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
         @NamedQuery(name="TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
         @NamedQuery(name="TROVA_PER_CATEGORIA", query="SELECT p FROM Prodotto p WHERE p.categoria= :categoria"),
-        @NamedQuery(name="TROVA_PER_NOME", query="SELECT p FROM Prodotto p WHERE p.nome= :nome")
+        @NamedQuery(name="TROVA_PER_NOME", query="SELECT p FROM Prodotto p WHERE p.nome= :nome"),
+
+        @NamedQuery(name = "TROVA_PER_FORNITORE", query = "SELECT p FROM Prodotto p WHERE p.fornitore = :fornitore")
 })
 @Entity
 public class Prodotto implements Serializable {
@@ -24,6 +27,8 @@ public class Prodotto implements Serializable {
     public static final String TROVA_PER_PREZZO_MAGGIORE= "Product.findMajorPrize";
     public static final String TROVA_TUTTI= "Product.findTutti";
 
+    public static final String TROVA_PER_FORNITORE= "Product.findFornitore";
+
     @Id @GeneratedValue
     private int id;
     private String nome;
@@ -34,12 +39,18 @@ public class Prodotto implements Serializable {
 
     private int disponibilita;
 
-
     private boolean inCatalogo;
 
 
+    @ManyToOne
+    @JoinColumn(name = "fornitore_id", referencedColumnName = "id")
+    private Fornitore fornitore;
+
+
     public Prodotto() {}
-    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/ Categoria categoria,int disponibilita,boolean inCatalogo) {
+
+    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/
+                    Categoria categoria,int disponibilita,boolean inCatalogo) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -47,6 +58,19 @@ public class Prodotto implements Serializable {
         this.categoria = categoria;
         this.disponibilita = disponibilita;
         this.inCatalogo = inCatalogo;
+    }
+
+
+    public Prodotto(String nome, String descrizione, Double prezzo, //ImageIcon image,
+                    Categoria categoria,int disponibilita,boolean inCatalogo, Fornitore fornitore) {
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.prezzo = prezzo;
+        //this.image = image;
+        this.categoria = categoria;
+        this.disponibilita = disponibilita;
+        this.inCatalogo = inCatalogo;
+        this.fornitore=fornitore;
     }
 
     public String getNome() {
@@ -93,9 +117,20 @@ public class Prodotto implements Serializable {
     }
 
 
+    /*
+    public Fornitore getFornitore() {return fornitore;}
+    public void setFornitore(Fornitore fornitore) {
+        //System.out.println("Siamo qui!");
+        //System.out.println(fornitore.toString());
+        this.fornitore = fornitore;
+        //System.out.println(this.fornitore);
+    }*/
+
+
 
     @Override
     public String toString() {
+        //System.out.println(this.fornitore);
         return "Prodotto{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
@@ -104,6 +139,7 @@ public class Prodotto implements Serializable {
                 ", categoria=" + categoria +
                 ", disponibilita=" + disponibilita +
                 ", inCatalogo=" + inCatalogo +
+                ", fornitore=" + (fornitore != null ? fornitore.toString() : "Nessun fornitore") +
                 '}';
     }
 

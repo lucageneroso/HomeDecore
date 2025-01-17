@@ -4,6 +4,7 @@
 
 <%@ page import="service.Catalogo" %>
 <%@ page import="model.OrderManagement.Prodotto" %>
+<%@ page import="model.UserManagement.Fornitore" %>
 
 
 <%@ page import="java.util.List" %>

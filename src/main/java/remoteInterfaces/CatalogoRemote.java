@@ -5,6 +5,8 @@ import model.OrderManagement.Prodotto;
 
 //import javax.ejb.Remote;
 import jakarta.ejb.Remote;
+import model.UserManagement.Fornitore;
+
 import java.util.List;
 
 @Remote
@@ -23,4 +25,5 @@ public interface CatalogoRemote {
     List<Prodotto> findByMinusPrize(Double prezzo);
     List<Prodotto> findByMajorPrize(Double prezzo);
     List<Prodotto> findByCategory(Categoria categoria);
+    //List<Prodotto> findByFornitore(Fornitore fornitore);
 }

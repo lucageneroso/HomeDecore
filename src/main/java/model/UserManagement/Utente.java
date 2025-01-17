@@ -3,6 +3,8 @@ package model.UserManagement;
 import enumerativeTypes.Ruolo;
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "ruolo", discriminatorType = DiscriminatorType.STRING)
@@ -16,7 +18,7 @@ import jakarta.persistence.*;
         @NamedQuery(name="Utente.TROVA_PER_RUOLO", query="SELECT u FROM Utente u WHERE u.ruolo = :ruolo"),
         @NamedQuery(name="Utente.TROVA_PER_USERNAME", query="SELECT u FROM Utente u WHERE u.username = :username")
 })
-public class Utente {
+public class Utente implements Serializable {
     private String nome;
     private String cognome;
     private String email;
