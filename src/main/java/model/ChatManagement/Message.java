@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,15 +15,13 @@ import java.time.LocalDateTime;
         @NamedQuery(name = "findAll", query = "SELECT m FROM Message m"),
         @NamedQuery(name = "findById", query = "SELECT m FROM Message m WHERE m.id = :id"),
         @NamedQuery(name = "findByDate", query = "SELECT m FROM Message m WHERE m.date=:date"),
-        @NamedQuery(name = "findByMessageContent", query = "SELECT m FROM Message m WHERE m.message LIKE :content"),
-        @NamedQuery(name = "deleteById", query = "DELETE FROM Message m WHERE m.id = :id")
+
 })
-public class Message {
-    private static final String FIND_ALL="findAll";
-    private static final String FIND_BY_ID="findById";
-    private static final String FIND_BY_DATE="findByDate";
-    private static final String FIND_BY_CONTENT="findByMessageContent";
-    private static final String DELETE_BY_ID="findById";
+public class Message implements Serializable {
+    public static final String FIND_ALL="findAll";
+    public static final String FIND_BY_ID="findById";
+    public static final String FIND_BY_DATE="findByDate";
+
 
     @Id
     private int id;
