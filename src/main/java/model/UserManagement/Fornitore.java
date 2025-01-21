@@ -30,7 +30,7 @@ public class Fornitore extends Utente implements Serializable {
         this.prodottiForniti = new ArrayList<>();
     }
 
-    // Costruttore che copia i dati da un Utente
+    // Costruttore che copia i dati da un Utente e aggiunta di una lista di prodotti
     public Fornitore(Utente utente, List<Prodotto> prodottiForniti) {
         super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
         this.prodottiForniti = prodottiForniti;
@@ -42,6 +42,14 @@ public class Fornitore extends Utente implements Serializable {
 
     public void setProdottiForniti(List<Prodotto> prodottiForniti) {
         this.prodottiForniti = prodottiForniti;
+    }
+
+    public void addProdotto(Prodotto prodotto){
+        prodottiForniti.add(prodotto);
+    }
+
+    public void removeProdotto(Prodotto prodotto){
+        prodottiForniti.remove(prodotto);
     }
 
     @Override
