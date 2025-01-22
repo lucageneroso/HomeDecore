@@ -7,5 +7,5 @@
     }
 
     // Reindirizza alla pagina principale dopo il logout
-    response.sendRedirect("/home.jsp");
+    response.sendRedirect("home.jsp");
 %>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="model.UserManagement.Utente" %><%--
   Created by IntelliJ IDEA.
   User: Pietro
   Date: 21/01/2025
@@ -35,8 +35,8 @@
 
         <%
             // Recupera l'utente dalla sessione
-            //Utente loggedUser = (Utente) session.getAttribute("loggedUser");
-            //String username = (loggedUser != null) ? loggedUser.getNome() : " ";
+            Utente loggedUser = (Utente) session.getAttribute("loggedUser");
+            String username = (loggedUser != null) ? loggedUser.getUsername() : " ";
         %>
         <li class="header_menu_item">Benvenuto</li>
         <li class="header_menu_item">

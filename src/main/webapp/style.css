@@ -109,20 +109,23 @@ img{height: auto;}
 }
 
 .user-info {
-    display: flex;
-    align-items: center;
+    display: flex; /* Utilizzo di Flexbox */
+    align-items: center; /* Allinea verticalmente gli elementi */
+    justify-content: center; /* Centra gli elementi orizzontalmente */
+    gap: 20px; /* Spaziatura tra gli elementi */
+    margin-bottom: 50px; /* Aumenta la distanza dal fondo */
 }
 
 .user-name {
     font-size: 16px;
-    margin-right: 20px;
 }
+
 .profile-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background-color: #ccc;
-    background-image: url(image/profilo-icon.png); /* Cambia con il path della tua immagine */
+    background-image: url(image/profilo-icon.png); /* Cambia con il path corretto */
     background-size: cover;
     background-position: center;
 }
@@ -131,10 +134,10 @@ img{height: auto;}
     text-decoration: none;
     color: white;
     background-color: #FF4136;
-    margin-bottom:40px;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 5px;
     font-size: 14px;
+    transition: background-color 0.3s ease-in-out; /* Aggiunge un effetto hover */
 }
 
 .logout-button:hover {

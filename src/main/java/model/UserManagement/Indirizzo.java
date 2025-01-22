@@ -1,6 +1,8 @@
 package model.UserManagement;
 
-public class Indirizzo {
+import java.io.Serializable;
+
+public class Indirizzo implements Serializable {
 
     private String stato;
     private String provincia;
