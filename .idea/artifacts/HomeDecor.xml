@@ -2,7 +2,6 @@
   <artifact type="war" name="HomeDecor">
     <output-path>$PROJECT_DIR$/out/artifacts/HomeDecor</output-path>
     <root id="archive" name="HomeDecor.war">
-      <element id="jpa-descriptors" facet="HomeDecore/jpa/JPA" />
       <element id="dir-copy" path="$PROJECT_DIR$/target/HomeDecoreLuca-1.0-SNAPSHOT/WEB-INF" />
       <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/web/WEB-INF/beans.xml" />

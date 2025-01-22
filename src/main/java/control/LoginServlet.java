@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
 
             } else if (loggedUser.getRuolo() == Ruolo.MAGAZZINIERE) {
                 response.sendRedirect(request.getContextPath()+"/home2.jsp");
-            } else if (loggedUser.getRuolo() == Ruolo.GESTORE_ORDINI) {
+            } else if (loggedUser.getRuolo() == Ruolo.GESTOREORDINI) {
                 response.sendRedirect(request.getContextPath()+"/home2.jsp");
 
             } else if (loggedUser.getRuolo() == Ruolo.CLIENTE) {

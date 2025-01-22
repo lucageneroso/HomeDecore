@@ -48,7 +48,7 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public Prodotto findProductByID(int id) {
-        TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_ID", Prodotto.class);
+        TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_IDENT", Prodotto.class);
         query.setParameter("ID", id);
         return query.getSingleResult();
     }

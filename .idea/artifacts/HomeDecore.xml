@@ -8,6 +8,7 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="HomeDecore" />
+          <element id="jpa-descriptors" facet="HomeDecore/jpa/JPA" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:4.0.2" />
