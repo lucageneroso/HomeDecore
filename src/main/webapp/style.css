@@ -108,7 +108,38 @@ img{height: auto;}
     margin-bottom: 5px;
 }
 
+.user-info {
+    display: flex;
+    align-items: center;
+}
 
+.user-name {
+    font-size: 16px;
+    margin-right: 20px;
+}
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    background-image: url(image/profilo-icon.png); /* Cambia con il path della tua immagine */
+    background-size: cover;
+    background-position: center;
+}
+
+.logout-button {
+    text-decoration: none;
+    color: white;
+    background-color: #FF4136;
+    margin-bottom:40px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background-color: #FF6347;
+}
 
 /*_____________________
 Cover

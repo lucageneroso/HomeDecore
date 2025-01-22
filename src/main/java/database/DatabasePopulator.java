@@ -22,11 +22,12 @@ import java.util.List;
 @Singleton
 @Startup
 @DataSourceDefinition(
-        name = "java:app/jdbc/HomeDecoreDS",
+        name = "jdbc/HomeDecoreDS",
         className = "com.mysql.cj.jdbc.Driver",
         url = "jdbc:mysql://localhost:3306/HomeDecoreDB",
         user = "root",
-        password = "root"
+        password = "root",
+        properties={"connectionAttributes=;create=true"}
 )
 @LocalBean
 public class DatabasePopulator {
