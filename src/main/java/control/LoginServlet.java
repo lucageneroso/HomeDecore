@@ -1,5 +1,6 @@
 package control;
 
+import enumerativeTypes.Ruolo;
 import jakarta.ejb.EJB;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -25,12 +26,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            InitialContext ctx= new InitialContext();
-            userService= (UserServiceRemote) ctx.lookup("java:app/HomeDecore/UserService");
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
+
 
         List<Utente> clienti= userService.findAllUsers();
         for(Utente u:clienti){
@@ -42,12 +38,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            InitialContext ctx= new InitialContext();
-            userService= (UserServiceRemote) ctx.lookup("java:app/HomeDecore/UserService");
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        }
+
 
         // Recupero i parametri dalla richiesta POST
         String email = request.getParameter("email");
@@ -59,14 +50,26 @@ public class LoginServlet extends HttpServlet {
         // Se l'utente esiste e la password è corretta
         if (loggedUser != null && loggedUser.getPassword().equals(password)) {
             // Imposto l'utente loggato come attributo per la JSP
-            request.setAttribute("loggedUser", loggedUser);
-            request.getRequestDispatcher("/Home.jsp").forward(request, response);
+            request.getSession().setAttribute("loggedUser", loggedUser);
+            // Controllo il ruolo dell'utente per il reindirizzamento
+            if (loggedUser.getRuolo() == Ruolo.FORNITORE) {
+                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+
+            } else if (loggedUser.getRuolo() == Ruolo.MAGAZZINIERE) {
+                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+            } else if (loggedUser.getRuolo() == Ruolo.GESTOREORDINI) {
+                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+
+            } else if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
+                response.sendRedirect("/home.jsp");
+            }
         } else {
             // Imposto un messaggio di errore se il login fallisce
             request.setAttribute("loginError", "Login fallito. Email o password errati.");
-        }
 
-        // Reindirizzo alla pagina JSP di login
-        request.getRequestDispatcher("/login.jsp").forward(request, response);
-    }
+
+            // Reindirizzo alla pagina JSP di login
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+        }
 }

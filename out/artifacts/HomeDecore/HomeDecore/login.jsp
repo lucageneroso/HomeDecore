@@ -116,6 +116,9 @@
         <c:if test="${empty loggedUser}">
             <p class="error">Login fallito. Email o password errati.</p>
         </c:if>
+        <c:if test="${not empty loginError}">
+            <p class="error">${loginError}</p>
+        </c:if>
     </div>
 </div>
 

@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 @NamedQueries({
         @NamedQuery(name="TROVA_TUTTI", query="SELECT p FROM Prodotto p"),
-        @NamedQuery(name="TROVA_PER_ID", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
+        @NamedQuery(name="TROVA_PER_IDENT", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
         @NamedQuery(name="TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
         @NamedQuery(name="TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
         @NamedQuery(name="TROVA_PER_CATEGORIA", query="SELECT p FROM Prodotto p WHERE p.categoria= :categoria"),
@@ -20,12 +20,12 @@ import java.io.Serializable;
 @Entity
 public class Prodotto implements Serializable {
 
-    public static final String TROVA_PER_ID= "Product.findById";
-    public static final String TROVA_PER_PREZZO_MINORE= "Product.findMinusPrize";
-    public static final String TROVA_PER_CATEGORIA= "Product.findCategoria";
-    public static final String TROVA_PER_NOME= "Product.findByNome";
-    public static final String TROVA_PER_PREZZO_MAGGIORE= "Product.findMajorPrize";
-    public static final String TROVA_TUTTI= "Product.findTutti";
+    public static final String TROVA_PER_IDENT= "TROVA_PER_IDENT";
+    public static final String TROVA_PER_PREZZO_MINORE= "TROVA_PER_PREZZO_MINORE";
+    public static final String TROVA_PER_CATEGORIA= "TROVA_PER_CATEGORIA";
+    public static final String TROVA_PER_NOME= "TROVA_PER_NOME";
+    public static final String TROVA_PER_PREZZO_MAGGIORE= "TROVA_PER_PREZZO_MAGGIORE";
+    public static final String TROVA_TUTTI= "TROVA_TUTTI";
 
     public static final String TROVA_PER_FORNITORE= "Product.findFornitore";
 

@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "findAll", query = "SELECT m FROM Message m"),
-        @NamedQuery(name = "findById", query = "SELECT m FROM Message m WHERE m.id = :id"),
+        @NamedQuery(name = "findByIdMess", query = "SELECT m FROM Message m WHERE m.id = :id"),
         @NamedQuery(name = "findByDate", query = "SELECT m FROM Message m WHERE m.date=:date"),
 
 })
 public class Message implements Serializable {
     public static final String FIND_ALL="findAll";
-    public static final String FIND_BY_ID="findById";
+    public static final String FIND_BY_ID="findByIdMess";
     public static final String FIND_BY_DATE="findByDate";
 
 

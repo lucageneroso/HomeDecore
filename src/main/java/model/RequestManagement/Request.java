@@ -11,9 +11,9 @@ import model.UserManagement.Utente;
 @NamedQueries({
         @NamedQuery(name = "Request.TROVA_TUTTI", query="SELECT r FROM Request r"),
         @NamedQuery(name=  "Request.TROVA_PER_ID", query = "SELECT r FROM Request r WHERE r.id= :id"),
-        @NamedQuery(name=  "Request.TROVA_PER_MAGAZZINIERE", query = "SELECT r FROM Request r WHERE r.magazziniere= :magazziniere"),
+        @NamedQuery(name=  "Request.TROVA_PER_MAGAZZINIERE", query = "SELECT r FROM Request r WHERE r.magazziniereID= :magazziniereID"),
 
-        @NamedQuery(name = "Request.TROVA_PER_DATA", query = "SELECT r FROM Request r WHERE DATE(r.dataOra) = :data"),
+        @NamedQuery(name = "Request.TROVA_PER_DATA", query = "SELECT r FROM Request r WHERE r.dataOra >= :dataStart AND r.dataOra < :dataEnd"),
         @NamedQuery(name = "Request.TROVA_PRIMA_DI_DATA", query = "SELECT r FROM Request r WHERE r.dataOra < :data"),
         @NamedQuery(name = "Request.TROVA_DOPO_DI_DATA", query = "SELECT r FROM Request r WHERE r.dataOra > :data")
 })
