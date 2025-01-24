@@ -6,6 +6,7 @@
 
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="log.css">
     <title>Registration</title>
 
 </head>

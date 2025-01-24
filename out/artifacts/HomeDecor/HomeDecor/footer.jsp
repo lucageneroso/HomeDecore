@@ -8,7 +8,7 @@
             <img src="img/logo_uliveto_bianco.png" >
         </div>
         <div class="copyright">
-            <p>&copy; 2025 Homedecore. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by:// </p>
+            <p>&copy; 2023 L'uliveto. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by: M.Marino </p>
             <p>p.iva 00000000000</p>
         </div>
     </div>
