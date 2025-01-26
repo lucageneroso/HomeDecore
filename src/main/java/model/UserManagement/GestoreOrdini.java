@@ -68,4 +68,6 @@ public class GestoreOrdini extends Utente implements Serializable {
         super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
         this.ordiniID = new ArrayList<>();
     }
+
+
 }

@@ -10,6 +10,8 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceUnit;
 import jakarta.transaction.Transactional;
 import model.OrderManagement.Prodotto;
 import model.UserManagement.Fornitore;
