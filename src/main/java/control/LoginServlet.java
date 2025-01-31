@@ -53,15 +53,15 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("loggedUser", loggedUser);
             // Controllo il ruolo dell'utente per il reindirizzamento
             if (loggedUser.getRuolo() == Ruolo.FORNITORE) {
-                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+                response.sendRedirect(request.getContextPath()+"/Profile.jsp");
 
             } else if (loggedUser.getRuolo() == Ruolo.MAGAZZINIERE) {
-                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+                response.sendRedirect(request.getContextPath()+"/Profile.jsp");
             } else if (loggedUser.getRuolo() == Ruolo.GESTOREORDINI) {
-                response.sendRedirect(request.getContextPath()+"/home2.jsp");
+                response.sendRedirect(request.getContextPath()+"/Profile.jsp");
 
             } else if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
-                response.sendRedirect("/home.jsp");
+                response.sendRedirect(request.getContextPath()+"/home2.jsp");
             }
         } else {
             // Imposto un messaggio di errore se il login fallisce
