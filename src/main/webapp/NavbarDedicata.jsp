@@ -40,7 +40,7 @@
         %>
         <li class="header_menu_item">Benvenuto <strong><%= username %></strong></li>
         <li class="header_menu_item">
-            <a href="profile.jsp" title="Profilo">
+            <a href="ProfileClient.jsp" title="Profilo">
                 <img src="image/profilo-icon.png" alt="Profilo" style="width: 24px; height: 24px;"/>
             </a>
         </li>

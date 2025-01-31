@@ -63,7 +63,7 @@ public class GestoreOrdini extends Utente implements Serializable {
 
     // Costruttore che copia i dati da un Utente e aggiunta di una lista di ordini
     public GestoreOrdini(Utente utente) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
+        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword());
         this.ordiniID = new ArrayList<>();
     }
 

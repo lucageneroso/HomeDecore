@@ -14,7 +14,9 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.transaction.Transactional;
 import model.OrderManagement.Prodotto;
+import model.UserManagement.Cliente;
 import model.UserManagement.Fornitore;
+import model.UserManagement.Indirizzo;
 import model.UserManagement.Utente;
 
 import java.util.ArrayList;
@@ -46,16 +48,17 @@ public class DatabasePopulator {
     // record
 
 
-    Utente utenteFornitore1=new Utente("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc", Ruolo.FORNITORE);
-    Fornitore fornitore1=new Fornitore(utenteFornitore1);
+    Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc");
+    //Fornitore fornitore1=new Fornitore(utenteFornitore1);
 
     Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, fornitore1);
     Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, fornitore1);
     Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, fornitore1);
     Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, fornitore1);
 
-
-    Utente cliente = new Utente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", Ruolo.CLIENTE);
+    Indirizzo ind= new Indirizzo("Italia","Salerno","Sarno","Via Vesuvio", 4, 8006);
+    Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", ind);
+    //Cliente cliente = new
 
 
 
