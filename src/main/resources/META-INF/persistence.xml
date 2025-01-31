@@ -1,9 +1,11 @@
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
     <persistence-unit name="HomeDecorePU" transaction-type="JTA">
-        <jta-data-source>jdbc/HomeDecoreDB</jta-data-source>
-        <class>model.OrderManagement.Prodotto</class>
+        <jta-data-source>jdbc/HomeDecoreDS</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
+            <property name="jakarta.persistence.schema-generation.scripts.action" value="create"/>
+            <property name="jakarta.persistence.schema-generation.scripts.create-target" value="db-schema.sql"/>
+            <property name="jakarta.persistence.schema-generation.scripts.create-source" value="metadata"/>
 
             <!-- Schema generation action -->
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>

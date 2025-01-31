@@ -10,6 +10,7 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import model.OrderManagement.Prodotto;
 import model.UserManagement.Fornitore;
@@ -26,13 +27,15 @@ import java.util.List;
         className = "com.mysql.cj.jdbc.Driver",
         url = "jdbc:mysql://localhost:3306/HomeDecoreDB",
         user = "root",
-        password = "root",
-        properties={"connectionAttributes=;create=true"}
+        password = "root"
 )
 @LocalBean
 public class DatabasePopulator {
+
     @Inject
     private EntityManager em;
+
+
 
     // Creazione di un admin
     /*Admin admin = new Admin();
@@ -44,13 +47,13 @@ public class DatabasePopulator {
     // record
 
 
-    Utente utenteFornitore1=new Utente("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc", Ruolo.FORNITORE);
-    Fornitore fornitore1=new Fornitore(utenteFornitore1);
+    //Utente utenteFornitore1=new Utente("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc", Ruolo.FORNITORE);
+   // Fornitore fornitore1=new Fornitore(utenteFornitore1);
 
-    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, fornitore1);
-    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, fornitore1);
-    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, fornitore1);
-    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, fornitore1);
+    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false);
+    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true);
+    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true);
+    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true);
 
 
     Utente cliente = new Utente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", Ruolo.CLIENTE);
@@ -59,16 +62,18 @@ public class DatabasePopulator {
 
 
     @PostConstruct
+    @Transactional
     public void populateDB(){
+
         System.out.println("HO INIZIATO IL POPOLAMENTOOOOOOOOO!! \n");
 
-        em.createQuery("DELETE FROM Prodotto p").executeUpdate();
+       /* em.createQuery("DELETE FROM Prodotto p").executeUpdate();
         em.createQuery("DELETE FROM Fornitore f").executeUpdate();
 
         // Aggiungi i prodotti alla lista del fornitore
         fornitore1.setProdottiForniti(new ArrayList<>(Arrays.asList(p1, p2, p3, p4)));
 
-        em.persist(fornitore1);
+       // em.persist(fornitore1); */
         em.persist(p1);
         em.persist(p2);
         em.persist(p3);
@@ -81,12 +86,15 @@ public class DatabasePopulator {
 
     @PreDestroy
     public void clearDB(){
-        em.remove(p1);
-        em.remove(p2);
-        em.remove(p3);
-        em.remove(p4);
-        em.remove(cliente);
-        em.remove(fornitore1);
+        System.out.println("Pulizia del database in corso...");
+
+        em.createQuery("DELETE FROM Prodotto").executeUpdate();
+        em.createQuery("DELETE FROM Utente").executeUpdate();
+        em.createQuery("DELETE FROM Cart").executeUpdate();
+
+        em.flush();
         em.clear();
+
+        System.out.println("Database pulito con successo.");
     }
 }
