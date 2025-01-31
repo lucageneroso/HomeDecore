@@ -1,11 +1,15 @@
-package control;
+package service;
 
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import model.OrderManagement.Cart;
+import model.OrderManagement.ItemCart;
 import remoteInterfaces.CartServiceRemote;
 
+@Stateless (name= "CartService")
 public class CartService implements CartServiceRemote {
     @PersistenceContext(unitName = "HomeDecorePU")
     private EntityManager em;
@@ -33,9 +37,29 @@ public class CartService implements CartServiceRemote {
     }
 
     @Override
-    public Cart findCartByCostumer(int userId) {
-        TypedQuery<Cart> query=em.createNamedQuery("Cart.TROVA_COSTUMER", Cart.class);
+    public Cart findCartByCostumer(long userId) {
+        TypedQuery<Cart> query = em.createNamedQuery("Cart.TROVA_COSTUMER", Cart.class);
         query.setParameter("userId", userId);
-        return query.getSingleResult();
+        Cart cart;
+        try {
+            cart = query.getSingleResult();
+        } catch (NoResultException e) {
+            cart = new Cart();
+            // Puoi anche impostare l'utente associato al carrello, se necessario
+             cart.setUserId(userId);
+            em.persist(cart); // Salva il nuovo carrello nel database
+        }
+        return cart;
     }
+
+    @Override
+    public void removeProductFromCart(int cartId, int productId) {
+        Cart cart = em.find(Cart.class, cartId);
+        if (cart != null) {
+            cart.getItems().removeIf(item -> item.getProdotto().getId() == productId);
+            em.merge(cart);
+        }
+    }
+
+
 }

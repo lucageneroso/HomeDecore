@@ -1,5 +1,6 @@
 package remoteInterfaces;
 
+import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 
@@ -19,4 +20,6 @@ public interface OrderServiceRemote {
      List<Ordine> findByPrize(Double prezzo);
      List<Ordine> findByDate(Date date);
      List<Ordine> findByState(Stato stato);
+
+     List<ItemCartDTO> deserializeItems(List<String> serializedItems);
 }

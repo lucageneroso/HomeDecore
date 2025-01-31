@@ -51,6 +51,8 @@ public class LoginServlet extends HttpServlet {
         if (loggedUser != null && loggedUser.getPassword().equals(password)) {
             // Imposto l'utente loggato come attributo per la JSP
             request.getSession().setAttribute("loggedUser", loggedUser);
+            response.sendRedirect(request.getContextPath()+"/home.jsp");
+            /*
             // Controllo il ruolo dell'utente per il reindirizzamento
             if (loggedUser.getRuolo() == Ruolo.FORNITORE) {
                 response.sendRedirect(request.getContextPath()+"/home2.jsp");
@@ -62,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 
             } else if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
                 response.sendRedirect("/home.jsp");
-            }
+            } */
         } else {
             // Imposto un messaggio di errore se il login fallisce
             request.setAttribute("loginError", "Login fallito. Email o password errati.");
