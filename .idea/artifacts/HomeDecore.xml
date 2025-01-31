@@ -2,7 +2,6 @@
   <artifact type="war" build-on-make="true" name="HomeDecore">
     <output-path>$PROJECT_DIR$/out/artifacts/HomeDecore</output-path>
     <root id="archive" name="HomeDecore.war">
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" />
       <element id="directory" name="WEB-INF">
@@ -47,6 +46,7 @@
           <element id="library" level="project" name="Maven: jakarta.inject:jakarta.inject-api:2.0.1" />
         </element>
       </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
     </root>
   </artifact>
 </component>
