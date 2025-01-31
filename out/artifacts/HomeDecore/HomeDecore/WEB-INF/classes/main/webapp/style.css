@@ -1,0 +1,712 @@
+body, html{ width: 100% ;height:100%; font-size: 16px; font-family:Lobster; box-sizing: border-box;margin: 0;padding: 0;}
+*,*:before,*:after{ box-sizing: border-box; }
+h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0;padding: 0;}
+ol,ul{list-style-type: none;}
+img{height: auto;}
+
+
+
+
+
+
+
+
+
+.animate {  -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+
+/**/
+
+.button
+{
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 13.5px;
+    text-decoration: none;
+}
+
+.button:hover
+{
+    color: white;
+    background-color: black;
+
+}
+
+
+.header
+{
+    background: linear-gradient(0deg, rgba(242, 242, 242, 0.6783963585434174) 0%, rgba(0, 0, 0, 0.31985294117647056) 0%);
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+.header_logo
+{
+    background: url(image/logohome.png) no-repeat center center;
+    background-size: cover;
+
+    color:#fff;
+    float: left;
+    display:block;
+    padding: 24px;
+    margin-left: 5%;
+}
+
+
+.header_menu
+{
+
+    float:right;
+
+    margin: 0px;
+    padding: 0;
+
+}
+
+
+.header_menu_item
+{
+    display: inline-block;
+
+
+
+}
+
+.header_menu_item a
+{
+    color:#fff;
+    text-decoration: none;
+
+    display:block;
+    padding: 15px;
+
+}
+
+.header_menu_item a:hover
+{
+    background-color: white;
+    color: black;
+}
+
+
+
+.header_icon-bar
+{
+    display: block;
+    float:right;
+    padding: 13px;
+    display:none;/*NON deve essere visibile*/
+}
+
+.header_icon-bar span
+{
+    display:block;
+    height: 3px;
+    width: 30px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.user-info {
+    display: flex; /* Utilizzo di Flexbox */
+    align-items: center; /* Allinea verticalmente gli elementi */
+    justify-content: center; /* Centra gli elementi orizzontalmente */
+    gap: 20px; /* Spaziatura tra gli elementi */
+    margin-bottom: 50px; /* Aumenta la distanza dal fondo */
+}
+
+.user-name {
+    font-size: 16px;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    background-image: url(image/profilo-icon.png); /* Cambia con il path corretto */
+    background-size: cover;
+    background-position: center;
+}
+
+.logout-button {
+    text-decoration: none;
+    color: white;
+    background-color: #FF4136;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out; /* Aggiunge un effetto hover */
+}
+
+.logout-button:hover {
+    background-color: #FF6347;
+}
+
+/*_____________________
+Cover
+_____________________*/
+
+
+
+.cover
+{
+
+    height: 100%;
+
+    /*ora l immagine la impostiamo su cover cosi da essere responsive*/
+    background-size: cover;/*impostazione cover*/
+    -o-background-size: cover;/*impostazione cover per opera*/
+    -moz-background-size: cover ;/*impostazione cover per mozzilla*/
+
+    background-position: center center;/*centriamo l immagine*/
+    position: relative;
+}
+
+/*inimazione cover*/
+
+@keyframes slideshow {
+    0% {
+        background-image: url(image/bagno.jpeg);
+    }
+    25% {
+        background-image: url(image/0fd3416c.jpeg);
+    }
+    50% {
+        background-image: url(image/8ad73f3c.jpeg);
+    }
+    75% {
+        background-image: url(image/68f64b9d.jpeg);
+    }
+    100% {
+        background-image: url(image/casa.jpg);
+    }
+}
+
+
+/* Applica l'animazione allo sfondo */
+.elemento {
+    animation-name: slideshow;
+    animation-duration: 30s; /* imposta la durata dell'animazione */
+    animation-timing-function:5s; /* imposta la funzione di temporizzazione dell'animazione */
+    animation-iteration-count: infinite; /* imposta il numero di volte che l'animazione deve ripetersi */
+}
+
+
+
+
+
+
+
+.cover_filter
+{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.5;
+}
+.cover_caption
+{
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+
+}
+
+.cover_caption_copy
+{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+}
+
+
+/*___________
+ora screiamo un modifire cioè una classe css che andra a amodificare solo le pagine interne e si identificano con il trattino e non con l underscore
+________________*/
+
+.cover--single
+{
+    height:50%;
+}
+
+
+/*___________________________
+CArds
+_____________________________*/
+
+.cards
+{
+
+    max-width: 1200px;
+    margin: 40px auto;
+}
+
+.card
+{
+
+    width: 30%;
+    margin: 0 1.5%;
+    float: left;/*ora si deve pulire il float quindi alla classe cards impostiamo la classe clearfix*/
+}
+
+.image
+{
+    width: 100%; height: auto;
+}
+
+.card_copy
+{
+    background-color: #3b3e23;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+}
+
+.card_copy h3
+{
+    margin-bottom: 0px;
+}
+
+/*___________________________
+BANNER
+_____________________________*/
+
+.banner
+{
+    background-color: #fff;
+    height:50%;
+    margin-bottom: 20px;
+
+}
+
+.banner_image
+{
+    width: 30%;
+    float: left;
+    height: 100%;
+    background-image: url(image/soggiorno.jpg);
+    /*ora l immagine la impostiamo su cover cosi da essere responsive*/
+    background-size: cover;/*impostazione cover*/
+    -o-background-size: cover;/*impostazione cover per opera*/
+    -moz-background-size: cover ;/*impostazione cover per mozzilla*/
+
+    background-position: center center;/*centriamo l immagine*/
+}
+
+.banner_image2
+{
+    background-image: url(image/bagno.jpg);
+}
+
+.banner_image3
+{
+    background-image: url(image/casa.jpg);
+}
+.float{
+    float:right;
+}
+
+.right
+{
+    text-align: right;
+}
+
+.banner_copy
+{
+    background-color: #3b3e23;
+    width: 70%;
+    float: left;
+    height: 100%;
+    display:table;
+    color: white;
+
+}
+
+.banner_copy_txt
+{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 30px;
+}
+
+
+.banner_copy_txt h3
+{
+
+    font-size: 36px;
+    margin-bottom: 0;
+}
+
+
+.banner_copy_txt h4
+{
+    font-size: 22px;
+    margin: 5px;
+    margin-left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TABLET*/
+@media (max-width : 997px)
+{
+    /*banner query*/
+    .banner_image,
+    .banner_copy
+    {
+        width: 50%;
+        height: 50%;
+    }
+    .right
+    {
+        text-align: left;
+    }
+}
+
+
+/*smatphone*/
+@media (max-width : 767px)
+{
+    .right
+    {
+        text-align: left;
+    }
+
+    /*----------------------------------------
+    Menu media queri
+    ----------------------------------------*/
+    .header_icon-bar
+    {
+        display:block; /*ora la icon bar sara visibile*/
+    }
+    .header_menu
+    {
+        width: 100%;/*l ul occupera tutta la larghezza*/
+        /*pero lo dobbiamo anche chiudere*/
+        height: 0px;
+        overflow: hidden;/*questa proprieta nasconde tutto cio che non entra nel contenitore*/
+    }
+
+    .header_menu_item
+    {
+        display:block; /*gli li non saranno piu sulla stessa linea ma uno sotto l altro*/
+
+    }
+
+    /*classe che apre il nostro menu*/
+    .is-open
+    {
+        height: 250px;
+        overflow: auto ;
+        text-align: center;
+    }
+
+    /*----------------------------------------
+       fine codice Menu media queri
+       ----------------------------------------*/
+
+
+
+    /*----------------------------------------
+    cover Media Query
+    ----------------------------------------*/
+    .cover
+    {
+        height: 100%;
+    }
+
+    /*----------------------------------------
+       cards Media Query
+       ----------------------------------------*/
+    .card
+    {
+        width: 90%;
+        margin: 5%  5%;
+    }
+
+
+    /*___________________________
+    BANNER
+    _____________________________*/
+    .banner{
+        height:  100%;
+
+    }
+
+    .banner_image,
+    .banner_copy
+    {
+        width: 100%;
+        height: 50%;
+    }
+
+}
+
+
+
+
+
+/*___________________________
+  Article
+   _____________________________*/
+
+
+
+.single_copy
+{
+    max-width: 800px;
+    margin: 0px auto;
+    margin-top: -40px;
+    padding: 20px 40px;
+    background-color: #868383;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.insta{
+
+    background-image: url(img/insta.png);
+    /*ora l immagine la impostiamo su cover cosi da essere responsive*/
+    background-size: cover;/*impostazione cover*/
+    -o-background-size: cover;/*impostazione cover per opera*/
+    -moz-background-size: cover ;/*impostazione cover per mozzilla*/
+
+    background-position: center center;/*centriamo l immagine*/
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+
+    padding: 20px;
+    border-radius: 5px;
+
+    z-index: 2000;
+
+}
+
+.face{
+
+    background-image: url(img/face.png);
+    /*ora l immagine la impostiamo su cover cosi da essere responsive*/
+    background-size: cover;/*impostazione cover*/
+    -o-background-size: cover;/*impostazione cover per opera*/
+    -moz-background-size: cover ;/*impostazione cover per mozzilla*/
+
+    background-position: center center;/*centriamo l immagine*/
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+
+    padding: 20px;
+    border-radius: 5px;
+
+    z-index: 2000;
+
+}
+
+
+
+
+footer {
+
+    background-color: #3b3e23;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 70px;
+
+}
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #ffc300;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
+/*smatphone*/
+@media  (max-width : 768px)
+{
+
+    /*QUERY FOOTER*/
+
+    footer {
+        position: relative;
+    }
+
+
+    .container1 {
+        position: relative;
+    }
+
+    footer::after {
+        content: "";
+        display: block;
+        height: 1em;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+    }
+}
+/*----------------------------------------
+Menu media queri
+----------------------------------------*/
+
+
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+.link_register
+{
+    font-size: small;
+    color: #ff1d00;
+    text-decoration:none;
+}
+
+.link_register:hover
+{
+    color: #2c1402;
+    text-decoration:none;
+}
