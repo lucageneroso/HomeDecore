@@ -38,7 +38,6 @@ public class Prodotto implements Serializable {
     private Categoria categoria;
 
     private int disponibilita;
-
     private boolean inCatalogo;
 
 

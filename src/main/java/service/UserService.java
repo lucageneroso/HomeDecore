@@ -54,6 +54,7 @@ public class UserService implements UserServiceRemote {
     public Utente findUserByEmail(String email) {
         TypedQuery<Utente> query=em.createNamedQuery("Utente.TROVA_PER_EMAIL", Utente.class);
         query.setParameter("email", email);
+        System.out.println(query.getSingleResult());
         return query.getSingleResult();
     }
 }
