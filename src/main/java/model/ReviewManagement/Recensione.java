@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +24,13 @@ public class Recensione implements Serializable,ReviewComponent {
 
 
     private double rating;
-    private int userID;
+    private long userID;
     private int productID;
     private String commento;
-    private Date date;
+    private LocalDateTime date;
 
     public Recensione(){}
-    public Recensione(double rating, int userID, int productID, String commento, Date date) {
+    public Recensione(double rating, long userID, int productID, String commento, LocalDateTime date) {
         this.rating = rating;
         this.userID = userID;
         this.productID = productID;
@@ -58,10 +59,10 @@ public class Recensione implements Serializable,ReviewComponent {
     public void setRating(double rating) {
         this.rating = rating;
     }
-    public int getUserID() {
+    public long getUserID() {
         return userID;
     }
-    public void setUserID(int userID) {
+    public void setUserID(long userID) {
         this.userID = userID;
     }
     public int getProductID() {
@@ -76,10 +77,10 @@ public class Recensione implements Serializable,ReviewComponent {
     public void setCommento(String commento) {
         this.commento = commento;
     }
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

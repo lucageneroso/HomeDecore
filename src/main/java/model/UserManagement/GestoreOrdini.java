@@ -1,5 +1,6 @@
 package model.UserManagement;
 
+import enumerativeTypes.Stato;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -15,10 +16,7 @@ import java.util.List;
 @DiscriminatorValue("GESTOREORDINI")
 public class GestoreOrdini extends Utente implements Serializable {
 
-    /*
-    @OneToMany(mappedBy = "gestoreordini", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ordine> ordini;
-     */
+
 
     private List<Integer> ordiniID;
 
@@ -65,7 +63,13 @@ public class GestoreOrdini extends Utente implements Serializable {
 
     // Costruttore che copia i dati da un Utente e aggiunta di una lista di ordini
     public GestoreOrdini(Utente utente) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
+        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword());
         this.ordiniID = new ArrayList<>();
     }
+
+    public void cambiaStatoOrdine(Ordine ordine, Stato stato){
+        ordine.setStato(stato);
+    }
+
+
 }

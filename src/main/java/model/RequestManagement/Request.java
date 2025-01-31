@@ -21,15 +21,7 @@ public class Request implements Serializable {
 
     @Id @GeneratedValue private int id;
 
-    /*
-    @OneToOne @JoinColumn(name = "magazziniere_id")
-    private Magazziniere magazziniere; // Chi effettua la richiesta
-
-    @OneToOne @JoinColumn(name = "destinatario_id")
-    private Utente destinatario;      // Destinatario della richiesta
-    */
-
-    private int magazziniereID; // Chi effettua la richiesta
+    private int magazziniereID;      // Chi effettua la richiesta
     private int destinatarioID;      // Destinatario della richiesta
 
     private LocalDateTime dataOra;    // Data e ora della richiesta
@@ -42,35 +34,17 @@ public class Request implements Serializable {
         this.dataOra = dataOra;
     }
 
-    // Getter e setter
-    /*
-    public Magazziniere getMagazziniere() { return magazziniere;}
-    public void setMagazziniere(Magazziniere magazziniere) { this.magazziniere = magazziniere;}
-
-    public Utente getDestinatario() { return destinatario; }
-    public void setDestinatario(Utente destinatario) { this.destinatario = destinatario; }
-    */
-
     public int getId() { return id;}
     public void setId(int id) { this.id = id;}
 
     public int getMagazziniereID() { return magazziniereID; }
     public void setMagazziniereID(int magazziniereID) { this.magazziniereID = magazziniereID; }
 
+    public int getDestinatarioID() { return destinatarioID; }
+    public void setDestinatarioID(int destinatarioID) { this.destinatarioID = destinatarioID; }
+
     public LocalDateTime getDataOra() { return dataOra; }
     public void setDataOra(LocalDateTime dataOra) { this.dataOra = dataOra;}
-
-    /*
-    @Override
-    public String toString() {
-        return "Request{" +
-                "magazziniere=" + magazziniere +
-                ", destinatario=" + destinatario +
-                ", dataOra=" + dataOra +
-                '}';
-    }
-
-     */
 
     @Override
     public String toString() {

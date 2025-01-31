@@ -1,9 +1,6 @@
 package model.RequestManagement;
 
 import jakarta.persistence.*;
-import model.OrderManagement.Prodotto;
-import model.UserManagement.Fornitore;
-import model.UserManagement.Magazziniere;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
