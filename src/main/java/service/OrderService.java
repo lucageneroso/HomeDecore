@@ -1,14 +1,18 @@
 package service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 import remoteInterfaces.OrderServiceRemote;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -68,5 +72,20 @@ public class OrderService implements OrderServiceRemote {
         TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_STATO", Ordine.class);
         query.setParameter("stato", stato);
         return query.getResultList();
+    }
+
+    @Override
+    public List<ItemCartDTO> deserializeItems(List<String> serializedItems) {
+        List<ItemCartDTO> items = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            for (String json : serializedItems) {
+                ItemCartDTO item = objectMapper.readValue(json, ItemCartDTO.class);
+                items.add(item);
+            }
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 }
