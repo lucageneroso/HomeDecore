@@ -14,10 +14,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.transaction.Transactional;
 import model.OrderManagement.Prodotto;
-import model.UserManagement.Cliente;
-import model.UserManagement.Fornitore;
-import model.UserManagement.Indirizzo;
-import model.UserManagement.Utente;
+import model.UserManagement.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,8 +32,15 @@ import java.util.List;
 )
 @LocalBean
 public class DatabasePopulator {
-    @Inject
-    private EntityManager em;
+
+    @Inject private EntityManager em;
+
+    public void createProdotto(Prodotto prodotto, Fornitore fornitore) {
+        fornitore.addProdotto(prodotto.getId()); // Aggiungi i prodotti alla lista del fornitore
+        prodotto.setFornitore(fornitore.toDTO());
+        em.merge(prodotto);
+        em.merge(fornitore);
+    }
 
     // Creazione di un admin
     /*Admin admin = new Admin();
@@ -51,10 +55,10 @@ public class DatabasePopulator {
     Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc");
     //Fornitore fornitore1=new Fornitore(utenteFornitore1);
 
-    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, fornitore1);
-    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, fornitore1);
-    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, fornitore1);
-    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, fornitore1);
+    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false);
+    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true);
+    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true);
+    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true);
 
     Indirizzo ind= new Indirizzo("Italia","Salerno","Sarno","Via Vesuvio", 4, 8006);
     Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", ind);
@@ -70,8 +74,6 @@ public class DatabasePopulator {
         em.createQuery("DELETE FROM Prodotto p").executeUpdate();
         em.createQuery("DELETE FROM Fornitore f").executeUpdate();
 
-        // Aggiungi i prodotti alla lista del fornitore
-        fornitore1.setProdottiForniti(new ArrayList<>(Arrays.asList(p1, p2, p3, p4)));
 
         em.persist(fornitore1);
         em.persist(p1);
@@ -80,7 +82,17 @@ public class DatabasePopulator {
         em.persist(p4);
         em.persist(cliente);
 
+        em.flush(); // Sincronizza con il DB
+
+        createProdotto(p1, fornitore1);
+        createProdotto(p2, fornitore1);
+        createProdotto(p3, fornitore1);
+        createProdotto(p4, fornitore1);
+
+        em.flush();
+
         System.out.println("Popolamento completato");
+
 
     }
 
@@ -94,4 +106,5 @@ public class DatabasePopulator {
         em.remove(fornitore1);
         em.clear();
     }
+
 }
