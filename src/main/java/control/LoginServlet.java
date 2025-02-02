@@ -13,9 +13,6 @@ import model.UserManagement.Utente;
 import remoteInterfaces.OrderServiceRemote;
 import remoteInterfaces.UserServiceRemote;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.criteria.Order;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

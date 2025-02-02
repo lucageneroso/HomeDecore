@@ -107,8 +107,7 @@ public class Utente implements Serializable {
     private String password;
     private String username;
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     public Utente() {}
@@ -150,7 +149,8 @@ public class Utente implements Serializable {
     @Override
     public String toString() {
         return "Utente{" +
-                "nome='" + nome + '\'' +
+                " Id=" + id +
+                ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
                 '}';

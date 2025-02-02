@@ -1,10 +1,7 @@
-<%@ page import="model.UserManagement.Utente" %><%--
-  Created by IntelliJ IDEA.
-  User: Pietro
-  Date: 23/01/2025
-  Time: 09:29
-  To change this template use File | Settings | File Templates.
---%>
+
+<%@ page import="model.UserManagement.Utente" %>
+<%@ page import="java.util.List" %>
+<%@ page import="model.OrderManagement.Ordine" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     // Recupera l'oggetto utente dalla sessione
@@ -14,6 +11,9 @@
         response.sendRedirect("/login.jsp"); // Reindirizza alla pagina di login se l'utente non è autenticato.
         return;
     }
+
+    // Recupera gli ordini dalla sessione
+    List<Ordine> orders = (List<Ordine>) session.getAttribute("orders");
 %>
 <html>
 <head>
@@ -26,9 +26,6 @@
     <nav class="navbar">
         <div class="navbar_item"><a href="home2.jsp">Home</a></div>
         <div class="navbar_item"><a href="#">Richieste</a></div>
-
-
-
     </nav>
 </header>
 
@@ -44,8 +41,44 @@
     <p><strong>Password:</strong> <%= utente.getPassword() %></p>
 </div>
 
-</body>
-
+<!-- Sezione di riepilogo degli ordini effettuati. -->
+<div class="orders-section">
+    <h2>I tuoi ordini</h2>
+    <%
+        if (orders == null || orders.isEmpty()) {
+    %>
+    <p>Non hai effettuato ancora un ordine.</p>
+    <%
+    } else {
+    %>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>ID Ordine</th>
+            <th>Data</th>
+            <th>Totale</th>
+            <th>Stato</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%
+            for (Ordine ordine : orders) {
+        %>
+        <tr>
+            <td><%= ordine.getId() %></td>
+            <td><%= ordine.getDate() %></td>
+            <td><%= ordine.getTotale() %> €</td>
+            <td><%= ordine.getStato() %></td>
+        </tr>
+        <%
+            }
+        %>
+        </tbody>
+    </table>
+    <%
+        }
+    %>
+</div>
 
 <script>
     function toggleProfileInfo() {
@@ -53,4 +86,6 @@
         profileInfo.classList.toggle("hidden");
     }
 </script>
+</body>
 </html>
+```

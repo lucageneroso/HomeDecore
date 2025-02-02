@@ -16,10 +16,7 @@ import java.util.List;
 public class Fornitore extends Utente implements Serializable {
 
 
-    @OneToMany(mappedBy = "fornitore", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Prodotto> prodottiForniti;
-
-
+    private List<Integer> prodottiForniti; //Lista di interi per gli ID dei prodotti forniti
 
     public Fornitore(){}
 
@@ -30,26 +27,32 @@ public class Fornitore extends Utente implements Serializable {
     }
 
     // Constructor with basic fields and a list of prodottiForniti
-    public Fornitore(String nome, String cognome, String email, String username, String password, List<Prodotto> prodottiForniti) {
+    public Fornitore(String nome, String cognome, String email, String username, String password, List<Integer> prodottiForniti) {
         super(nome, cognome, email, username, password);
         this.prodottiForniti = prodottiForniti;
     }
 
 
-    public List<Prodotto> getProdottiForniti() {
+    public List<Integer> getProdottiForniti() {
         return prodottiForniti;
     }
 
-    public void setProdottiForniti(List<Prodotto> prodottiForniti) {
+    public void setProdottiForniti(List<Integer> prodottiForniti) {
         this.prodottiForniti = prodottiForniti;
     }
 
-    public void addProdotto(Prodotto prodotto){
-        prodottiForniti.add(prodotto);
+    public void addProdotto(Integer prodottoID){
+        prodottiForniti.add(prodottoID);
     }
 
-    public void removeProdotto(Prodotto prodotto){
-        prodottiForniti.remove(prodotto);
+    public void removeProdotto(Integer prodottoID){
+        prodottiForniti.remove(prodottoID);
+    }
+
+    public FornitoreDTO toDTO(){
+        FornitoreDTO fornitoreDTO = new FornitoreDTO(super.getId(), super.getEmail()   );
+        System.out.println(fornitoreDTO.toString());
+        return fornitoreDTO;
     }
 
     @Override
