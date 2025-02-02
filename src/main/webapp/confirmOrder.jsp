@@ -19,7 +19,6 @@
 
 <%
   Ordine ordine = (Ordine) session.getAttribute("order");
-  List<String> serializedItems= (List<String>) request.getAttribute("itemsCart");
   if (ordine != null) {
 %>
 
@@ -61,9 +60,9 @@
       for (ItemCart item : items) {
   %>
   <tr>
-    <td><%= item.getProdotto().getNome() %></td> <!-- O usa il nome del prodotto, se disponibile -->
+    <td><%= item.getProdotto().getNome() %></td>
     <td><%= item.getQuantity() %></td>
-    <td><%= item.getProdotto().getPrezzo() %> €</td> <!-- Assicurati di avere il prezzo per item -->
+    <td><%= item.getProdotto().getPrezzo() %> €</td>
   </tr>
   <%
       }
