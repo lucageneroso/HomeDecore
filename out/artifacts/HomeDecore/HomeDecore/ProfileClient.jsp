@@ -45,4 +45,10 @@
 </div>
 
 </body>
+<script>
+    function toggleProfileInfo() {
+        const profileInfo = document.getElementById("profile-info");
+        profileInfo.classList.toggle("hidden");
+    }
+</script>
 </html>

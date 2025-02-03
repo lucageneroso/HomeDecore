@@ -2,17 +2,19 @@ package model.OrderManagement;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-@Entity
-public class ItemCart {
+import java.io.Serializable;
 
-    @OneToOne
+
+public class ItemCart implements Serializable {
+
+
     private Prodotto prodotto;
     private int quantity;
-    @Id
-    private Long id;
+
 
     public ItemCart() {}
 
@@ -33,11 +35,5 @@ public class ItemCart {
         this.quantity = quantity;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public Long getId() {
-        return id;
-    }
 }

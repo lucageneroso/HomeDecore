@@ -1,10 +1,15 @@
 package model.OrderManagement;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import enumerativeTypes.Stato;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @NamedQueries({
@@ -21,16 +26,38 @@ public class Ordine implements Serializable {
     private Long id;
     private double totale=0.0;
     private Long userId;
-    private Date date;
+    private LocalDateTime date;
+
+    @Enumerated(EnumType.STRING)
     private Stato stato;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> items;
+
     public Ordine() {}
-    public Ordine(Long userId, Date date, Stato stato) {
+    public Ordine(Long userId, Double totale, List<ItemCartDTO> items) {
         this.totale = totale;
         this.userId = userId;
-        this.date = date;
-        this.stato = stato;
+        this.date = LocalDateTime.now();
+        this.stato = Stato.PREPARATION;
+        this.items = serializeItems(items);
     }
+
+    // Metodo per serializzare i DTO in JSON
+    public List<String> serializeItems(List<ItemCartDTO> items) {
+        List<String> serializedItems = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();  // Usa Jackson per la serializzazione JSON
+        try {
+            for (ItemCartDTO item : items) {
+                String json = objectMapper.writeValueAsString(item);
+                serializedItems.add(json);
+            }
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return serializedItems;
+    }
+
     public Long getId() {
         return id;
     }
@@ -49,10 +76,15 @@ public class Ordine implements Serializable {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
-
+    public List<String> getItems(){
+        return items;
+    }
+    public void setItems(List<String> items){
+        this.items = items;
+    }
     public Stato getStato() {
         return stato;
     }

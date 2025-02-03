@@ -1,14 +1,18 @@
 package service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
 import remoteInterfaces.OrderServiceRemote;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Stateless
@@ -17,13 +21,16 @@ public class OrderService implements OrderServiceRemote {
     private EntityManager em;
 
     @Override
-    public void addOrder(Ordine order) {
+    public Ordine addOrder(Ordine order) {
         em.persist(order);
+        em.flush(); // Assicurati che l'ID venga generato
+        System.out.println("Ordine salvato con ID: " + order.getId());
+        return order;
     }
 
     @Override
     public Ordine findOrderById(int id) {
-       return em.find(Ordine.class, id);
+        return em.find(Ordine.class, id);
     }
 
     @Override
@@ -43,10 +50,12 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Ordine> findOrdersByCostumer(int userId) {
+    public List<Ordine> findOrdersByCostumer(long userId) {
         TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_UTENTE", Ordine.class);
         query.setParameter("userId", userId);
-        return query.getResultList();
+        List<Ordine> orders=query.getResultList();
+        System.out.println("Ordini trovati per l'utente " + userId + ": " + orders.size());
+        return orders;
     }
 
     @Override
@@ -68,5 +77,20 @@ public class OrderService implements OrderServiceRemote {
         TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_STATO", Ordine.class);
         query.setParameter("stato", stato);
         return query.getResultList();
+    }
+
+    @Override
+    public List<ItemCartDTO> deserializeItems(List<String> serializedItems) {
+        List<ItemCartDTO> items = new ArrayList<>();
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            for (String json : serializedItems) {
+                ItemCartDTO item = objectMapper.readValue(json, ItemCartDTO.class);
+                items.add(item);
+            }
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return items;
     }
 }

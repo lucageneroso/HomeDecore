@@ -6,7 +6,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
 import model.OrderManagement.Prodotto;
-import model.UserManagement.Fornitore;
 import remoteInterfaces.CatalogoRemote;
 
 import java.util.List;

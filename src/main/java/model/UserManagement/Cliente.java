@@ -1,5 +1,6 @@
 package model.UserManagement;
 
+import enumerativeTypes.Ruolo;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 
@@ -9,8 +10,9 @@ public class Cliente extends Utente{
 
     private Indirizzo indirizzo;
 
-    public Cliente(Indirizzo indirizzo){
-        super();
+    // Constructor for Cliente
+    public Cliente(String nome, String cognome, String email, String username, String password, Indirizzo indirizzo) {
+        super(nome, cognome, email, username, password); // Call the superclass constructor
         this.indirizzo = indirizzo;
     }
 
@@ -22,6 +24,11 @@ public class Cliente extends Utente{
 
     public void setIndirizzo(Indirizzo indirizzo) {
         this.indirizzo = indirizzo;
+    }
+
+
+    public Ruolo getRuolo() {
+        return Ruolo.CLIENTE;
     }
 
 

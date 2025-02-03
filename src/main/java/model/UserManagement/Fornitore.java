@@ -5,6 +5,7 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import model.OrderManagement.Prodotto;
+import model.RequestManagement.ProductRequest;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,42 +15,44 @@ import java.util.List;
 @DiscriminatorValue("FORNITORE")
 public class Fornitore extends Utente implements Serializable {
 
-    @OneToMany(mappedBy = "fornitore", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Prodotto> prodottiForniti;
+
+    private List<Integer> prodottiForniti; //Lista di interi per gli ID dei prodotti forniti
 
     public Fornitore(){}
 
-    public Fornitore(List<Prodotto> prodottiForniti){
-        super();
-        this.prodottiForniti = prodottiForniti;
-    }
-
-    // Costruttore che copia i dati da un Utente
-    public Fornitore(Utente utente) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
+    // Constructor with basic fields
+    public Fornitore(String nome, String cognome, String email, String username, String password) {
+        super(nome, cognome, email, username, password);
         this.prodottiForniti = new ArrayList<>();
     }
 
-    // Costruttore che copia i dati da un Utente e aggiunta di una lista di prodotti
-    public Fornitore(Utente utente, List<Prodotto> prodottiForniti) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
+    // Constructor with basic fields and a list of prodottiForniti
+    public Fornitore(String nome, String cognome, String email, String username, String password, List<Integer> prodottiForniti) {
+        super(nome, cognome, email, username, password);
         this.prodottiForniti = prodottiForniti;
     }
 
-    public List<Prodotto> getProdottiForniti() {
+
+    public List<Integer> getProdottiForniti() {
         return prodottiForniti;
     }
 
-    public void setProdottiForniti(List<Prodotto> prodottiForniti) {
+    public void setProdottiForniti(List<Integer> prodottiForniti) {
         this.prodottiForniti = prodottiForniti;
     }
 
-    public void addProdotto(Prodotto prodotto){
-        prodottiForniti.add(prodotto);
+    public void addProdotto(Integer prodottoID){
+        prodottiForniti.add(prodottoID);
     }
 
-    public void removeProdotto(Prodotto prodotto){
-        prodottiForniti.remove(prodotto);
+    public void removeProdotto(Integer prodottoID){
+        prodottiForniti.remove(prodottoID);
+    }
+
+    public FornitoreDTO toDTO(){
+        FornitoreDTO fornitoreDTO = new FornitoreDTO(super.getId(), super.getEmail()   );
+        System.out.println(fornitoreDTO.toString());
+        return fornitoreDTO;
     }
 
     @Override
