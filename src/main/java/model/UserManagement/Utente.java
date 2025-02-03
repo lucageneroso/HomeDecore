@@ -4,6 +4,7 @@ import enumerativeTypes.Ruolo;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -24,6 +25,7 @@ public class Utente implements Serializable {
     private String email;
     private String password;
 
+
     @Enumerated(EnumType.STRING)
     private Ruolo ruolo;
 
@@ -41,6 +43,7 @@ public class Utente implements Serializable {
         this.password = password;
         this.ruolo = ruolo;
         this.username = username;
+
     }
     public String getNome() {
         return nome;
