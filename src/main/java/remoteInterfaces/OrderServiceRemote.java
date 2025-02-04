@@ -8,6 +8,7 @@ import enumerativeTypes.Stato;
 import java.sql.Date;
 import java.util.List;
 import jakarta.ejb.Remote;
+import model.UserManagement.GestoreOrdini;
 
 @Remote
 public interface OrderServiceRemote {
@@ -17,6 +18,10 @@ public interface OrderServiceRemote {
      void updateOrder(Ordine order);
      void removeOrder(int id);
      List<Ordine> findOrdersByCostumer(long userId);
+
+     List<Ordine> findOrdersByGestore(long userId);
+     List<GestoreOrdini> findAllGestoreOrdini();
+
      List<Ordine> findByPrize(Double prezzo);
      List<Ordine> findByDate(Date date);
      List<Ordine> findByState(Stato stato);
