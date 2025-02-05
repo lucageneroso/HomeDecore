@@ -1,7 +1,7 @@
 package remoteInterfaces;
 
 import model.ChatManagement.Message;
-import model.Utente;
+import model.UserManagement.Utente;
 
 import java.time.LocalDateTime;
 import java.util.List;

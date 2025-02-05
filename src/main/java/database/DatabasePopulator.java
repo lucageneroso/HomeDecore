@@ -1,5 +1,4 @@
 package database;
-
 import enumerativeTypes.Categoria;
 import enumerativeTypes.Ruolo;
 import jakarta.annotation.PostConstruct;
@@ -39,7 +38,7 @@ public class DatabasePopulator {
 
     public void createProdotto(Prodotto prodotto, Fornitore fornitore) {
         fornitore.addProdotto(prodotto.getId()); // Aggiungi i prodotti alla lista del fornitore
-        prodotto.setFornitore(fornitore.toDTO());
+        prodotto.setFornitore(fornitore.toDTO().getFornitoreID());
         em.merge(prodotto);
         em.merge(fornitore);
     }
@@ -90,7 +89,12 @@ public class DatabasePopulator {
 
         em.createQuery("DELETE FROM Prodotto p").executeUpdate();
         em.createQuery("DELETE FROM Fornitore f").executeUpdate();
+        em.createQuery("DELETE FROM Cliente c").executeUpdate();
+        em.createQuery("DELETE FROM Utente").executeUpdate();
 
+
+
+        em.flush();
 
         em.persist(fornitore1);
         em.persist(p1);

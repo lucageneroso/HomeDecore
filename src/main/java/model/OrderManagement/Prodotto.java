@@ -2,7 +2,6 @@ package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
-import model.UserManagement.Fornitore;
 import model.UserManagement.FornitoreDTO;
 
 import java.io.Serializable;
@@ -41,7 +40,9 @@ public class Prodotto implements Serializable {
     private int disponibilita;
     private boolean inCatalogo;
 
-    private FornitoreDTO fornitore;
+
+    @Column(name="fornitore_id")
+    private Long fornitore;
     /*
     @ManyToOne
     @JoinColumn(name = "fornitore_id", referencedColumnName = "id")
@@ -63,7 +64,7 @@ public class Prodotto implements Serializable {
 
 
     public Prodotto(String nome, String descrizione, Double prezzo, //ImageIcon image,
-                    Categoria categoria,int disponibilita,boolean inCatalogo, FornitoreDTO fornitore) {
+                    Categoria categoria,int disponibilita,boolean inCatalogo,Long fornitore) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -127,10 +128,10 @@ public class Prodotto implements Serializable {
         //System.out.println(this.fornitore);
     }*/
 
-    public FornitoreDTO getFornitore() {
+    public Long getFornitore() {
         return fornitore;
     }
-    public void setFornitore(FornitoreDTO fornitore) {
+    public void setFornitore(Long fornitore) {
         this.fornitore = fornitore;
     }
 
@@ -147,7 +148,7 @@ public class Prodotto implements Serializable {
                 ", categoria=" + categoria +
                 ", disponibilita=" + disponibilita +
                 ", inCatalogo=" + inCatalogo +
-                ", fornitore=" + (fornitore != null ? fornitore.toString() : "Nessun fornitore") +
+            /*    ", fornitore=" + (fornitore != null ? fornitore.toString() : "Nessun fornitore") +*/
                 '}';
     }
 

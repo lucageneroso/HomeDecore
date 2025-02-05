@@ -1,11 +1,10 @@
 package service;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import model.ChatManagement.Message;
-import model.Utente;
+import model.UserManagement.Utente;
 import remoteInterfaces.MessageServiceRemote;
 
 import java.time.LocalDateTime;

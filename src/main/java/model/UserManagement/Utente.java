@@ -107,7 +107,8 @@ public class Utente implements Serializable {
     private String password;
     private String username;
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public Utente() {}
@@ -160,7 +161,7 @@ public class Utente implements Serializable {
         this.id = id;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
