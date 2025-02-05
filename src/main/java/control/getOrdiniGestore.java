@@ -33,8 +33,8 @@ public class getOrdiniGestore extends HttpServlet {
         System.out.println("Ordini id prova: \n");
         List<GestoreOrdini> gestori= orderService.findAllGestoreOrdini();
         System.out.println("Gestori: "+gestori);
-        List<Ordine> ordini=orderService.findOrdersByGestore( gestori.get(0).getId() );
 
+        List<Ordine> ordini=orderService.findOrdersByGestore( gestori.get(0).getId() );
         System.out.println("Ordini: "+ordini);
 
 

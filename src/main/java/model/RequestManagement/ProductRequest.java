@@ -22,7 +22,7 @@ public class ProductRequest extends Request implements Serializable {
     }
      */
 
-    public ProductRequest(int magazziniereID, int fornitoreID, LocalDateTime dataOra, int prodottoRichiestoID, int quantita) {
+    public ProductRequest(Long magazziniereID, Long fornitoreID, LocalDateTime dataOra, int prodottoRichiestoID, int quantita) {
         super(magazziniereID, fornitoreID, dataOra);
         this.prodottoRichiestoID = prodottoRichiestoID;
         this.quantita=quantita;

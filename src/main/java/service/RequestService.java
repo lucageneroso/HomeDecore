@@ -1,5 +1,6 @@
 package service;
 
+import enumerativeTypes.StatoRichiesta;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -35,7 +36,7 @@ public class RequestService implements RequestServiceRemote {
     }
 
     @Override
-    public Request findById(int ID) {
+    public Request findById(Long ID) {
         TypedQuery<Request> query=  em.createNamedQuery("Request.TROVA_PER_ID", Request.class);
         query.setParameter("id", ID);
         return query.getSingleResult();
@@ -48,9 +49,16 @@ public class RequestService implements RequestServiceRemote {
     }
 
     @Override
-    public List<Request> findByDate(LocalDateTime date) {
+    public void cambiaStato(Request request) {
+        request.accettaRichiesta();
+        em.merge(request);
+    }
+
+    @Override
+    public List<Request> findByDate(LocalDateTime dataStart, LocalDateTime dataEnd) {
         TypedQuery<Request> query=  em.createNamedQuery("Request.TROVA_PER_DATA", Request.class);
-        query.setParameter("data", date);
+        query.setParameter("dataStart", dataStart);
+        query.setParameter("dataEnd", dataEnd);
         return query.getResultList();
     }
 
@@ -74,12 +82,16 @@ public class RequestService implements RequestServiceRemote {
     }
 
     @Override
-    public List<Request> findByMagazziniere(int userID) {
-        return List.of();
+    public List<Request> findByMagazziniere(Long magazziniereID) {
+        TypedQuery<Request> query=  em.createNamedQuery("Request.TROVA_PER_MAGAZZINIERE", Request.class);
+        query.setParameter("magazziniereID", magazziniereID);
+        return query.getResultList();
     }
 
     @Override
-    public List<Request> findByDestinatario(int userID) {
-        return List.of();
+    public List<Request> findByDestinatario(Long destinatarioID) {
+        TypedQuery<Request> query=  em.createNamedQuery("Request.TROVA_PER_DESTINATARIO", Request.class);
+        query.setParameter("destinatarioID", destinatarioID);
+        return query.getResultList();
     }
 }
