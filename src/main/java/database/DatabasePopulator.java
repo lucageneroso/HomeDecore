@@ -91,7 +91,7 @@ public class DatabasePopulator {
     List<ItemCartDTO> listItem = Arrays.asList(item1, item2);
 
     GestoreOrdini gestore1= new GestoreOrdini("Luca","Cammarota","l.cammarota3@geg.it","Lucas","password");
-    Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
+
 
 
 
@@ -120,6 +120,8 @@ public class DatabasePopulator {
 
 
 
+
+
         em.flush(); // Sincronizza con il DB
 
         createProdotto(p1, fornitore1);
@@ -128,6 +130,8 @@ public class DatabasePopulator {
         createProdotto(p4, fornitore1);
 
         em.flush();
+
+        Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
 
         em.persist(ordine);
         em.persist(gestore1);

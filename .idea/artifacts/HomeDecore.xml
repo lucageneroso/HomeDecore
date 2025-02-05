@@ -4,10 +4,10 @@
     <root id="archive" name="HomeDecore.war">
       <element id="file-copy" path="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/beans.xml" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="HomeDecore" />
-          <element id="jpa-descriptors" facet="HomeDecore/jpa/JPA" />
+          <element id="module-output" name="HomeDecoreLuca" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: jakarta.xml.bind:jakarta.xml.bind-api:4.0.2" />
@@ -46,7 +46,6 @@
           <element id="library" level="project" name="Maven: jakarta.inject:jakarta.inject-api:2.0.1" />
         </element>
       </element>
-      <element id="dir-copy" path="$PROJECT_DIR$/src/main/webapp" />
     </root>
   </artifact>
 </component>
