@@ -21,8 +21,8 @@ public class OrderRequest extends Request implements Serializable {
     }
      */
 
-    public OrderRequest(Long magazziniereID, Long gestoreOrdiniID, LocalDateTime dataOra, Long ordineID ) {
-        super(magazziniereID, gestoreOrdiniID, dataOra);
+    public OrderRequest(Long magazziniereID, Long gestoreOrdiniID, LocalDateTime dataOra, Long ordineID, String message ) {
+        super(magazziniereID, gestoreOrdiniID, dataOra, message);
         this.ordineID = ordineID;
     }
 
