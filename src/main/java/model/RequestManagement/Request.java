@@ -31,13 +31,16 @@ public class Request implements Serializable {
 
     private StatoRichiesta stato;
 
+    private String message;
+
     public Request() {}
 
-    public Request(Long magazziniereID, Long destinatarioID, LocalDateTime dataOra) {
+    public Request(Long magazziniereID, Long destinatarioID, LocalDateTime dataOra, String message) {
         this.magazziniereID = magazziniereID;
         this.destinatarioID = destinatarioID;
         this.dataOra = dataOra;
         this.stato = StatoRichiesta.NON_ACCETTATO;
+        this.message = message;
     }
 
     public int getId() { return id;}
@@ -55,12 +58,16 @@ public class Request implements Serializable {
     public StatoRichiesta getStato() { return stato; }
     public void accettaRichiesta() { this.stato = StatoRichiesta.ACCETTATO; }
 
+    public String getMessage() { return message; }
+    public void setMessage(String message) { this.message = message; }
+
     @Override
     public String toString() {
         return "Request{" +
                 " magazziniere=" + magazziniereID +
                 ", destinatario=" + destinatarioID +
                 ", dataOra=" + dataOra +
+                ", messaggio=" + message +
                 ", stato=" + stato +
                 '}';
     }

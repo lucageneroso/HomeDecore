@@ -68,10 +68,10 @@ public class DatabasePopulator {
 
 
 
-    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false);
-    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true);
-    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true);
-    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true);
+    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, true);
+    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, true);
+    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, true);
+    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, true);
 
 
 
@@ -119,9 +119,6 @@ public class DatabasePopulator {
         em.persist(cliente);
 
 
-
-
-
         em.flush(); // Sincronizza con il DB
 
         createProdotto(p1, fornitore1);
@@ -141,13 +138,8 @@ public class DatabasePopulator {
 
 
         em.persist(magazziniere);
-        OrderRequest orderRequest= new OrderRequest(magazziniere.getId(), gestore1.getId(), LocalDateTime.now(), ordine.getId());
+        OrderRequest orderRequest= new OrderRequest(magazziniere.getId(), gestore1.getId(), LocalDateTime.now(), ordine.getId(), "Ao bello");
         em.persist(orderRequest);
-
-        System.out.println("MagID: "+magazziniere.getId());
-        System.out.println("GestOrdID: "+gestore1.getId());
-        System.out.println("Ordine: "+ordine.getId());
-        System.out.println(orderRequest);
 
         em.flush();
 
