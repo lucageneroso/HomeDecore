@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*controlla prima che l'utente è loggato e vari controlli sul carrello,vedendo se è vuoto,prima di ridirezionare al form di pagamento*/
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
@@ -61,6 +62,6 @@ public class CheckoutServlet extends HttpServlet {
         // pulisco il carrello
         session.removeAttribute("cart");
 
-        response.sendRedirect("confirmOrder.jsp");
+        response.sendRedirect("Pagamento.jsp");
     }
 }
