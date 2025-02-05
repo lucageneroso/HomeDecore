@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 public class OrderRequest extends Request implements Serializable {
 
-    private int ordineID;
+    private Long ordineID;
 
     public OrderRequest() {}
 
@@ -21,21 +21,21 @@ public class OrderRequest extends Request implements Serializable {
     }
      */
 
-    public OrderRequest(int magazziniereID, int gestoreOrdiniID, LocalDateTime dataOra) {
+    public OrderRequest(Long magazziniereID, Long gestoreOrdiniID, LocalDateTime dataOra, Long ordineID ) {
         super(magazziniereID, gestoreOrdiniID, dataOra);
-        this.ordineID = gestoreOrdiniID;
+        this.ordineID = ordineID;
     }
 
-    public int getOrdineID() {
+    public Long getOrdineID() {
         return ordineID;
     }
-    public void setOrdineID(int ordineID) {
+    public void setOrdineID(Long ordineID) {
         this.ordineID = ordineID;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", OrdineID='" + ordineID + '\'' + '}';
+        return "OrderRequest: { "+super.toString() + ", OrdineID='" + ordineID + '\'' + '}';
     }
 
 }
