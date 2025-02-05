@@ -9,6 +9,7 @@ import jakarta.persistence.TypedQuery;
 import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
+import model.UserManagement.GestoreOrdini;
 import remoteInterfaces.OrderServiceRemote;
 
 import java.sql.Date;
@@ -59,6 +60,19 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
+    public List<Ordine> findOrdersByGestore(long userId) {
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_ID_GESTORE", Ordine.class);
+        query.setParameter("idGestore", userId);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<GestoreOrdini> findAllGestoreOrdini() {
+        TypedQuery<GestoreOrdini> query=em.createNamedQuery("GestoreOrdini.TROVA_TUTTI", GestoreOrdini.class);
+        return query.getResultList();
+    }
+
+    @Override
     public List<Ordine> findByPrize(Double prezzo) {
         TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_TOTALE", Ordine.class);
         query.setParameter("totale", prezzo);
@@ -93,4 +107,5 @@ public class OrderService implements OrderServiceRemote {
         }
         return items;
     }
+
 }

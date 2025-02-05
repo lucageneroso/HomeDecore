@@ -12,6 +12,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.PersistenceUnit;
 import jakarta.transaction.Transactional;
+import model.OrderManagement.ItemCartDTO;
+import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
 import model.UserManagement.*;
 
@@ -41,6 +43,13 @@ public class DatabasePopulator {
         em.merge(fornitore);
     }
 
+    public void giveOrdine(Ordine ordine, GestoreOrdini gestoreOrdini) {
+        gestoreOrdini.aggiungiOrdine(ordine);
+        ordine.setIdGestore(gestoreOrdini);
+        em.merge(ordine);
+        em.merge(gestoreOrdini);
+    }
+
     // Creazione di un admin
     /*Admin admin = new Admin();
         admin.setNome("Admin User");
@@ -52,7 +61,8 @@ public class DatabasePopulator {
 
 
     Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc");
-    //Fornitore fornitore1=new Fornitore(utenteFornitore1);
+
+
 
     Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false);
     Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true);
@@ -62,6 +72,13 @@ public class DatabasePopulator {
     Indirizzo ind= new Indirizzo("Italia","Salerno","Sarno","Via Vesuvio", 4, 8006);
     Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", ind);
     //Cliente cliente = new
+
+    ItemCartDTO item1= new ItemCartDTO(p1.getId(),2);
+    ItemCartDTO item2= new ItemCartDTO(p2.getId(),3);
+    List<ItemCartDTO> listItem = Arrays.asList(item1, item2);
+
+    GestoreOrdini gestore1= new GestoreOrdini("Luca","Cammarota","l.cammarota3@geg.it","Lucas","password");
+    Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
 
 
 
@@ -86,12 +103,20 @@ public class DatabasePopulator {
         em.persist(p4);
         em.persist(cliente);
 
+
+
         em.flush(); // Sincronizza con il DB
 
         createProdotto(p1, fornitore1);
         createProdotto(p2, fornitore1);
         createProdotto(p3, fornitore1);
         createProdotto(p4, fornitore1);
+
+        em.flush();
+
+        em.persist(ordine);
+        em.persist(gestore1);
+        giveOrdine(ordine, gestore1);
 
         em.flush();
 
