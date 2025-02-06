@@ -25,13 +25,13 @@ public class PaymentServlet extends HttpServlet {
         String paymentMethod = request.getParameter("paymentMethod");
         boolean paymentSuccess = false;
 
+        //Controlli sui metodi di pagamento
         if ("paypal".equals(paymentMethod)) {
             String paypalEmail = request.getParameter("paypalEmail");
             String paypalPassword = request.getParameter("paypalPassword");
 
 
-            System.out.println("PayPal Email: " + paypalEmail);
-            System.out.println("PayPal Password: " + paypalPassword);
+
             // Simulazione del pagamento con PayPal
             if (paypalEmail != null && !paypalEmail.isEmpty() &&
                     paypalPassword != null && !paypalPassword.isEmpty()) {
@@ -50,7 +50,7 @@ public class PaymentServlet extends HttpServlet {
 
         if (paymentSuccess) {
             session.removeAttribute("order"); // Rimuove l'ordine dalla sessione
-            response.sendRedirect("ConfermaAcquisto.jsp");
+            response.sendRedirect("ConfermaAcquisto.jsp");  //convalida acquisto
         } else {
             response.sendRedirect("payment.jsp?error=failed");
         }

@@ -62,6 +62,6 @@ public class CheckoutServlet extends HttpServlet {
         // pulisco il carrello
         session.removeAttribute("cart");
 
-        response.sendRedirect("Pagamento.jsp");
+        response.sendRedirect("Spedizione.jsp");
     }
 }
