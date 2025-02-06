@@ -33,9 +33,11 @@ public class Fornitore extends Utente implements Serializable {
     }
 
 
-    public List<Integer> getProdottiForniti() {
+    /*public List<Integer> getProdottiForniti() {
         return prodottiForniti;
     }
+    */
+
 
     public void setProdottiForniti(List<Integer> prodottiForniti) {
         this.prodottiForniti = prodottiForniti;

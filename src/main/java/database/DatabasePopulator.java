@@ -103,7 +103,8 @@ public class DatabasePopulator {
         em.persist(p4);
         em.persist(cliente);
 
-
+        em.persist(ordine);
+        em.persist(gestore1);
 
         em.flush(); // Sincronizza con il DB
 
@@ -114,8 +115,7 @@ public class DatabasePopulator {
 
         em.flush();
 
-        em.persist(ordine);
-        em.persist(gestore1);
+
         giveOrdine(ordine, gestore1);
 
         em.flush();
