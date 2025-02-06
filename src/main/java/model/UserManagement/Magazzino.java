@@ -23,6 +23,9 @@ public class Magazzino implements Serializable {
 
     @Override
     public String toString() {
-        return "Magazzino:[ "+indirizzo.toString()+", Prodotti:"+prodotti.toString()+"]";
+        return "Magazzino:[ "+indirizzo.toString()+"]";
     }
+    //public String toString() {
+    //        return "Magazzino:[ "+indirizzo.toString()+", Prodotti:"+prodotti.toString()+"]";
+    //    }
 }

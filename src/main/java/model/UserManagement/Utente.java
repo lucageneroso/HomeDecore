@@ -107,8 +107,10 @@ public class Utente implements Serializable {
     private String password;
     private String username;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Enumerated(EnumType.STRING)
+    private Ruolo ruolo;
+
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public Utente() {}
@@ -154,6 +156,7 @@ public class Utente implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", email='" + email + '\'' +
+                ", ruolo=" + ruolo +
                 '}';
     }
 
@@ -165,5 +168,5 @@ public class Utente implements Serializable {
         return id;
     }
 
-    public Ruolo getRuolo() {return null;}
+    public Ruolo getRuolo() {return ruolo;}
 }

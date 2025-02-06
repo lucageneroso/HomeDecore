@@ -3,6 +3,8 @@ package model.UserManagement;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import model.OrderManagement.Prodotto;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -12,8 +14,10 @@ public class Magazziniere extends Utente{
     private Magazzino magazzino;
 
     public Magazziniere() {}
-    public Magazziniere(Magazzino magazzino) {
-        super();
+
+    // Constructor with basic fields
+    public Magazziniere(String nome, String cognome, String email, String username, String password, Magazzino magazzino) {
+        super(nome, cognome, email, username, password);
         this.magazzino = magazzino;
     }
 

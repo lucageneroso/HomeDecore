@@ -15,8 +15,11 @@ import jakarta.transaction.Transactional;
 import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
+import model.RequestManagement.OrderRequest;
+import model.RequestManagement.Request;
 import model.UserManagement.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -60,25 +63,37 @@ public class DatabasePopulator {
     // record
 
 
+
     Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc");
 
 
 
-    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false);
-    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true);
-    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true);
-    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true);
+    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, true);
+    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, true);
+    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, true);
+    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, true);
+
+
 
     Indirizzo ind= new Indirizzo("Italia","Salerno","Sarno","Via Vesuvio", 4, 8006);
     Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", ind);
     //Cliente cliente = new
+
+
+    List<Prodotto> prodotti = Arrays.asList(p1,p2, p3, p4);
+    Magazzino magazzino= new Magazzino(ind, prodotti);
+    Magazziniere magazziniere = new Magazziniere("Luigi","Bianchi","lbianchi@geg.it","LuBia","password", magazzino);
+
+
 
     ItemCartDTO item1= new ItemCartDTO(p1.getId(),2);
     ItemCartDTO item2= new ItemCartDTO(p2.getId(),3);
     List<ItemCartDTO> listItem = Arrays.asList(item1, item2);
 
     GestoreOrdini gestore1= new GestoreOrdini("Luca","Cammarota","l.cammarota3@geg.it","Lucas","password");
-    Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
+
+
+
 
 
 
@@ -103,8 +118,6 @@ public class DatabasePopulator {
         em.persist(p4);
         em.persist(cliente);
 
-        em.persist(ordine);
-        em.persist(gestore1);
 
         em.flush(); // Sincronizza con il DB
 
@@ -115,8 +128,18 @@ public class DatabasePopulator {
 
         em.flush();
 
+        Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
 
+        em.persist(ordine);
+        em.persist(gestore1);
         giveOrdine(ordine, gestore1);
+
+        em.flush();
+
+
+        em.persist(magazziniere);
+        OrderRequest orderRequest= new OrderRequest(magazziniere.getId(), gestore1.getId(), LocalDateTime.now(), ordine.getId(), "Ao bello");
+        em.persist(orderRequest);
 
         em.flush();
 
