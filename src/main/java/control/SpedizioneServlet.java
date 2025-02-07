@@ -24,6 +24,6 @@ public class SpedizioneServlet extends HttpServlet {
         session.setAttribute("spedizioneRapida", spedizioneRapida);
 
         // Reindirizza alla pagina di pagamento
-        response.sendRedirect("Pagamento.jsp");
+        response.sendRedirect("RiepilogoAcquisto.jsp");
     }
 }
