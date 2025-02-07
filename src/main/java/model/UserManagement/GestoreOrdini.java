@@ -1,9 +1,7 @@
 package model.UserManagement;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import enumerativeTypes.Stato;
+import jakarta.persistence.*;
 import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
 
@@ -13,59 +11,52 @@ import java.util.List;
 
 @Entity
 @DiscriminatorValue("GESTOREORDINI")
+@NamedQueries({
+        @NamedQuery(name="GestoreOrdini.TROVA_TUTTI", query="SELECT g FROM GestoreOrdini g"),
+})
 public class GestoreOrdini extends Utente implements Serializable {
 
-    /*
-    @OneToMany(mappedBy = "gestoreordini", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Ordine> ordini;
-     */
 
-    private List<Integer> ordiniID;
+
+    private List<Long> listaOrdini;
 
     public GestoreOrdini() {}
 
-    // Costruttore che copia i dati da un Utente
-    /*
-    public GestoreOrdini(List<Ordine> ordini){
+    public GestoreOrdini(List<Long> ordiniID){
         super();
-        this.ordini = ordini;
+        this.listaOrdini = ordiniID;
     }
 
-    // Costruttore che copia i dati da un Utente e aggiunta di una lista di ordini
-    public GestoreOrdini(Utente utente) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
-        this.ordini = new ArrayList<>();
+    // Constructor with basic fields
+    public GestoreOrdini(String nome, String cognome, String email, String username, String password) {
+        super(nome, cognome, email, username, password);
+        this.listaOrdini = new ArrayList<>();
     }
 
-    public List<Ordine> getOrdini() {
-        return ordini;
-    }
-    public void setOrdini(List<Ordine> ordini) {
-        this.ordini = ordini;
+    public void cambiaStatoOrdine(Ordine ordine, Stato stato){
+        ordine.setStato(stato);
     }
 
-    public void addOrdine(Ordine ordine){
-        this.ordini.add(ordine);
+    /*public List<Long> getOrdini() {
+        return listaOrdini;
     }
+    */
 
+    public void setOrdini(List<Long> ordiniID) {
+        this.listaOrdini = ordiniID;
+    }
+    public void aggiungiOrdine(Ordine ordine){
+        listaOrdini.add(ordine.getId());
+    }
     public void removeOrdine(Ordine ordine){
-        this.ordini.remove(ordine);
+        listaOrdini.remove(ordine.getId());
     }
+
 
     @Override
     public String toString() {
         return super.toString();
-    }*/
-
-
-    public GestoreOrdini(List<Integer> ordiniID){
-        super();
-        this.ordiniID = ordiniID;
     }
 
-    // Costruttore che copia i dati da un Utente e aggiunta di una lista di ordini
-    public GestoreOrdini(Utente utente) {
-        super(utente.getNome(), utente.getCognome(), utente.getEmail(), utente.getUsername(), utente.getPassword(), utente.getRuolo());
-        this.ordiniID = new ArrayList<>();
-    }
+
 }

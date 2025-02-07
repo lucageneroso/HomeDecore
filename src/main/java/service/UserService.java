@@ -46,14 +46,15 @@ public class UserService implements UserServiceRemote {
     }
     public boolean isAdmin(Utente utente) {
         Utente u = findUserByUsername(utente.getUsername());
-            if(u.getRuolo().equals("admin"))
-                return true;
-            else
-                return false;
+        if(u.getRuolo().equals("admin"))
+            return true;
+        else
+            return false;
     }
     public Utente findUserByEmail(String email) {
         TypedQuery<Utente> query=em.createNamedQuery("Utente.TROVA_PER_EMAIL", Utente.class);
         query.setParameter("email", email);
+        System.out.println("Aui");
         return query.getSingleResult();
     }
 }
