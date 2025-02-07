@@ -43,10 +43,12 @@
             <a href="profile.jsp" title="Profilo">
                 <img src="image/profilo-icon.png" alt="Profilo" style="width: 24px; height: 24px;"/>
             </a>
+        <li class="header_menu_item"><a href="cart.jsp">Carrello<span class="badge badge-success px-1"></span></a>
         </li>
         <li class="header_menu_item">
             <a href="logout.jsp" title="Logout">Logout</a>
         </li>
+
     </ul>
 
 
