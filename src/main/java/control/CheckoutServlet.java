@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/*controlla prima che l'utente è loggato e vari controlli sul carrello,vedendo se è vuoto,prima di ridirezionare al form di pagamento*/
 @WebServlet("/checkout")
 public class CheckoutServlet extends HttpServlet {
 
@@ -31,7 +32,11 @@ public class CheckoutServlet extends HttpServlet {
         Utente utente = (Utente) session.getAttribute("loggedUser");
         Cart cart = (Cart) session.getAttribute("cart");
 
-        if (utente == null || cart == null || cart.getItems().isEmpty()) {
+        if (utente == null) {
+            response.sendRedirect("login.jsp");
+            return;
+        }
+        if (cart == null || cart.getItems().isEmpty()) {
             response.sendRedirect("cart.jsp?error=empty");
             return;
         }
@@ -40,15 +45,23 @@ public class CheckoutServlet extends HttpServlet {
                 .map(item -> new ItemCartDTO(item.getProdotto().getId(), item.getQuantity()))
                 .collect(Collectors.toList());
 
-        Ordine ordine = new Ordine(utente.getId(), cart.calculateTotal(), itemsDTO);
-        orderService.addOrder(ordine);
+        // memorizzo in memoria l'ordine appena creato, e lo imposto come attributo della sessione per recuperarlo
+        Ordine order= orderService.addOrder(new Ordine(utente.getId(), cart.calculateTotal(), itemsDTO));;
+        System.out.println("Ordine creato con ID: " + order.getId());
+        session.setAttribute("order", order);
 
-        session.setAttribute("order", ordine);
+        // per permettere il recupero degli ordini in Profile.jsp, aggiorno la lista di ordini a carico di user
+        List<Ordine> orders= (List<Ordine>) session.getAttribute("orders");
+        orders.add(order);
+        session.setAttribute("orders", orders);
+
+        // per permettere il riepilogo
         List<ItemCart> items= cart.getItems();
+        session.setAttribute("items",items);
 
-        request.setAttribute("itemsCart", items);
+        // pulisco il carrello
         session.removeAttribute("cart");
 
-        response.sendRedirect("confirmOrder.jsp");
+        response.sendRedirect("Spedizione.jsp");
     }
 }

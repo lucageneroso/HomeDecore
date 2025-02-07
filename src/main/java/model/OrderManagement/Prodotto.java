@@ -2,13 +2,15 @@ package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
-import model.UserManagement.Fornitore;
+import model.UserManagement.FornitoreDTO;
 
 import java.io.Serializable;
 
 
 @NamedQueries({
         @NamedQuery(name="TROVA_TUTTI", query="SELECT p FROM Prodotto p"),
+        @NamedQuery(name="TROVA_IN_CATALOGO", query="SELECT p FROM Prodotto p WHERE p.inCatalogo=true"),
+        @NamedQuery(name="TROVA_IN_MAGAZZINO", query="SELECT p FROM Prodotto p WHERE p.inMagazzino=true"),
         @NamedQuery(name="TROVA_PER_IDENT", query="SELECT p FROM Prodotto p WHERE p.id = :ID "),
         @NamedQuery(name="TROVA_PER_PREZZO_MINORE", query="SELECT p FROM Prodotto p WHERE p.prezzo <= :prezzo"),
         @NamedQuery(name="TROVA_PER_PREZZO_MAGGIORE", query="SELECT p FROM Prodotto p WHERE p.prezzo >= :prezzo"),
@@ -38,19 +40,23 @@ public class Prodotto implements Serializable {
     private Categoria categoria;
 
     private int disponibilita;
-
     private boolean inCatalogo;
+    private boolean inMagazzino;
 
 
+    //@Column(name="fornitore_id")
+    //private FornitoreDTO fornitore;
+    private Long fornitore;
+    /*
     @ManyToOne
     @JoinColumn(name = "fornitore_id", referencedColumnName = "id")
-    private Fornitore fornitore;
+    private Fornitore fornitore; */
 
 
     public Prodotto() {}
 
     public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/
-                    Categoria categoria,int disponibilita,boolean inCatalogo) {
+                    Categoria categoria,int disponibilita,boolean inCatalogo, boolean inMagazzino) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -58,11 +64,12 @@ public class Prodotto implements Serializable {
         this.categoria = categoria;
         this.disponibilita = disponibilita;
         this.inCatalogo = inCatalogo;
+        this.inMagazzino = inMagazzino;
     }
 
 
     public Prodotto(String nome, String descrizione, Double prezzo, //ImageIcon image,
-                    Categoria categoria,int disponibilita,boolean inCatalogo, Fornitore fornitore) {
+                    Categoria categoria,int disponibilita,boolean inCatalogo, boolean inMagazzino ,Long fornitore) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -70,6 +77,7 @@ public class Prodotto implements Serializable {
         this.categoria = categoria;
         this.disponibilita = disponibilita;
         this.inCatalogo = inCatalogo;
+        this.inMagazzino = inMagazzino;
         this.fornitore=fornitore;
     }
 
@@ -116,6 +124,8 @@ public class Prodotto implements Serializable {
         this.categoria = categoria;
     }
 
+    public boolean isInMagazzino() {return inMagazzino;}
+    public void setInMagazzino(boolean inMagazzino) {this.inMagazzino = inMagazzino;}
 
     /*
     public Fornitore getFornitore() {return fornitore;}
@@ -125,6 +135,13 @@ public class Prodotto implements Serializable {
         this.fornitore = fornitore;
         //System.out.println(this.fornitore);
     }*/
+
+    public Long getFornitore() {
+        return fornitore;
+    }
+    public void setFornitore(Long fornitore) {
+        this.fornitore = fornitore;
+    }
 
 
 
@@ -139,6 +156,7 @@ public class Prodotto implements Serializable {
                 ", categoria=" + categoria +
                 ", disponibilita=" + disponibilita +
                 ", inCatalogo=" + inCatalogo +
+                ", inMagazzino=" + inMagazzino +
                 ", fornitore=" + (fornitore != null ? fornitore.toString() : "Nessun fornitore") +
                 '}';
     }

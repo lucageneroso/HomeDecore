@@ -6,7 +6,6 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import enumerativeTypes.Categoria;
 import model.OrderManagement.Prodotto;
-import model.UserManagement.Fornitore;
 import remoteInterfaces.CatalogoRemote;
 
 import java.util.List;
@@ -25,11 +24,85 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public void removeProduct(Prodotto prodotto) {
-        em.remove(em.merge(prodotto));
+        em.remove(prodotto);
     }
 
     @Override
+    public void removeProductFromCatalogo(Prodotto prodotto) {
+        prodotto.setInCatalogo(false);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void removeProductFromCatalogo(Long IdProdotto) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setInCatalogo(false);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void removeProductFromMagazzino(Prodotto prodotto) {
+        prodotto.setInCatalogo(false);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void removeProductFromMagazzino(Long IdProdotto) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setInCatalogo(false);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void addProductToCatalogo(Prodotto prodotto) {
+        prodotto.setInCatalogo(true);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void addProductToCatalogo(Long IdProdotto) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setInCatalogo(true);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void addProductToMagazzino(Prodotto prodotto) {
+        prodotto.setInMagazzino(true);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void addProductToMagazzino(Long IdProdotto) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setInMagazzino(true);
+        em.merge(prodotto);
+    }
+
+
+    @Override
     public void updateProduct(Prodotto prodotto) {
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void updateProductName(Long IdProdotto, String nome) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setNome(nome);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void updateProductDesc(Long IdProdotto, String descrizione) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setDescrizione(descrizione);
+        em.merge(prodotto);
+    }
+
+    @Override
+    public void updateProductPrice(Long IdProdotto, double price) {
+        Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
+        prodotto.setPrezzo(price);
         em.merge(prodotto);
     }
 
@@ -38,6 +111,23 @@ public class Catalogo implements CatalogoRemote {
         TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_TUTTI", Prodotto.class);
         return query.getResultList();
     }
+
+    @Override
+    public List<Prodotto> getProductsInCatalogo() {
+        TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_IN_CATALOGO", Prodotto.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Prodotto> getProductsInMagazzino() {
+        TypedQuery<Prodotto> query= em.createNamedQuery("TROVA_IN_MAGAZZINO", Prodotto.class);
+        return query.getResultList();
+    }
+
+
+
+
+
 
     @Override
     public List<Prodotto> findByName(String nome) {
@@ -51,6 +141,13 @@ public class Catalogo implements CatalogoRemote {
         TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_IDENT", Prodotto.class);
         query.setParameter("ID", id);
         return query.getSingleResult();
+    }
+
+    @Override
+    public List<Prodotto> findProductByFornitore(Long id) {
+        TypedQuery<Prodotto> query=  em.createNamedQuery("TROVA_PER_FORNITORE", Prodotto.class);
+        query.setParameter("fornitore", id);
+        return query.getResultList();
     }
 
 

@@ -9,6 +9,7 @@ import jakarta.persistence.TypedQuery;
 import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import enumerativeTypes.Stato;
+import model.UserManagement.GestoreOrdini;
 import remoteInterfaces.OrderServiceRemote;
 
 import java.sql.Date;
@@ -21,13 +22,16 @@ public class OrderService implements OrderServiceRemote {
     private EntityManager em;
 
     @Override
-    public void addOrder(Ordine order) {
+    public Ordine addOrder(Ordine order) {
         em.persist(order);
+        em.flush(); // Assicurati che l'ID venga generato
+        System.out.println("Ordine salvato con ID: " + order.getId());
+        return order;
     }
 
     @Override
     public Ordine findOrderById(int id) {
-       return em.find(Ordine.class, id);
+        return em.find(Ordine.class, id);
     }
 
     @Override
@@ -47,9 +51,24 @@ public class OrderService implements OrderServiceRemote {
     }
 
     @Override
-    public List<Ordine> findOrdersByCostumer(int userId) {
+    public List<Ordine> findOrdersByCostumer(long userId) {
         TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_UTENTE", Ordine.class);
         query.setParameter("userId", userId);
+        List<Ordine> orders=query.getResultList();
+        System.out.println("Ordini trovati per l'utente " + userId + ": " + orders.size());
+        return orders;
+    }
+
+    @Override
+    public List<Ordine> findOrdersByGestore(long userId) {
+        TypedQuery<Ordine> query=em.createNamedQuery("Ordine.TROVA_PER_ID_GESTORE", Ordine.class);
+        query.setParameter("idGestore", userId);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<GestoreOrdini> findAllGestoreOrdini() {
+        TypedQuery<GestoreOrdini> query=em.createNamedQuery("GestoreOrdini.TROVA_TUTTI", GestoreOrdini.class);
         return query.getResultList();
     }
 
@@ -88,4 +107,5 @@ public class OrderService implements OrderServiceRemote {
         }
         return items;
     }
+
 }

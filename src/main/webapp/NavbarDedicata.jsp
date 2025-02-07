@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
 <html>
 <head>
     <title></title>
@@ -40,7 +42,7 @@
         %>
         <li class="header_menu_item">Benvenuto <strong><%= username %></strong></li>
         <li class="header_menu_item">
-            <a href="profile.jsp" title="Profilo">
+            <a href="ProfileClient.jsp" title="Profilo">
                 <img src="image/profilo-icon.png" alt="Profilo" style="width: 24px; height: 24px;"/>
             </a>
         <li class="header_menu_item"><a href="cart.jsp">Carrello<span class="badge badge-success px-1"></span></a>
