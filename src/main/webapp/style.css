@@ -1,4 +1,4 @@
-body, html{ width: 100% ;height:100%; font-size: 16px; font-family:Lobster; box-sizing: border-box;margin: 0;padding: 0;}
+body, html{ width: 100% ;height:100%; font-size: 16px; font-family:Lobster; box-sizing: border-box;margin: 0;padding: 0;background-color: #8B4000;}
 *,*:before,*:after{ box-sizing: border-box; }
 h1,h2,h3,h4,h5,h6, p, ol, ul{margin: 0;padding: 0;}
 ol,ul{list-style-type: none;}
@@ -173,19 +173,19 @@ _____________________*/
 
 @keyframes slideshow {
     0% {
-        background-image: url(image/bagno.jpeg);
+        background-image: url(image/Bagno1.jpg);
     }
     25% {
-        background-image: url(image/0fd3416c.jpeg);
+        background-image: url(image/Cucina1.jpg);
     }
     50% {
-        background-image: url(image/8ad73f3c.jpeg);
+        background-image: url(image/Soggiorno1.jpg);
     }
     75% {
-        background-image: url(image/68f64b9d.jpeg);
+        background-image: url(image/Bagno2.jpg);
     }
     100% {
-        background-image: url(image/casa.jpg);
+        background-image: url(image/Cucina2.jpg);
     }
 }
 
@@ -194,7 +194,7 @@ _____________________*/
 .elemento {
     animation-name: slideshow;
     animation-duration: 30s; /* imposta la durata dell'animazione */
-    animation-timing-function:5s; /* imposta la funzione di temporizzazione dell'animazione */
+    animation-timing-function: 20s; /* imposta la funzione di temporizzazione dell'animazione */
     animation-iteration-count: infinite; /* imposta il numero di volte che l'animazione deve ripetersi */
 }
 
@@ -270,8 +270,8 @@ _____________________________*/
 
 .card_copy
 {
-    background-color: #3b3e23;
-    color: white;
+    background-color: #FFF8E1; /* Crema chiaro */
+    color: black;
     text-align: center;
     padding: 15px 20px;
 }
@@ -298,7 +298,7 @@ _____________________________*/
     width: 30%;
     float: left;
     height: 100%;
-    background-image: url(image/soggiorno.jpg);
+    background-image: url(image/Cucina2.jpg);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
@@ -309,12 +309,12 @@ _____________________________*/
 
 .banner_image2
 {
-    background-image: url(image/bagno.jpg);
+    background-image: url(image/Bagno3.jpg);
 }
 
 .banner_image3
 {
-    background-image: url(image/casa.jpg);
+    background-image: url(image/Soggiorno3.jpg);
 }
 .float{
     float:right;
@@ -327,12 +327,12 @@ _____________________________*/
 
 .banner_copy
 {
-    background-color: #3b3e23;
+    background-color: #FFF8E1; /* Crema chiaro */
+    color: black;
     width: 70%;
     float: left;
     height: 100%;
     display:table;
-    color: white;
 
 }
 
@@ -524,7 +524,7 @@ _____________________________*/
 
 .insta{
 
-    background-image: url(img/insta.png);
+    background-image: url(image/insta.png);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
@@ -544,7 +544,7 @@ _____________________________*/
 
 .face{
 
-    background-image: url(img/face.png);
+    background-image: url(image/face.png);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
@@ -567,7 +567,7 @@ _____________________________*/
 
 footer {
 
-    background-color: #3b3e23;
+    background-color: #FFF8E1; /* Crema chiaro */
     color: black;
     padding: 10px;
     text-align: center;
@@ -639,13 +639,14 @@ Menu media queri
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.spazio{
+    width: 100%;
+    height: 20%;
 
-
+}
 .container {
     width: 100%;
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 20px;
+    padding: 50px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
