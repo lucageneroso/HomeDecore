@@ -1,6 +1,6 @@
 package database;
+import Utils.ImageUtil;
 import enumerativeTypes.Categoria;
-import enumerativeTypes.Ruolo;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import jakarta.annotation.sql.DataSourceDefinition;
@@ -9,18 +9,13 @@ import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
 import jakarta.inject.Inject;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.PersistenceUnit;
-import jakarta.transaction.Transactional;
 import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
 import model.RequestManagement.OrderRequest;
-import model.RequestManagement.Request;
 import model.UserManagement.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -68,10 +63,11 @@ public class DatabasePopulator {
 
 
 
-    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0, Categoria.BAGNO, 300, false, true);
-    Prodotto p2=new Prodotto("Mario", "persona", 10.0, Categoria.SOGGIORNO, 200, true, true);
-    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0, Categoria.CUCINA, 150, true, true);
-    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, Categoria.CUCINA, 270, true, true);
+    Prodotto p1=new Prodotto("Panpers", "carta igienica", 10.0,  ImageUtil.readImageFromResources("images/Cucina.webp") ,Categoria.BAGNO, 300, false, true);
+    Prodotto p2=new Prodotto("Mario", "persona", 10.0,  ImageUtil.readImageFromResources("images/Cucina.webp") ,Categoria.SOGGIORNO, 200, true, true);
+    Prodotto p3=new Prodotto("Scottex", "carta asciugante", 10.0,  ImageUtil.readImageFromResources("images/Cucina.webp") ,Categoria.CUCINA, 150, true, true);
+
+    Prodotto p4=new Prodotto("Mastro Lindo", "detersivo", 10.0, ImageUtil.readImageFromResources("images/Cucina.webp") ,Categoria.CUCINA, 270, true, true);
 
 
 

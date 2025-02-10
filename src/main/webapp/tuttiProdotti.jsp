@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.OrderManagement.Prodotto" %>
+<%@ page import="java.util.Base64" %>
 <!DOCTYPE html>
 <html>
 
@@ -38,6 +39,14 @@
                 <a href="#"></a>
 
                 <div class="card-body">
+
+                    <% if (p.getImageBytes() != null) { %>
+                    <img src="data:image/png;base64,<%= java.util.Base64.getEncoder().encodeToString(p.getImageBytes()) %>"
+                         alt="Immagine prodotto" width="150" height="150">
+                    <% } else { %>
+                    <p>Immagine non disponibile</p>
+                    <% } %>
+
 
                     <h5 class="card-title"><%= p.getNome() %></h5>
                     <h6 class="stock">
