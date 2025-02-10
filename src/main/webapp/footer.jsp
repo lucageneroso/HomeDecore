@@ -5,10 +5,10 @@
 <footer>
     <div class="container1">
         <div class="logo">
-            <img src="img/logo_uliveto_bianco.png" >
+            <img src="image/logohome.png" >
         </div>
         <div class="copyright">
-            <p>&copy; 2023 L'uliveto. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by: M.Marino </p>
+            <p>&copy; 2025 HOMEDECORE. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by: M.Marino L.Cammarota R.Alfieri P.Fasolino </p>
             <p>p.iva 00000000000</p>
         </div>
     </div>

@@ -57,11 +57,11 @@ public class CheckoutServlet extends HttpServlet {
 
         // per permettere il riepilogo
         List<ItemCart> items= cart.getItems();
-        request.setAttribute("itemsCart", items);
+        session.setAttribute("items",items);
 
         // pulisco il carrello
         session.removeAttribute("cart");
 
-        response.sendRedirect("Pagamento.jsp");
+        response.sendRedirect("Spedizione.jsp");
     }
 }

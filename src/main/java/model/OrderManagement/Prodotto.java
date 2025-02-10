@@ -2,9 +2,12 @@ package model.OrderManagement;
 
 import enumerativeTypes.Categoria;
 import jakarta.persistence.*;
-import model.UserManagement.FornitoreDTO;
 
-import java.io.Serializable;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.Arrays;
 
 
 @NamedQueries({
@@ -37,6 +40,7 @@ public class Prodotto implements Serializable {
     private String descrizione;
     private Double prezzo;
     //private ImageIcon image;
+    @Lob private byte[] image;
     private Categoria categoria;
 
     private int disponibilita;
@@ -47,38 +51,36 @@ public class Prodotto implements Serializable {
     //@Column(name="fornitore_id")
     //private FornitoreDTO fornitore;
     private Long fornitore;
-    /*
-    @ManyToOne
-    @JoinColumn(name = "fornitore_id", referencedColumnName = "id")
-    private Fornitore fornitore; */
 
 
     public Prodotto() {}
 
-    public Prodotto(String nome, String descrizione, Double prezzo, /*ImageIcon image,*/
-                    Categoria categoria,int disponibilita,boolean inCatalogo, boolean inMagazzino) {
+
+    public Prodotto(String nome, String descrizione, Double prezzo, byte[] image,
+                    Categoria categoria, int disponibilita, boolean inCatalogo,
+                    boolean inMagazzino) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        //this.image = image;
+        this.image = image; // SALVATA COME BYTE[]
         this.categoria = categoria;
         this.disponibilita = disponibilita;
         this.inCatalogo = inCatalogo;
         this.inMagazzino = inMagazzino;
     }
 
-
-    public Prodotto(String nome, String descrizione, Double prezzo, //ImageIcon image,
-                    Categoria categoria,int disponibilita,boolean inCatalogo, boolean inMagazzino ,Long fornitore) {
+    public Prodotto(String nome, String descrizione, Double prezzo, byte[] image,
+                    Categoria categoria, int disponibilita, boolean inCatalogo,
+                    boolean inMagazzino, Long fornitore) {
         this.nome = nome;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
-        //this.image = image;
+        this.image = image; // SALVATA COME BYTE[]
         this.categoria = categoria;
         this.disponibilita = disponibilita;
         this.inCatalogo = inCatalogo;
         this.inMagazzino = inMagazzino;
-        this.fornitore=fornitore;
+        this.fornitore = fornitore;
     }
 
     public String getNome() {
@@ -94,12 +96,7 @@ public class Prodotto implements Serializable {
     public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
-    /*public ImageIcon getImage() {
-        return image;
-    }
-    public void setImage(ImageIcon image) {
-        this.image = image;
-    }*/
+
     public int getId() {
         return id;
     }
@@ -141,6 +138,40 @@ public class Prodotto implements Serializable {
     }
     public void setFornitore(Long fornitore) {
         this.fornitore = fornitore;
+    }
+
+
+    /*
+    public ImageIcon getImageIcon() {
+        if (image != null && image.length > 0) {  // Controlla che image non sia null o vuoto
+            try {
+                ByteArrayInputStream bis = new ByteArrayInputStream(image);
+                Image img = ImageIO.read(bis);
+                return img != null ? new ImageIcon(img) : null;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+    */
+
+    public byte[] getImageBytes() {
+        return this.image; // Assumendo che 'image' sia un campo di tipo byte[]
+    }
+
+
+
+    public void setImageFromIcon(ImageIcon icon) {
+        if (icon != null) {
+            try {
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                ImageIO.write((ImageIO.read((File) icon.getImage().getSource())), "png", bos);
+                this.image = bos.toByteArray();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 

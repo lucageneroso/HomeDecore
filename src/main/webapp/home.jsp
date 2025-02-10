@@ -3,6 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+
     <title>HOMEDECORE</title>
 
     <link rel="stylesheet" href="style.css">
@@ -28,7 +29,7 @@
 
 <section class="cards clearfix">
     <div class="card">
-        <img src="image/bagno.jpeg" alt="" class="image">
+        <img src="image/bagno.jpg" alt="" class="image">
         <div class="card_copy">
             <h3>Articoli Bagno</h3>
 
@@ -38,7 +39,7 @@
 
 
     <div class="card">
-        <img src="image/soggiorno.jpg" alt="" class="image">
+        <img src="image/Soggiorno2.jpg" alt="" class="image">
         <div class="card_copy">
             <h3>I Nostri Soggiorni</h3>
 
@@ -48,7 +49,7 @@
 
 
     <div class="card">
-        <img src="image/cucina.jpeg" alt="" class="image">
+        <img src="image/Cucina4.jpg" alt="" class="image">
         <div class="card_copy">
             <h3>Le Nostre Cucine</h3>
 
@@ -63,8 +64,8 @@
     <div class="banner_copy">
         <div class="banner_copy_txt">
 
-            <h4>Scegli la bomboniera perfetta per il tuo evento</h4>
-            <p>Gli orci sono realizzati e decorati a mano su tornio, immerso poi in smalto ceramico alimentare certificato. </p>
+            <h4>Scegli la cucina perfetta per la tua casa</h4>
+            <p>Gli arredi e gli accessori sono realizzati e rifiniti a mano, garantendo qualità e stile per ogni ambiente. </p>
         </div>
     </div>
 </section>
@@ -74,8 +75,8 @@
     <div class="banner_copy float">
         <div class="banner_copy_txt">
 
-            <h4 class="right">Il nostro olio extravergine</h4>
-            <p class="right">Olio extravergine di oliva ottenuto direttamente dalle olive e unicamente mediante processi meccanici.</p>
+            <h4 class="right">Scegli il bagno perfetto per la tua casa</h4>
+            <p class="right">Ogni elemento é progettato con cura e realizzato con materiali di alta qualità per garantire comfort e stile.</p>
         </div>
     </div>
 </section>
@@ -85,8 +86,8 @@
     <div class="banner_copy">
         <div class="banner_copy_txt">
 
-            <h4>I Nostri Ceci</h4>
-            <p>La homedecore dei ceci include semina, crescita e raccolta con cure colturali per garantire qualità.</p>
+            <h4>Scegli il soggiorno perfetto per la tua casa</h4>
+            <p>Ogni dettaglio é pensato per offrire eleganza, comfort e funzionalità, creando un ambiente accogliente e armonioso.</p>
         </div>
     </div>
 </section>

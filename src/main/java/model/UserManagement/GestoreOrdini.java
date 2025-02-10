@@ -37,9 +37,11 @@ public class GestoreOrdini extends Utente implements Serializable {
         ordine.setStato(stato);
     }
 
-    public List<Long> getOrdini() {
+    /*public List<Long> getOrdini() {
         return listaOrdini;
     }
+    */
+
     public void setOrdini(List<Long> ordiniID) {
         this.listaOrdini = ordiniID;
     }
