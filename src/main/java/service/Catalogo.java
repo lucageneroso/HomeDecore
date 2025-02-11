@@ -29,54 +29,99 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public void removeProductFromCatalogo(Prodotto prodotto) {
-        prodotto.setInCatalogo(false);
-        em.merge(prodotto);
+        if (prodotto.isInCatalogo()){
+            prodotto.setInCatalogo(false);
+            em.merge(prodotto);
+        }
+        else{
+            System.out.println("Prodotto gia non in Catalogo");
+        }
+
     }
 
     @Override
     public void removeProductFromCatalogo(Long IdProdotto) {
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
-        prodotto.setInCatalogo(false);
-        em.merge(prodotto);
+        if (prodotto.isInCatalogo()){
+            prodotto.setInCatalogo(false);
+            em.merge(prodotto);
+        }
+        else{
+            System.out.println("Prodotto gia non in Catalogo");
+        }
     }
 
     @Override
     public void removeProductFromMagazzino(Prodotto prodotto) {
-        prodotto.setInCatalogo(false);
-        em.merge(prodotto);
+        if (prodotto.isInMagazzino()){
+            prodotto.setInMagazzino(false);
+            prodotto.setInCatalogo(false);
+            em.merge(prodotto);
+        }
+        else{
+            System.out.println("Prodotto gia non in Magazzino");
+        }
     }
 
     @Override
     public void removeProductFromMagazzino(Long IdProdotto) {
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
-        prodotto.setInCatalogo(false);
-        em.merge(prodotto);
+        if (prodotto.isInMagazzino()){
+            prodotto.setInMagazzino(false);
+            prodotto.setInCatalogo(false);
+            em.merge(prodotto);
+        }
+        else{
+            System.out.println("Prodotto gia non in Magazzino");
+        }
     }
 
     @Override
     public void addProductToCatalogo(Prodotto prodotto) {
-        prodotto.setInCatalogo(true);
-        em.merge(prodotto);
+        if (prodotto.isInCatalogo()){
+            System.out.println("Prodotto gia in Catalogo");
+        }
+        else{
+            prodotto.setInCatalogo(true);
+            em.merge(prodotto);
+        }
+
     }
 
     @Override
     public void addProductToCatalogo(Long IdProdotto) {
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
-        prodotto.setInCatalogo(true);
-        em.merge(prodotto);
+        if (prodotto.isInCatalogo()){
+            System.out.println("Prodotto gia in Catalogo");
+        }
+        else{
+            prodotto.setInCatalogo(true);
+            em.merge(prodotto);
+        }
     }
 
     @Override
     public void addProductToMagazzino(Prodotto prodotto) {
-        prodotto.setInMagazzino(true);
-        em.merge(prodotto);
+        if (prodotto.isInMagazzino()){
+            System.out.println("Prodotto gia in Magazzino");
+        }
+        else{
+            prodotto.setInMagazzino(true);
+            em.merge(prodotto);
+        }
+
     }
 
     @Override
     public void addProductToMagazzino(Long IdProdotto) {
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
-        prodotto.setInMagazzino(true);
-        em.merge(prodotto);
+        if (prodotto.isInMagazzino()){
+            System.out.println("Prodotto gia in Magazzino");
+        }
+        else{
+            prodotto.setInMagazzino(true);
+            em.merge(prodotto);
+        }
     }
 
 
@@ -87,6 +132,10 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public void updateProductName(Long IdProdotto, String nome) {
+        if (nome.isEmpty()){
+            System.out.println("Nome non valido");
+            return;
+        }
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
         prodotto.setNome(nome);
         em.merge(prodotto);
@@ -101,6 +150,10 @@ public class Catalogo implements CatalogoRemote {
 
     @Override
     public void updateProductPrice(Long IdProdotto, double price) {
+        if (price <= 0){
+            System.out.println("Prezzo non valido");
+            return;
+        }
         Prodotto prodotto = em.find(Prodotto.class, IdProdotto);
         prodotto.setPrezzo(price);
         em.merge(prodotto);
@@ -179,6 +232,37 @@ public class Catalogo implements CatalogoRemote {
         query.setParameter("fornitore", fornitore);
         return query.getResultList();
     }*/
+
+
+    public boolean validateNameChange(String nome){
+        if (nome.isEmpty()) return false;
+        else return true;
+    }
+
+    public boolean validatePriceChange(Double price){
+        if (price<=0) return false;
+        else return true;
+    }
+
+    public boolean validateAddToMagazzino(Prodotto prodotto){
+        if (prodotto.isInMagazzino()) return false;
+        else return true;
+    }
+
+    public boolean validateRemoveFromMagazzino(Prodotto prodotto){
+        if (prodotto.isInMagazzino()) return true;
+        else return false;
+    }
+
+    public boolean validateAddToCatalogo(Prodotto prodotto){
+        if (prodotto.isInCatalogo()) return false;
+        else return true;
+    }
+
+    public boolean validateRemoveFromCatalogo(Prodotto prodotto){
+        if (prodotto.isInCatalogo()) return true;
+        else return false;
+    }
 
 
 }
