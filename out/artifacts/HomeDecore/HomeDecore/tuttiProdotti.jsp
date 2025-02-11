@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 
 </head>
 <body >
@@ -37,7 +37,7 @@
         <div class="col-12 col-md-6 col-lg-4 gy-3">
             <div class="w-100 carta">
                 <a href="#"></a>
-
+                <a href="infoProduct?productId=<%= p.getId() %>">
                 <div class="card-body">
 
                     <% if (p.getImageBytes() != null) { %>
@@ -50,21 +50,17 @@
 
                     <h5 class="card-title"><%= p.getNome() %></h5>
                     <h6 class="stock">
+
                         <b>Stock:</b>
                         <% if (p.getDisponibilita() != 0) { %>
                         <%= p.getDisponibilita() %>
-                        <% } else { %>
-                        <b><font color="red">Out of Stock</font></b>
-                        <% } %>
-                    </h6>
-
-                    <div class="mt-3 justify-content-between bordo">
-                        <% if (p.getDisponibilita() != 0) { %>
 
                         <% } else { %>
                         <p class="card-text"><b><font color="red">ACQUISTO NON DISPONIBILE</font></b></p>
                         <% } %>
-                    </div>
+                    </h6>
+                </a>
+
 
 
                 </div>
