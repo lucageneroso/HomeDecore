@@ -16,8 +16,8 @@ public class Magazziniere extends Utente{
     public Magazziniere() {}
 
     // Constructor with basic fields
-    public Magazziniere(String nome, String cognome, String email, String username, String password, Magazzino magazzino) {
-        super(nome, cognome, email, username, password);
+    public Magazziniere(String nome, String cognome, String email, String password, Magazzino magazzino) {
+        super(nome, cognome, email, password);
         this.magazzino = magazzino;
     }
 

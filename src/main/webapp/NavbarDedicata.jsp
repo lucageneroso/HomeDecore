@@ -11,7 +11,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 

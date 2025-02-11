@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Riepilogo Acquisto</title>
-    <link rel="stylesheet" type="text/css" href="Riepilogo.css">
+    <link rel="stylesheet" type="text/css" href="style/Riepilogo.css">
 </head>
 <body>
 <div class="container">
