@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Pagamento</title>
-    <link rel="stylesheet" type="text/css" href="Pagamento.css">
+    <link rel="stylesheet" type="text/css" href="style/Pagamento.css">
     <script>
         function togglePaymentMethod(method) {
             document.getElementById("paypalForm").style.display = (method === "paypal") ? "block" : "none";
