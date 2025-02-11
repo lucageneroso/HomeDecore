@@ -19,7 +19,7 @@
 <html>
 <head>
     <title>Profilo cliente</title>
-    <link rel="stylesheet" href="StyleProfile.css">
+    <link rel="stylesheet" href="style/StyleProfile.css">
 </head>
 <body>
 

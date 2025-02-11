@@ -48,7 +48,7 @@ img{height: auto;}
 
 .header_logo
 {
-    background: url(image/logohome.png) no-repeat center center;
+    background: url(../image/logohome.png) no-repeat center center;
     background-size: cover;
 
     color:#fff;
@@ -130,7 +130,7 @@ img{height: auto;}
     height: 40px;
     border-radius: 50%;
     background-color: #ccc;
-    background-image: url(image/profilo-icon.png); /* Cambia con il path corretto */
+    background-image: url(../image/profilo-icon.png); /* Cambia con il path corretto */
     background-size: cover;
     background-position: center;
 }
@@ -173,19 +173,19 @@ _____________________*/
 
 @keyframes slideshow {
     0% {
-        background-image: url(image/Bagno1.jpg);
+        background-image: url(../image/Bagno1.jpg);
     }
     25% {
-        background-image: url(image/Cucina1.jpg);
+        background-image: url(../image/Cucina1.jpg);
     }
     50% {
-        background-image: url(image/Soggiorno1.jpg);
+        background-image: url(../image/Soggiorno1.jpg);
     }
     75% {
-        background-image: url(image/Bagno2.jpg);
+        background-image: url(../image/Bagno2.jpg);
     }
     100% {
-        background-image: url(image/Cucina2.jpg);
+        background-image: url(../image/Cucina2.jpg);
     }
 }
 
@@ -303,7 +303,7 @@ _____________________________*/
     width: 30%;
     float: left;
     height: 100%;
-    background-image: url(image/Cucina2.jpg);
+    background-image: url(../image/Cucina2.jpg);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
@@ -314,12 +314,12 @@ _____________________________*/
 
 .banner_image2
 {
-    background-image: url(image/Bagno3.jpg);
+    background-image: url(../image/Bagno3.jpg);
 }
 
 .banner_image3
 {
-    background-image: url(image/Soggiorno3.jpg);
+    background-image: url(../image/Soggiorno3.jpg);
 }
 .float{
     float:right;
@@ -529,7 +529,7 @@ _____________________________*/
 
 .insta{
 
-    background-image: url(image/insta.png);
+    background-image: url(../image/insta.png);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
@@ -549,7 +549,7 @@ _____________________________*/
 
 .face{
 
-    background-image: url(image/face.png);
+    background-image: url(../image/face.png);
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/

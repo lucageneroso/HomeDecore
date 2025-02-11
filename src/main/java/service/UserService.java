@@ -41,16 +41,20 @@ public class UserService implements UserServiceRemote {
         TypedQuery<Utente> query=em.createNamedQuery("Utente.TROVA_TUTTI", Utente.class);
         return query.getResultList();
     }
+
     public boolean isLogged(Utente utente) {
-        return findUserByUsername(utente.getUsername())!=null;
+        //return findUserByUsername(utente.getUsername())!=null;
+        return findUserByEmail(utente.getEmail()) != null;
     }
+
     public boolean isAdmin(Utente utente) {
-        Utente u = findUserByUsername(utente.getUsername());
+        Utente u = findUserByEmail(utente.getEmail());
         if(u.getRuolo().equals("admin"))
             return true;
         else
             return false;
     }
+
     public Utente findUserByEmail(String email) {
         TypedQuery<Utente> query=em.createNamedQuery("Utente.TROVA_PER_EMAIL", Utente.class);
         query.setParameter("email", email);

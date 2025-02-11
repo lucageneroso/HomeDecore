@@ -46,34 +46,42 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Verifica l'esistenza dell'utente nel database
-        Utente loggedUser = userService.findUserByEmail(email);
+        try {
+            // Verifica l'esistenza dell'utente nel database
+            Utente loggedUser = userService.findUserByEmail(email);
 
-        // Se l'utente esiste e la password è corretta
-        if (loggedUser != null && loggedUser.getPassword().equals(password)) {
-            // Imposto l'utente loggato come attributo per la JSP
-            request.getSession().setAttribute("loggedUser", loggedUser);
+            // Se l'utente esiste e la password è corretta
+            if (loggedUser != null && loggedUser.getPassword().equals(password)) {
+                // Imposto l'utente loggato come attributo per la JSP
+                request.getSession().setAttribute("loggedUser", loggedUser);
 
-            // Recupera gli ordini a suo carico
-            List<Ordine> orders= orderService.findOrdersByCostumer(loggedUser.getId());
-            System.out.println("\n ecco che ordini ho trovato per l'utente " + loggedUser.getNome());
-            for(Ordine o:orders){
-                System.out.println(o.toString());
+                // Recupera gli ordini a suo carico
+                List<Ordine> orders = orderService.findOrdersByCostumer(loggedUser.getId());
+                System.out.println("\n ecco che ordini ho trovato per l'utente " + loggedUser.getNome());
+                for (Ordine o : orders) {
+                    System.out.println(o.toString());
+                }
+                request.getSession().setAttribute("orders", orders);
+            } else {
+                // Imposto un messaggio di errore se il login fallisce
+                request.setAttribute("loginError", "Login fallito. Email o password errati.");
+
+                // Reindirizzo alla pagina JSP di login
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
-            request.getSession().setAttribute("orders", orders);
-        }
-        else {
+            //Controllo il ruolo dell'utente per il reindirizzamento
+            if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
+                response.sendRedirect(request.getContextPath() + "/home2.jsp");
+            } else {
+                response.sendRedirect(request.getContextPath() + "/Profile.jsp");
+            }
+
+        } catch (Exception e) {
             // Imposto un messaggio di errore se il login fallisce
             request.setAttribute("loginError", "Login fallito. Email o password errati.");
 
             // Reindirizzo alla pagina JSP di login
             request.getRequestDispatcher("/login.jsp").forward(request, response);
-        }
-        //Controllo il ruolo dell'utente per il reindirizzamento
-        if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
-            response.sendRedirect(request.getContextPath()+"/home2.jsp");
-        } else {
-            response.sendRedirect(request.getContextPath()+"/Profile.jsp");
         }
     }
 }

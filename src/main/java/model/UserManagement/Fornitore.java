@@ -21,14 +21,14 @@ public class Fornitore extends Utente implements Serializable {
     public Fornitore(){}
 
     // Constructor with basic fields
-    public Fornitore(String nome, String cognome, String email, String username, String password) {
-        super(nome, cognome, email, username, password);
+    public Fornitore(String nome, String cognome, String email, String password) {
+        super(nome, cognome, email, password);
         this.prodottiForniti = new ArrayList<>();
     }
 
     // Constructor with basic fields and a list of prodottiForniti
-    public Fornitore(String nome, String cognome, String email, String username, String password, List<Integer> prodottiForniti) {
-        super(nome, cognome, email, username, password);
+    public Fornitore(String nome, String cognome, String email, String password, List<Integer> prodottiForniti) {
+        super(nome, cognome, email, password);
         this.prodottiForniti = prodottiForniti;
     }
 

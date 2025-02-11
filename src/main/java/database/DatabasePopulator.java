@@ -59,7 +59,7 @@ public class DatabasePopulator {
 
 
 
-    Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "mrossi", "abc");
+    Fornitore fornitore1= new Fornitore("Mario", "Rossi", "mario.rossi@example.com", "password");
 
 
 
@@ -72,13 +72,13 @@ public class DatabasePopulator {
 
 
     Indirizzo ind= new Indirizzo("Italia","Salerno","Sarno","Via Vesuvio", 4, 8006);
-    Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "pietro", "password", ind);
+    Cliente cliente = new Cliente("Pietro", "Fasolino", "p.fasolino@gmail.com", "password", ind);
     //Cliente cliente = new
 
 
     List<Prodotto> prodotti = Arrays.asList(p1,p2, p3, p4);
     Magazzino magazzino= new Magazzino(ind, prodotti);
-    Magazziniere magazziniere = new Magazziniere("Luigi","Bianchi","lbianchi@geg.it","LuBia","password", magazzino);
+    Magazziniere magazziniere = new Magazziniere("Luigi","Bianchi","lbianchi@geg.it","password", magazzino);
 
 
 
@@ -86,7 +86,7 @@ public class DatabasePopulator {
     ItemCartDTO item2= new ItemCartDTO(p2.getId(),3);
     List<ItemCartDTO> listItem = Arrays.asList(item1, item2);
 
-    GestoreOrdini gestore1= new GestoreOrdini("Luca","Cammarota","l.cammarota3@geg.it","Lucas","password");
+    GestoreOrdini gestore1= new GestoreOrdini("Luca","Cammarota","l.cammarota3@geg.it","password");
 
 
 
