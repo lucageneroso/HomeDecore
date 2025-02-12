@@ -297,20 +297,20 @@ _____________________________*/
 }
 
 
-
-.banner_image
-{
-    width: 30%;
-    float: left;
-    height: 100%;
-    background-image: url(../image/Cucina2.jpg);
-    /*ora l immagine la impostiamo su cover cosi da essere responsive*/
-    background-size: cover;/*impostazione cover*/
-    -o-background-size: cover;/*impostazione cover per opera*/
-    -moz-background-size: cover ;/*impostazione cover per mozzilla*/
-
-    background-position: center center;/*centriamo l immagine*/
+.banner_image {
+    width: auto;  /* La larghezza sarà calcolata in base alla proporzione dell'immagine */
+    height: 100%;  /* Altezza fissa */
+    position: relative;
+    overflow: hidden;
 }
+
+.banner_image img {
+    width: 100%;  /* La larghezza dell'immagine sarà del 100% rispetto al div */
+    height: 100%;  /* Altezza dell'immagine al 100% rispetto al div */
+    object-fit: contain;  /* Mantiene le proporzioni dell'immagine senza ritagliarla */
+    object-position: center center;  /* Centra l'immagine dentro il div */
+}
+
 
 .banner_image2
 {

@@ -48,7 +48,16 @@
 %>
 <div style="width: 100%; height: 100%; display: flex; justify-content: center ; align-items: center;">
     <section class="banner clearfix" style="width: 100%">
-        <div class="banner_image"></div>
+
+        <div class="banner_image">
+            <% if (prodotto.getImageBytes() != null) { %>
+            <img src="data:image/png;base64,<%= java.util.Base64.getEncoder().encodeToString(prodotto.getImageBytes()) %>"
+                 alt="Immagine prodotto">
+            <% } else { %>
+            <p>Immagine non disponibile</p>
+            <% } %>
+        </div>
+
         <div class="banner_copy">
             <div class="banner_copy_txt">
                 <h4><%= prodotto.getNome() %></h4>
@@ -56,6 +65,7 @@
                 <p><%= prodotto.getDescrizione() %></p>
                 <form action="addToCart" method="get">
                     <input type="hidden" name="productId" value="<%= prodotto.getId() %>">
+                    <p></p>
                     <input type="number" name="quantity" value="1" min="1" max="<%= prodotto.getDisponibilita() %>">
                     <button type="submit">Aggiungi al Carrello</button>
                 </form>
