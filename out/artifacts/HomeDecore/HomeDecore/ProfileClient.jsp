@@ -39,7 +39,7 @@
 
 <div class="profile-info hidden" id="profile-info">
     <h2>Informazioni Account</h2>
-    <p><strong>Username:</strong> <%= utente.getUsername() %></p>
+    <p><strong>Nome:</strong> <%= utente.getNome() %></p>
     <p><strong>Email:</strong> <%= utente.getEmail() %></p>
     <p><strong>Password:</strong> <%= utente.getPassword() %></p>
 </div>

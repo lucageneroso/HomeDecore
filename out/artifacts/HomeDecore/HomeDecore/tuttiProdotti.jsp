@@ -17,7 +17,7 @@
 <%@include file = "Navbar.jsp" %>
 <%
     List<Prodotto> prodotti = (List<Prodotto>) request.getAttribute("prodotti");
-    String[] categorie = {"BAGNO", "CUCINA", "SOGGIORNO"};
+    String[] categorie = {"BAGNO", "CUCINA", "SOGGIORNO", "GIARDINO"};
 
     if (prodotti != null) {
 %>
