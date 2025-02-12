@@ -72,7 +72,10 @@
     <h3>Totale da Pagare</h3>
     <p><strong>Totale:</strong> €<%= String.format("%.2f", totale) %></p>
 
-    <a href="Pagamento.jsp"><button>Procedi al Pagamento</button></a>
+    <div class="button-container">
+        <a href="Spedizione.jsp"><button class="modify-button">Modifica Dettagli di Spedizione</button></a>
+        <a href="Pagamento.jsp"><button class="payment-button">Procedi al Pagamento</button></a>
+    </div>
 </div>
 </body>
 </html>

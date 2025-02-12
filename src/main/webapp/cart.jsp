@@ -15,7 +15,7 @@
 
 </head>
 <body>
-<%@include file="Navbar.jsp"%>
+<%@include file="NewNavbar.jsp"%>
 <br><br><br>
 <div class="container">
 
@@ -39,8 +39,9 @@
 			Cart cart = (Cart) session.getAttribute("cart");
 			if (cart != null && !cart.getItems().isEmpty()) {
 				for (ItemCart item : cart.getItems()) {
-					Prodotto prodotto = item.getProdotto();
-					double totalPrice = prodotto.getPrezzo() * item.getQuantity();
+                    Prodotto prodotto = item.getProdotto();
+                    double totalPrice = prodotto.getPrezzo() * item.getQuantity();
+
 		%>
         <tr>
 
@@ -59,25 +60,38 @@
                         <input type="hidden" name="productId" value="<%= prodotto.getId() %>">
                         <input type="number" name="quantity" value="<%= item.getQuantity() %>" min="1"></div>
                         <button class= "link_bottone_rimuovi">Aggiorna</button>
+
+                </form >
                         <form action="removeProduct" method="post" onsubmit="setTimeout(updateTotal, 500)">
+                            <input type="hidden" name="cartId" value="<%= cart.getId() %>">
+                            <input type="hidden" name="productId" value="<%= prodotto.getId() %>">
                         <button class= "link_bottone_rimuovi" type="submit">Rimuovi</button>
                         </form>
 
-                </form >
-            </td>
 
-                        <%  }
-                    } else {
-                    %>
-                    <tr>
-                        <td colspan="6">Il carrello è vuoto.</td>
-                    </tr>
-                        <% } %>
+            </td>
+        </tr>
+            <%}%>
         </tbody>
+
+
     </table>
     <form action="checkout" method="post">
         <button type = "submit" class="link_bottone">Acquista</button>
     </form>
+</div>
+
+
+
+
+    <%
+        } else {
+    %>
+    <tr>
+        <td colspan="6">Il carrello è vuoto.</td>
+    </tr>
+    <% } %>
+
 
 
 
@@ -89,7 +103,7 @@
 
 
 </div>
-<%@include file="footer.jsp"%>
+
 <script>
     $(document).ready(function(){
         $(".header_icon-bar").click(function(e){
