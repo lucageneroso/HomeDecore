@@ -50,30 +50,43 @@ p {
     margin: 5px 0;
 }
 
-/* Pulsanti */
+/* Contenitore dei pulsanti */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Stile generale per i pulsanti */
 button {
-    background-color: #28a745;
-    color: white;
+    flex: 1;
     border: none;
     padding: 12px 20px;
-    font-size: 18px;
+    font-size: 16px;
     border-radius: 6px;
     cursor: pointer;
-    width: 100%;
-    margin-top: 15px;
     transition: background 0.3s;
 }
 
-button:hover {
+/* Bottone "Procedi al Pagamento" */
+.payment-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.payment-button:hover {
     background-color: #218838;
 }
 
-button.secondary {
-    background-color: #dc3545;
+/* Bottone "Modifica Dettagli di Spedizione" */
+.modify-button {
+    background-color: #ffc107;
+    color: black;
 }
 
-button.secondary:hover {
-    background-color: #c82333;
+.modify-button:hover {
+    background-color: #e0a800;
 }
 
 /* Responsive */
@@ -81,5 +94,13 @@ button.secondary:hover {
     .container {
         width: 90%;
         padding: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
     }
 }

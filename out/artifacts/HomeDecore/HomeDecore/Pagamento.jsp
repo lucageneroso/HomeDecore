@@ -11,6 +11,7 @@
 
 
         }
+        /*validazione dei vari campi dei metodi di pagamento prima dell'invio alla servlet apposita*/
         function validateForm() {
             let method = document.getElementById("paymentMethod").value;
 
@@ -35,6 +36,8 @@
     </script>
 </head>
 <body>
+
+
 <div class="container">
     <div class="payment-card">
         <h2>Pagamento</h2>

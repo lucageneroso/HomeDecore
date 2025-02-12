@@ -17,8 +17,14 @@ public class PayPal {
 
 
 
-    public boolean processPayment(String email, double amount) {
-        System.out.println("Pagamento di " + amount + "€ effettuato con PayPal dall'email: " + email);
-        return true;
+    public boolean processPayment(double amount) {
+        if (amount >= 0 && amount <= 1000) {
+            System.out.println("Pagamento di " + amount + "€ avvenuto con successo ed effettuato con PayPal");
+            return true;
+
+        } else {
+            System.out.println("Pagamento non avvenuto");
+            return false;
+        }
     }
 }
