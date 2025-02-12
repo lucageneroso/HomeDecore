@@ -1,5 +1,6 @@
 package model.UserManagement;
 
+import enumerativeTypes.Ruolo;
 import enumerativeTypes.Stato;
 import jakarta.persistence.*;
 import model.OrderManagement.Ordine;
@@ -29,7 +30,7 @@ public class GestoreOrdini extends Utente implements Serializable {
 
     // Constructor with basic fields
     public GestoreOrdini(String nome, String cognome, String email, String password) {
-        super(nome, cognome, email, password);
+        super(nome, cognome, email, password, Ruolo.GESTOREORDINI);
         this.listaOrdini = new ArrayList<>();
     }
 
