@@ -48,7 +48,15 @@
 %>
 <div style="width: 100%; height: 100%; display: flex; justify-content: center ; align-items: center;">
     <section class="banner clearfix" style="width: 100%">
-        <div class="banner_image"></div>
+        <div class="banner_image">
+            <% if (prodotto.getImageBytes() != null) { %>
+            <img src="data:image/png;base64,<%= java.util.Base64.getEncoder().encodeToString(prodotto.getImageBytes()) %>"
+                  alt="Immagine prodotto" width="150" height="150">
+            <% } else { %>
+            <p>Immagine non disponibile</p>
+            <% } %>
+        </div>
+        <p></p>
         <div class="banner_copy">
             <div class="banner_copy_txt">
                 <h4><%= prodotto.getNome() %></h4>

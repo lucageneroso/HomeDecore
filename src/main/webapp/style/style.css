@@ -300,10 +300,10 @@ _____________________________*/
 
 .banner_image
 {
-    width: 30%;
+    width: 100%;
     float: left;
     height: 100%;
-    background-image: url(../image/Cucina2.jpg);
+
     /*ora l immagine la impostiamo su cover cosi da essere responsive*/
     background-size: cover;/*impostazione cover*/
     -o-background-size: cover;/*impostazione cover per opera*/
