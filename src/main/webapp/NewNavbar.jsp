@@ -1,11 +1,11 @@
-
+<%@ page import="model.UserManagement.Utente" %>
 
 <a href="" class=" face "></a>
 <a href="" class="insta"></a>
 <header class="header clearfix">
 
 
-    <a href="home.jsp" class="header_logo"></a>
+    <a href="home2.jsp" class="header_logo"></a>
 
 
 
@@ -20,15 +20,25 @@
     <ul class="header_menu animate">
 
 
+        <%
+            // Recupero l'utente dalla sessione
+            Utente user = (Utente) session.getAttribute("loggedUser");
+            String homeLink;
 
-        <li class="header_menu_item"><a href="home.jsp">Home</a></li>
-        <li class="header_menu_item"><a target="_blank" href="">Dove ci Trovi</a></li>
+            // Determino la home da mostrare in base allo stato dell'utente
+            if(user!=null)
+                homeLink="home2.jsp";
+            else
+                homeLink="home.jsp";
 
+
+
+
+
+        %>
+
+        <li class="header_menu_item"><a href="<%= homeLink %>">Home</a></li>
         <li class="header_menu_item"><a href="catalogo">Catalogo</a></li>
-
-        <li class="header_menu_item"><a href="login.jsp">Login</a></li>
-
-
 
 
     </ul>

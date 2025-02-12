@@ -24,8 +24,10 @@
 
 <header class="header">
     <nav class="navbar">
-        <div class="navbar_item"><a href="home2.jsp">Home</a></div>
-        <div class="navbar_item"><a href="#">Richieste</a></div>
+        <div class="navbar_item"><a href="Profile.jsp">Profilo</a></div>
+        <div class="navbar_item"><a href="request">Richieste</a></div>
+        <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
+        <div class="navbar_item"><a href="magazzinoProdotti">Crea Magazzino</a></div>
     </nav>
 </header>
 

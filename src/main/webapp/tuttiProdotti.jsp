@@ -14,7 +14,7 @@
 
 </head>
 <body >
-<%@include file = "Navbar.jsp" %>
+<%@include file = "NewNavbar1.jsp" %>
 <%
     List<Prodotto> prodotti = (List<Prodotto>) request.getAttribute("prodotti");
     String[] categorie = {"BAGNO", "CUCINA", "SOGGIORNO", "GIARDINO"};

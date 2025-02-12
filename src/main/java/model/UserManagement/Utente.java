@@ -98,7 +98,7 @@ public class Utente implements Serializable {
         @NamedQuery(name = "Utente.TROVA_PER_EMAIL", query = "SELECT u FROM Utente u WHERE u.email = :email"),
         @NamedQuery(name = "Utente.TROVA_PER_NOME", query = "SELECT u FROM Utente u WHERE u.nome = :nome"),
         @NamedQuery(name = "Utente.TROVA_PER_COGNOME", query = "SELECT u FROM Utente u WHERE u.cognome = :cognome"),
-        @NamedQuery(name = "Utente.TROVA_PER_USERNAME", query = "SELECT u FROM Utente u WHERE u.username = :username")
+
 })
 public class Utente implements Serializable {
     private String nome;
