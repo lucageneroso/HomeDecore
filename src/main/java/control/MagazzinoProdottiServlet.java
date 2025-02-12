@@ -34,6 +34,8 @@ public class MagazzinoProdottiServlet extends HttpServlet {
 
                 List<Prodotto> prodotti= catalogo.getProductsInMagazzino();
                 System.out.println(prodotti);
+                request.setAttribute("prodotti", prodotti);
+                request.getRequestDispatcher("/Magazziniere.jsp").forward(request, response);
 
             }else{
                 System.out.println("Ruolo non corretto");

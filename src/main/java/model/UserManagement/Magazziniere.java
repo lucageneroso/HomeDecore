@@ -1,5 +1,6 @@
 package model.UserManagement;
 
+import enumerativeTypes.Ruolo;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import model.OrderManagement.Prodotto;
@@ -17,7 +18,7 @@ public class Magazziniere extends Utente{
 
     // Constructor with basic fields
     public Magazziniere(String nome, String cognome, String email, String password, Magazzino magazzino) {
-        super(nome, cognome, email, password);
+        super(nome, cognome, email, password, Ruolo.MAGAZZINIERE);
         this.magazzino = magazzino;
     }
 

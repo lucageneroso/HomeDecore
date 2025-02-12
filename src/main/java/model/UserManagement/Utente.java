@@ -115,12 +115,12 @@ public class Utente implements Serializable {
 
     public Utente() {}
 
-    public Utente(String nome, String cognome, String email, String password) {
+    public Utente(String nome, String cognome, String email, String password, Ruolo ruolo) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        //this.username = username;
         this.password = password;
+        this.ruolo = ruolo;
     }
 
     public String getNome() {
