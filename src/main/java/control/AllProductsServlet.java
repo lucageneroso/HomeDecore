@@ -15,9 +15,8 @@ import remoteInterfaces.CatalogoRemote;
 import java.io.IOException;
 import java.util.List;
 
-
-@WebServlet("/magazzinoProdotti")
-public class MagazzinoProdottiServlet extends HttpServlet {
+@WebServlet("/allProducts")
+public class AllProductsServlet extends HttpServlet {
 
     @EJB CatalogoRemote catalogo;
 
@@ -28,17 +27,15 @@ public class MagazzinoProdottiServlet extends HttpServlet {
         if (session != null) {
 
             Utente utente = (Utente) session.getAttribute("loggedUser");
-            Long userID= utente.getId();
 
             if (utente.getRuolo().equals(Ruolo.MAGAZZINIERE)){
 
-                List<Prodotto> prodotti= catalogo.getProductsInMagazzino();
+                List<Prodotto> prodotti= catalogo.getProducts();
                 System.out.println(prodotti);
 
             }else{
                 System.out.println("Ruolo non corretto");
             }
-
 
         }else{
             response.getWriter().println("Sessione non esistente.");
@@ -46,4 +43,5 @@ public class MagazzinoProdottiServlet extends HttpServlet {
 
 
     }
+
 }
