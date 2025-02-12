@@ -55,7 +55,7 @@
   <%
 
 
-    List<ItemCart> items= (List<ItemCart>) request.getAttribute("itemsCart");
+    List<ItemCart> items= (List<ItemCart>) session.getAttribute("items");
     if (items != null) {
       for (ItemCart item : items) {
   %>

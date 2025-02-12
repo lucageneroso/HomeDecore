@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    text-align: center;
+}
+
+h2, h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Tabella prodotti */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+}
+
+td {
+    text-align: center;
+}
+
+/* Testo dei dettagli */
+p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Contenitore dei pulsanti */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Stile generale per i pulsanti */
+button {
+    flex: 1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Bottone "Procedi al Pagamento" */
+.payment-button {
+    background-color: #28a745;
+    color: white;
+}
+
+.payment-button:hover {
+    background-color: #218838;
+}
+
+/* Bottone "Modifica Dettagli di Spedizione" */
+.modify-button {
+    background-color: #ffc107;
+    color: black;
+}
+
+.modify-button:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100%;
+    }
+}
