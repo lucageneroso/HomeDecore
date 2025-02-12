@@ -11,7 +11,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
@@ -38,17 +38,19 @@
         <%
             // Recupera l'utente dalla sessione
             Utente loggedUser = (Utente) session.getAttribute("loggedUser");
-            String username = (loggedUser != null) ? loggedUser.getUsername() : "";
+            String nome = (loggedUser != null) ? loggedUser.getNome() : "";
         %>
-        <li class="header_menu_item">Benvenuto <strong><%= username %></strong></li>
+        <li class="header_menu_item">Benvenuto <strong><%= nome %></strong></li>
         <li class="header_menu_item">
             <a href="ProfileClient.jsp" title="Profilo">
                 <img src="image/profilo-icon.png" alt="Profilo" style="width: 24px; height: 24px;"/>
             </a>
+        <li class="header_menu_item"><a href="cart.jsp">Carrello<span class="badge badge-success px-1"></span></a>
         </li>
         <li class="header_menu_item">
             <a href="logout.jsp" title="Logout">Logout</a>
         </li>
+
     </ul>
 
 

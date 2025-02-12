@@ -18,7 +18,7 @@
 <html>
 <head>
     <title>Profilo</title>
-    <link rel="stylesheet" href="StyleProfile.css">
+    <link rel="stylesheet" href="style/StyleProfile.css">
 </head>
 <body>
 
@@ -36,8 +36,9 @@
 
 <div class="profile-info hidden" id="profile-info">
     <h2>Informazioni Account</h2>
-    <p><strong>Username:</strong> <%= utente.getUsername() %></p>
+    <p><strong>Nome:</strong> <%= utente.getNome() %> <%= utente.getCognome() %></p>
     <p><strong>Email:</strong> <%= utente.getEmail() %></p>
+    <p><strong>Ruolo:</strong> <%= utente.getRuolo() %></p>
     <p><strong>Password:</strong> <%= utente.getPassword() %></p>
 </div>
 

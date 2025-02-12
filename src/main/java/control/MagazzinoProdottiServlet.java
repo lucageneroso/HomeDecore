@@ -36,7 +36,7 @@ public class MagazzinoProdottiServlet extends HttpServlet {
                 System.out.println(prodotti);
 
             }else{
-                System.out.println("Stupido idiota che ci fai qui");
+                System.out.println("Ruolo non corretto");
             }
 
 

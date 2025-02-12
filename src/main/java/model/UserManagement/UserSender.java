@@ -17,8 +17,8 @@ public class UserSender extends Utente{
 
     }
 
-    public UserSender(String nome, String cognome, String email, String username, String password, Ruolo ruolo,boolean stato,int numMessageCount){
-        super(nome,cognome,email,username,password);
+    public UserSender(String nome, String cognome, String email, String password, Ruolo ruolo,boolean stato,int numMessageCount){
+        super(nome,cognome,email,password);
         this.stato=stato;
         this.numMessageCount=numMessageCount;
     }

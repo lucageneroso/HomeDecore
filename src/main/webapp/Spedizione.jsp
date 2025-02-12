@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Dettagli di Spedizione</title>
-    <link rel="stylesheet" type="text/css" href="Spedizione.css">
+    <link rel="stylesheet" type="text/css" href="style/Spedizione.css">
 </head>
 <body>
 <div class="container">

@@ -105,7 +105,7 @@ public class Utente implements Serializable {
     private String cognome;
     private String email;
     private String password;
-    private String username;
+    //private String username;
 
     @Enumerated(EnumType.STRING)
     private Ruolo ruolo;
@@ -115,11 +115,11 @@ public class Utente implements Serializable {
 
     public Utente() {}
 
-    public Utente(String nome, String cognome, String email, String username, String password) {
+    public Utente(String nome, String cognome, String email, String password) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        this.username = username;
+        //this.username = username;
         this.password = password;
     }
 
@@ -147,8 +147,7 @@ public class Utente implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String getUsername() {return username;}
-    public void setUsername(String username) {this.username = username;}
+
     @Override
     public String toString() {
         return "Utente{" +

@@ -28,8 +28,8 @@ public class GestoreOrdini extends Utente implements Serializable {
     }
 
     // Constructor with basic fields
-    public GestoreOrdini(String nome, String cognome, String email, String username, String password) {
-        super(nome, cognome, email, username, password);
+    public GestoreOrdini(String nome, String cognome, String email, String password) {
+        super(nome, cognome, email, password);
         this.listaOrdini = new ArrayList<>();
     }
 

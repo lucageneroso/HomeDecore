@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 public class ProductRequest extends Request implements Serializable {
 
     private int prodottoRichiestoID;
-
     private int quantita;
 
     public ProductRequest(){}
