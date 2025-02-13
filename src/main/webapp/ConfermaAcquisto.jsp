@@ -14,7 +14,7 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #8B4000;
             padding: 50px;
         }
         .message-box {

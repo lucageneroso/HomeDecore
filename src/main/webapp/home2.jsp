@@ -32,9 +32,10 @@
 
 
 
+
       <section class="cards clearfix">
           <div class="card">
-              <img src="image/bagno.jpeg" alt="" class="image">
+              <img src="image/bagno.jpg" alt="" class="image">
               <div class="card_copy">
                   <h3>Articoli Bagno</h3>
 
@@ -44,7 +45,7 @@
 
 
           <div class="card">
-              <img src="image/soggiorno.jpg" alt="" class="image">
+              <img src="image/Soggiorno2.jpg" alt="" class="image">
               <div class="card_copy">
                   <h3>I Nostri Soggiorni</h3>
 
@@ -54,7 +55,7 @@
 
 
           <div class="card">
-              <img src="image/cucina.jpeg" alt="" class="image">
+              <img src="image/Cucina4.jpg" alt="" class="image">
               <div class="card_copy">
                   <h3>Le Nostre Cucine</h3>
 

@@ -1,7 +1,7 @@
-
 body, html {
     width: 100%;
     height: 100%;
+    background-color: #8B4000;
     font-size: 16px;
     font-family: Lobster, sans-serif;
     box-sizing: border-box;
@@ -12,25 +12,24 @@ body, html {
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
 /* Profilo utente */
 .profile-container {
-    margin: 120px auto; /* Margine maggiore dall'alto per evitare sovrapposizioni con l'header */
+    margin: 120px auto;
     max-width: 800px;
     text-align: center;
-    padding: 20px; /* Aggiunto padding per separare ulteriormente il contenuto */
-    background-color: rgba(0, 0, 0, 0.4); /* Sfondo semi-trasparente per evidenziare meglio il contenitore */
-    border-radius: 15px; /* Angoli arrotondati per un design più accattivante */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ombra per maggiore enfasi */
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .profile-container h1 {
-    font-size: 28px; /* Font leggermente più grande */
+    font-size: 28px;
     margin-bottom: 20px;
     color: #fff;
 }
 
 .profile-container p {
-    font-size: 18px; /* Font leggermente più grande */
+    font-size: 18px;
     color: #fff;
 }
 
@@ -75,25 +74,27 @@ body, html {
 .button:hover {
     background-color: rgba(255, 99, 71, 0.9);
 }
+
 /* Header con navbar */
 .header {
-    background: linear-gradient(0deg, rgba(242, 242, 242, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
     position: fixed;
-    top: 0; /* Posiziona l'header in alto */
-    left: 0; /* Assicura che l'header sia ancorato al bordo sinistro */
-    z-index: 1000; /* Assicura che sia sopra gli altri elementi */
-    width: 100%; /* Occupa tutta la larghezza dello schermo */
-    height: 60px; /* Altezza fissa dell'header */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Leggera ombra per definizione */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
+    background: rgb(139,64,0);
+    background: linear-gradient(180deg, rgba(139,64,0,0) 0%, rgba(139,64,0,0.0033263305322128733) 43%);
     display: flex;
-    gap: 30px; /* Spaziatura tra le sezioni */
+    gap: 30px;
 }
 
 .navbar_item a {
@@ -103,27 +104,65 @@ body, html {
     padding: 10px 15px;
     border-radius: 13.5px;
     transition: background-color 0.3s ease-in-out;
-    background-color: rgba(0, 0, 0, 0.5); /* Sfondo trasparente per coerenza */
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navbar_item a:hover {
-    background-color: white; /* Cambia colore al passaggio del mouse */
+    background-color: white;
     color: black;
 }
 
-
 .profile-options .button:hover {
-    background-color: rgba(255, 99, 71, 0.9); /* Colore rosso-arancio */
+    background-color: rgba(255, 99, 71, 0.9);
 }
 
-/* Stile per il body */
-body {
-    background: linear-gradient(0deg, #868383 0%, #3b3e23 100%); /* Gradiente dello sfondo */
+/* Sezione Ordini */
+.orders-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     color: white;
     text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
-/* Media query per dispositivi mobili */
+.orders-section h2 {
+    font-size: 24px;
+    color: #ffa500;
+    margin-bottom: 15px;
+}
+
+/* Tabella Ordini */
+.orders-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.orders-section th, .orders-section td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    text-align: center;
+    color: white;
+}
+
+.orders-section th {
+    background-color: rgba(255, 165, 0, 0.6);
+    font-size: 18px;
+}
+
+.orders-section tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -134,5 +173,12 @@ body {
         flex-direction: column;
         gap: 15px;
     }
-}
 
+    .orders-section table {
+        font-size: 14px;
+    }
+
+    .orders-section th, .orders-section td {
+        padding: 8px;
+    }
+}

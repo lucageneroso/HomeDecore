@@ -13,8 +13,7 @@
         return;
     }
 
-    // Recupera gli ordini dalla sessione
-    List<Ordine> orders = (List<Ordine>) session.getAttribute("orders");
+
 %>
 <html>
 <head>
@@ -50,7 +49,7 @@
         %>
         <!-- Geestore Ordini-->
         <div class="navbar_item"><a href="request">Richieste</a></div>
-        <div class="navbar_item"><a href="request">Gestisci ordini</a></div>
+        <div class="navbar_item"><a href="GestisciOrdini.jsp">Gestisci ordini</a></div>
         <%}%>
         <div class="navbar_item"><a href="logout.jsp">Logout</a></div>
     </nav>
@@ -69,44 +68,6 @@
     <p><strong>Password:</strong> <%= utente.getPassword() %></p>
 </div>
 
-<!-- Sezione di riepilogo degli ordini effettuati. -->
-<div class="orders-section">
-    <h2>I tuoi ordini</h2>
-    <%
-        if (orders == null || orders.isEmpty()) {
-    %>
-    <p>Non hai effettuato ancora un ordine.</p>
-    <%
-    } else {
-    %>
-    <table border="1">
-        <thead>
-        <tr>
-            <th>ID Ordine</th>
-            <th>Data</th>
-            <th>Totale</th>
-            <th>Stato</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%
-            for (Ordine ordine : orders) {
-        %>
-        <tr>
-            <td><%= ordine.getId() %></td>
-            <td><%= ordine.getDate() %></td>
-            <td><%= ordine.getTotale() %> €</td>
-            <td><%= ordine.getStato() %></td>
-        </tr>
-        <%
-            }
-        %>
-        </tbody>
-    </table>
-    <%
-        }
-    %>
-</div>
 
 <script>
     function toggleProfileInfo() {

@@ -40,10 +40,10 @@
             Utente loggedUser = (Utente) session.getAttribute("loggedUser");
             String nome = (loggedUser != null) ? loggedUser.getNome() : "";
         %>
-        <li class="header_menu_item">Benvenuto <strong><%= nome %></strong></li>
+        <li style="color:white" class="header_menu_item">Benvenuto <strong><%= nome %></strong></li>
         <li class="header_menu_item">
             <a href="ProfileClient.jsp" title="Profilo">
-                <img src="image/profilo-icon.png" alt="Profilo" style="width: 24px; height: 24px;"/>
+                <img src="image/profilo-icona.png" alt="Profilo" style="width: 24px; height: 24px;"/>
             </a>
 
         <li class="header_menu_item"><a href="cart.jsp">Carrello<span class="badge badge-success px-1"></span></a>
