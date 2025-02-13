@@ -258,9 +258,9 @@ public class DatabasePopulator {
 
         em.flush();
         ProductRequest productRequest = new ProductRequest(magazziniere.getId(), fornitore1.getId(), LocalDateTime.now(), p4.getId(), 3, "ProvaRichiesta");
-
         em.persist(productRequest);
         em.flush();
+
         System.out.println("Popolamento completato");
 
 

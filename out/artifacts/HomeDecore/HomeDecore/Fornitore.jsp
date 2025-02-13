@@ -4,6 +4,7 @@
 <%@ page import="service.Catalogo" %>
 <%@ page import="jakarta.ejb.EJB" %>
 <%@ page import="remoteInterfaces.CatalogoRemote" %>
+<%@ page import="model.OrderManagement.Prodotto" %>
 <html>
 <head>
     <title></title>
@@ -28,6 +29,28 @@
             border-radius: 5px;
         }
     </style>
+    <script>
+        function accettaRichiesta(richiestaId, idProdotto, quantita) {
+            // Invia una richiesta AJAX per accettare la richiesta
+            const params = new URLSearchParams();
+            params.append("idRequest", richiestaId);
+            params.append("idProdotto", idProdotto);
+            params.append("quantita", quantita);
+
+            fetch("accettaRichiestaServlet", {
+                method: "POST",
+                body: params
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    // Se la richiesta è stata accettata, rimuovi la riga dalla tabella
+                    const row = document.getElementById("richiesta_" + richiestaId);
+                    row.remove(); // Rimuove la riga
+                })
+                .catch(error => console.error("Errore:", error));
+        }
+    </script>
 </head>
 <body>
 
@@ -41,19 +64,20 @@
         <th>Azioni</th>
     </tr>
     <%
-
-
         List<ProductRequest> richiesteFornitore = (List<ProductRequest>) request.getAttribute("richiesteFornitore");
+        List<Prodotto> prodotti = (List<Prodotto>) request.getAttribute("prodotti");
 
-        if (richiesteFornitore != null && !richiesteFornitore.isEmpty()) {
-            for (ProductRequest richiesta : richiesteFornitore) {
+        if (richiesteFornitore != null && !richiesteFornitore.isEmpty() && prodotti != null && prodotti.size() == richiesteFornitore.size()) {
+            for (int i = 0; i < richiesteFornitore.size(); i++) {
+                ProductRequest richiesta = richiesteFornitore.get(i);
+                Prodotto prodotto = prodotti.get(i); // prendi l'elemento corrispondente nella lista dei prodotti
     %>
-    <tr>
-        <td><%= richiesta.getProdottoRichiestoID() %></td>
+    <tr id="richiesta_<%= richiesta.getId() %>">
+        <td><%= prodotto.getNome() %></td>
         <td><%= richiesta.getQuantita() %></td>
-        <td><%= richiesta.getMagazziniereID() %></td>
+        <td><%= richiesta.getMessage() %></td>
         <td>
-            <a class="btn-accept" href="accettaRichiesta?id=<%= richiesta.getId() %>">Accetta</a>
+            <button class="btn-accept" onclick="accettaRichiesta(<%= richiesta.getId() %>, <%= prodotto.getId() %>, <%= richiesta.getQuantita() %>)">Accetta</button>
         </td>
     </tr>
     <%
