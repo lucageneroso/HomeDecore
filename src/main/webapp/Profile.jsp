@@ -49,7 +49,7 @@
         %>
         <!-- Geestore Ordini-->
         <div class="navbar_item"><a href="request">Richieste</a></div>
-        <div class="navbar_item"><a href="GestisciOrdini.jsp">Gestisci ordini</a></div>
+        <div class="navbar_item"><a href="ordini">Gestisci ordini</a></div>
         <%}%>
         <div class="navbar_item"><a href="logout.jsp">Logout</a></div>
     </nav>
