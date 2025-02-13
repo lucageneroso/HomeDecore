@@ -32,6 +32,7 @@
             if(utente.getRuolo() == Ruolo.MAGAZZINIERE){
         %>
 
+
         <!-- Magazziniere-->
         <div class="navbar_item"><a href="magazzinoProdotti">Magazzino</a></div>
         <div class="navbar_item"><a href="ProductNotInMagazzino">Aggiungi prodotti in Magazzino</a></div>
