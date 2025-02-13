@@ -24,12 +24,24 @@
 
 <header class="header">
     <nav class="navbar">
+
+
         <div class="navbar_item"><a href="Profile.jsp">Profilo</a></div>
-        <div class="navbar_item"><a href="request">Richieste</a></div>
-        <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
+
+        <!-- Magazziniere-->
         <div class="navbar_item"><a href="magazzinoProdotti">Magazzino</a></div>
         <div class="navbar_item"><a href="ProductNotInMagazzino">Aggiungi prodotti in Magazzino</a></div>
         <div class="navbar_item"><a href="ordini">Gestisci ordini</a></div>
+
+        <!-- Fornitore-->
+        <div class="navbar_item"><a href="request">Richieste</a></div>
+        <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
+
+        <!-- Geestore Ordini-->
+        <div class="navbar_item"><a href="request">Richieste</a></div>
+        <div class="navbar_item"><a href="request">Gestisci ordini</a></div>
+
+        <div class="navbar_item"><a href="logout.jsp">Logout</a></div>
     </nav>
 </header>
 
