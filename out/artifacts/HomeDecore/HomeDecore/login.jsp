@@ -29,18 +29,13 @@
         <a class="link_register" href="register.jsp"><i>Non sei ancora registrato?</i></a>
     </form>
 
-    <!-- Success/Error message -->
-    <div class="message">
-        <c:if test="${not empty loggedUser}">
-            <p class="success">Benvenuto, ${loggedUser.nome}!</p>
-        </c:if>
-        <c:if test="${empty loggedUser}">
-            <p class="error">Login fallito. Email o password errati.</p>
-        </c:if>
-        <c:if test="${not empty loginError}">
-            <p class="error">${loginError}</p>
-        </c:if>
-    </div>
+    <!--Messaggio di errore-->
+    <% String errorMessage = (String) request.getAttribute("loginError"); %>
+    <% if (errorMessage != null) { %>
+
+    <p><%= errorMessage %></p>
+
+    <% } %>
 </div>
 
 </body>
