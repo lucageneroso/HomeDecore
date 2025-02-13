@@ -27,7 +27,9 @@
         <div class="navbar_item"><a href="Profile.jsp">Profilo</a></div>
         <div class="navbar_item"><a href="request">Richieste</a></div>
         <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
-        <div class="navbar_item"><a href="magazzinoProdotti">Crea Magazzino</a></div>
+        <div class="navbar_item"><a href="magazzinoProdotti">Magazzino</a></div>
+        <div class="navbar_item"><a href="ProductNotInMagazzino">Aggiungi prodotti in Magazzino</a></div>
+        <div class="navbar_item"><a href="ordini">Gestisci ordini</a></div>
     </nav>
 </header>
 

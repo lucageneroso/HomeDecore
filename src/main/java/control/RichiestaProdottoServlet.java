@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.OrderManagement.Ordine;
+import model.OrderManagement.Prodotto;
 import model.RequestManagement.ProductRequest;
 import model.UserManagement.Utente;
 import remoteInterfaces.CatalogoRemote;
@@ -22,6 +23,7 @@ import java.util.List;
 public class RichiestaProdottoServlet extends HttpServlet {
 
     @EJB RequestServiceRemote requestService;
+    @EJB CatalogoRemote catalogo;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -57,6 +59,28 @@ public class RichiestaProdottoServlet extends HttpServlet {
                 // Logica per gestire la richiesta, ad esempio aggiorna la disponibilità o invia una notifica
                 ProductRequest productRequest= new ProductRequest(userID, idFornitore, LocalDateTime.now(),  idProd,quantity, note);
                 requestService.addRequest(productRequest);
+
+                /*
+                Prodotto prodotto= catalogo.findProductByID(idProd);
+                if (prodotto != null) {
+
+                    if( !prodotto.isInMagazzino() ){
+                        prodotto.setInMagazzino(true);
+                        // Salva lo stato nel database
+                        catalogo.updateProduct(prodotto);
+                        System.out.println("Prodotto aggiunto in magazzino");
+                    }
+
+                    } else {
+                    response.getWriter().write("Prodotto non trovato");
+                }
+
+                 */
+
+
+
+
+
 
                 System.out.println("Richiesta aggiunto");
 
