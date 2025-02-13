@@ -242,8 +242,10 @@ public class DatabasePopulator {
         em.flush();
 
         Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
+        Ordine ordine2 = new Ordine(cliente.getId(),24.1,listItem);
 
         em.persist(ordine);
+        em.persist(ordine2);
         em.persist(gestore1);
         giveOrdine(ordine, gestore1);
 

@@ -15,12 +15,12 @@ public class UserReceiver extends Utente{
     public UserReceiver() {
 
     }
-   /* public UserReceiver(String nome, String cognome, String email, String password, Ruolo ruolo) {
-        super(nome,cognome,email,password);
+    public UserReceiver(String nome, String cognome, String email, String password, Ruolo ruolo) {
+        super(nome,cognome,email,password, Ruolo.CLIENTE);
         this.unreadMessagesCount = 0;
         this.lastReceivedMessage = null;
     }
-*/
+
 
 
     public int getUnreadMessagesCount() {
