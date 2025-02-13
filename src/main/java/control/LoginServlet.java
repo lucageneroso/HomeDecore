@@ -99,6 +99,7 @@ public class LoginServlet extends HttpServlet {
             if (loggedUser.getRuolo() == Ruolo.CLIENTE) {
                 response.sendRedirect(request.getContextPath() + "/home2.jsp");
             } else {
+                System.out.println(loggedUser.toString());
                 response.sendRedirect(request.getContextPath() + "/Profile.jsp");
             }
 

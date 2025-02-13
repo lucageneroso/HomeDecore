@@ -16,7 +16,7 @@
     <h1>Registrazione</h1>
 
     <!-- Login Form -->
-    <form action="/HomeDecore/login" method="POST">
+    <form action="/HomeDecore/register" method="post">
         <div class="form-group">
             <label for="name">Nome*</label>
             <input type="text" id="name" name="name" placeholder="Es. Mario Rossi" required>
@@ -25,10 +25,7 @@
             <label for="surname">Cognome*</label>
             <input type="text" id="surname" name="surname" placeholder="Es. Rossi" required>
         </div>
-        <div class="form-group">
-            <label for="birthdate">Data di nascita*</label>
-            <input type="date" id="birthdate" name="birthdate" required>
-        </div>
+
         <div class="form-group">
             <label for="email">Email*</label>
             <input type="email" id="email" name="email" required>
@@ -38,15 +35,30 @@
             <input type="password" id="password" name="password" required>
         </div>
         <div class="form-group">
-            <label for="vat">p.IVA*</label>
-            <input type="text" id="vat" name="vat" pattern="^[0-9]{11}$" placeholder="Es. 12345678901" required>
-            <small>Inserisci un numero di 11 cifre</small>
+            <label for="stato">Stato*</label>
+            <input type="text" id="stato" name="stato" placeholder="Es. Italia" required>
         </div>
         <div class="form-group">
-            <label for="iban">IBAN*</label>
-            <input type="text" id="iban" name="iban" pattern="^[A-Za-z0-9]{27}$" placeholder="Es. IT60X0542811101000000123456" required>
-            <small>Inserisci un IBAN di 27 caratteri</small>
+            <label for="provincia">Provincia*</label>
+            <input type="text" id="provincia" name="provincia" placeholder="Es. Milano" required>
         </div>
+        <div class="form-group">
+            <label for="citta">Città*</label>
+            <input type="text" id="citta" name="citta" placeholder="Es. Milano" required>
+        </div>
+        <div class="form-group">
+            <label for="via">Via*</label>
+            <input type="text" id="via" name="via" placeholder="Es. Via Roma" required>
+        </div>
+        <div class="form-group">
+            <label for="numCivico">Numero Civico*</label>
+            <input type="number" id="numCivico" name="numCivico" placeholder="Es. 12" required>
+        </div>
+        <div class="form-group">
+            <label for="cap">CAP*</label>
+            <input type="number" id="cap" name="cap" placeholder="Es. 20100" required>
+        </div>
+
         <div class="form-group">
             <button type="submit">Registrati</button>
         </div>

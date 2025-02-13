@@ -24,7 +24,7 @@
         <li class="header_menu_item"><a href="home.jsp">Home</a></li>
         <li class="header_menu_item"><a target="_blank" href="">Dove ci Trovi</a></li>
 
-        <li class="header_menu_item"><a href="catalogo">Negozio</a></li>
+        <li class="header_menu_item"><a href="catalogo">Catalogo</a></li>
 
         <li class="header_menu_item"><a href="login.jsp">Login</a></li>
 

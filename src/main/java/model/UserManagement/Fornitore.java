@@ -1,5 +1,6 @@
 package model.UserManagement;
 
+import enumerativeTypes.Ruolo;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -22,13 +23,13 @@ public class Fornitore extends Utente implements Serializable {
 
     // Constructor with basic fields
     public Fornitore(String nome, String cognome, String email, String password) {
-        super(nome, cognome, email, password);
+        super(nome, cognome, email, password, Ruolo.FORNITORE);
         this.prodottiForniti = new ArrayList<>();
     }
 
     // Constructor with basic fields and a list of prodottiForniti
     public Fornitore(String nome, String cognome, String email, String password, List<Integer> prodottiForniti) {
-        super(nome, cognome, email, password);
+        super(nome, cognome, email, password, Ruolo.FORNITORE);
         this.prodottiForniti = prodottiForniti;
     }
 

@@ -9,13 +9,7 @@
 <html>
 <head>
     <title>Conferma Acquisto</title>
-</head>
-<body>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Acquisto Avvenuto</title>
-    <meta http-equiv="refresh" content="5;url=cart.jsp">
+    <meta http-equiv="refresh" content="5;url=CompleteOrderServlet">
     <style>
         body {
             text-align: center;
@@ -23,25 +17,39 @@
             background-color: #f8f9fa;
             padding: 50px;
         }
-        .success-box {
+        .message-box {
             background: #ffffff;
-            padding: 20px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             display: inline-block;
+            max-width: 500px;
         }
         h1 {
             color: #28a745;
+            font-size: 24px;
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+        .redirect-message {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
-<div class="success-box">
-    <h1>Acquisto completato con successo!</h1>
-    <p>Verrai reindirizzato al carrello in pochi secondi...</p>
+<%
+    String paymentMessage = (String) session.getAttribute("message");
+    if (paymentMessage != null) {
+        session.removeAttribute("message"); // Rimuove il messaggio dalla sessione dopo averlo mostrato
+    }
+%>
+<div class="message-box">
+    <h1><%= (paymentMessage != null) ? paymentMessage : "Errore nel recupero del messaggio di pagamento!" %></h1>
+    <p class="redirect-message">Verrai reindirizzato al carrello in 5 secondi...</p>
 </div>
-</body>
-</html>
-
 </body>
 </html>

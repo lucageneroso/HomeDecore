@@ -59,6 +59,7 @@ public class CheckoutServlet extends HttpServlet {
         List<ItemCart> items= cart.getItems();
         session.setAttribute("items",items);
 
+
         // pulisco il carrello
         session.removeAttribute("cart");
 
