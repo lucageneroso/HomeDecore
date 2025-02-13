@@ -13,14 +13,14 @@ import model.UserManagement.Utente;
 import remoteInterfaces.CatalogoRemote;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+@WebServlet("/ProductNotInMagazzino")
+public class ProductNotInMagazzino extends HttpServlet {
 
-
-@WebServlet("/fornitore")
-public class FornitoreServlet extends HttpServlet {
-
-    @EJB CatalogoRemote catalogo;
+    @EJB
+    CatalogoRemote catalogo;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -29,34 +29,26 @@ public class FornitoreServlet extends HttpServlet {
         if (session != null) {
 
             Utente utente = (Utente) session.getAttribute("loggedUser");
-            Long userID= utente.getId();
-
-            if (utente.getRuolo().equals(Ruolo.FORNITORE)){
-
-                List<Prodotto> prodotti= catalogo.findProductByFornitore(userID);
-                System.out.println(prodotti);
-
-            }
 
             if (utente.getRuolo().equals(Ruolo.MAGAZZINIERE)){
 
-                String fornitoreIDParam = request.getParameter("fornitoreID");
+                List<Prodotto> tuttiProdotti= catalogo.getProducts();
+                List<Prodotto> prodottiNonInMagazzino = new ArrayList<Prodotto>();
 
-                if (fornitoreIDParam != null) {
-                    Long fornitoreID = Long.parseLong(fornitoreIDParam);
-                    List<Prodotto> prodotti = catalogo.findProductByFornitore(fornitoreID);
-                    System.out.println(prodotti);
-                } else {
-                    System.out.println("Nessun fornitore specificato.");
+                for (Prodotto p: tuttiProdotti){
+                    if (!p.isInMagazzino()){
+                        prodottiNonInMagazzino.add(p);
+                    }
                 }
 
+                request.setAttribute("prodotti", prodottiNonInMagazzino);
+                request.getRequestDispatcher("/prodottiFornitori.jsp").forward(request, response);
 
+
+
+            }else{
+                System.out.println("Ruolo non corretto");
             }
-
-            else{
-                System.out.println("Ruolo errato");
-            }
-
 
         }else{
             response.getWriter().println("Sessione non esistente.");
@@ -64,4 +56,5 @@ public class FornitoreServlet extends HttpServlet {
 
 
     }
+
 }

@@ -10,11 +10,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
+import model.UserManagement.Cliente;
 import model.UserManagement.GestoreOrdini;
 import model.UserManagement.Utente;
 import remoteInterfaces.OrderServiceRemote;
+import remoteInterfaces.UserServiceRemote;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,6 +25,7 @@ import java.util.List;
 public class gestioneOrdini extends HttpServlet {
 
     @EJB OrderServiceRemote orderService;
+    @EJB UserServiceRemote userService;
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -47,13 +51,32 @@ public class gestioneOrdini extends HttpServlet {
 
             if (utente.getRuolo().equals(Ruolo.GESTOREORDINI)){
 
+                System.out.println("GESTOREORDINI: "+userID);
+
                 List<Ordine> ordini= orderService.findOrdersByGestore(userID);
-                System.out.println(ordini);
+                request.setAttribute("ordini", ordini);
+                request.getRequestDispatcher("/GestisciOrdini.jsp").forward(request, response);
 
             }
 
             if (utente.getRuolo().equals(Ruolo.MAGAZZINIERE)){
 
+                List<Ordine> ordini = orderService.findAllOrders();
+                List<GestoreOrdini> gestoreOrdini= orderService.findAllGestoreOrdini();
+                System.out.println(ordini);
+                List<Utente> clienti= new ArrayList<Utente>();
+
+                for (Ordine ord: ordini) {
+                    clienti.add( userService.findUserById(ord.getUserId()) );
+                }
+
+
+                request.setAttribute("ordini", ordini);
+                request.setAttribute("clienti", clienti);
+                request.setAttribute("gestori", gestoreOrdini);
+                request.getRequestDispatcher("/ordiniMagazzino.jsp").forward(request, response);
+
+                /*
                 String gestoreIDParam = request.getParameter("gestoreID");
 
                 if (gestoreIDParam != null) {
@@ -62,13 +85,13 @@ public class gestioneOrdini extends HttpServlet {
                     System.out.println(ordini);
                 } else {
                     System.out.println("Nessun gestore di ordini specificato.");
-                }
+                }*/
 
 
             }
 
             else{
-                System.out.println("Stupido idiota che ci fai qui");
+                System.out.println("Ruolo errato");
             }
 
 

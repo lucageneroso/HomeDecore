@@ -241,9 +241,11 @@ public class DatabasePopulator {
 
         em.flush();
 
-        Ordine ordine = new Ordine(cliente.getId(),10.3,listItem);
+        Ordine ordine = new Ordine(cliente.getId(),10.3, listItem);
+        Ordine ordine2 = new Ordine(cliente.getId(),24.1, listItem);
 
         em.persist(ordine);
+        em.persist(ordine2);
         em.persist(gestore1);
         giveOrdine(ordine, gestore1);
 
@@ -252,13 +254,15 @@ public class DatabasePopulator {
 
         em.persist(magazziniere);
         OrderRequest orderRequest= new OrderRequest(magazziniere.getId(), gestore1.getId(), LocalDateTime.now(), ordine.getId(), "Ao bello");
+        OrderRequest orderRequest2= new OrderRequest(magazziniere.getId(), gestore1.getId(), LocalDateTime.now(), ordine2.getId(), "Ao bello 2");
         em.persist(orderRequest);
+        em.persist(orderRequest2);
 
         em.flush();
         ProductRequest productRequest = new ProductRequest(magazziniere.getId(), fornitore1.getId(), LocalDateTime.now(), p4.getId(), 3, "ProvaRichiesta");
-
         em.persist(productRequest);
         em.flush();
+
         System.out.println("Popolamento completato");
 
 

@@ -28,7 +28,7 @@ public class UserService implements UserServiceRemote {
     }
 
 
-    public Utente findUserById(int id) {
+    public Utente findUserById(Long id) {
         return em.find(Utente.class, id);
     }
 

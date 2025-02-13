@@ -5,6 +5,7 @@
 <%@ page import="jakarta.ejb.EJB" %>
 <%@ page import="remoteInterfaces.CatalogoRemote" %>
 <%@ page import="model.OrderManagement.Prodotto" %>
+<%@ page import="model.RequestManagement.OrderRequest" %>
 <html>
 <head>
     <title></title>
@@ -30,14 +31,13 @@
         }
     </style>
     <script>
-        function accettaRichiesta(richiestaId, idProdotto, quantita) {
+        function accettaRichiesta(richiestaId, ordineID) {
             // Invia una richiesta AJAX per accettare la richiesta
             const params = new URLSearchParams();
             params.append("idRequest", richiestaId);
-            params.append("idProdotto", idProdotto);
-            params.append("quantita", quantita);
+            params.append("idOrdine", ordineID);
 
-            fetch("accettaRichiestaServlet", {
+            fetch("accettaRichiestaOrdineServlet", {
                 method: "POST",
                 body: params
             })
@@ -58,26 +58,22 @@
 
 <table>
     <tr>
-        <th>Prodotto</th>
-        <th>Quantità</th>
+        <th>Id Ordine</th>
         <th>Messaggio</th>
         <th>Azioni</th>
     </tr>
     <%
-        List<ProductRequest> richiesteFornitore = (List<ProductRequest>) request.getAttribute("richiesteFornitore");
-        List<Prodotto> prodotti = (List<Prodotto>) request.getAttribute("prodotti");
+        List<OrderRequest> richiesteOrdini = (List<OrderRequest>) request.getAttribute("richiesteOrdini");
 
-        if (richiesteFornitore != null && !richiesteFornitore.isEmpty() && prodotti != null && prodotti.size() == richiesteFornitore.size()) {
-            for (int i = 0; i < richiesteFornitore.size(); i++) {
-                ProductRequest richiesta = richiesteFornitore.get(i);
-                Prodotto prodotto = prodotti.get(i); // prendi l'elemento corrispondente nella lista dei prodotti
+        if (richiesteOrdini != null && !richiesteOrdini.isEmpty() ) {
+            for (int i = 0; i < richiesteOrdini.size(); i++) {
+                OrderRequest richiesta = richiesteOrdini.get(i);
     %>
     <tr id="richiesta_<%= richiesta.getId() %>">
-        <td><%= prodotto.getNome() %></td>
-        <td><%= richiesta.getQuantita() %></td>
+        <td><%= richiesta.getOrdineID()%></td>
         <td><%= richiesta.getMessage() %></td>
         <td>
-            <button class="btn-accept" onclick="accettaRichiesta(<%= richiesta.getId() %>, <%= prodotto.getId() %>, <%= richiesta.getQuantita() %>)">Accetta</button>
+            <button class="btn-accept" onclick="accettaRichiesta(<%= richiesta.getId() %>, <%= richiesta.getOrdineID() %>)">Accetta</button>
         </td>
     </tr>
     <%
