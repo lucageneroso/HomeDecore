@@ -21,6 +21,7 @@
 
 
 
+
     <div class="total_price"><p>Totale complessivo: <span id="cartTotal"><%= session.getAttribute("cartTotal") != null ? session.getAttribute("cartTotal") : "0.00" %></span></p></div>
 
     <table class=" table-light tabella_intera" >

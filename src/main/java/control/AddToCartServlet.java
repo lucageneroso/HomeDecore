@@ -50,6 +50,7 @@ public class AddToCartServlet extends HttpServlet {
 
 
 
+
             if (cart == null) {
                 cart = new Cart();
                 session.setAttribute("cart", cart);
