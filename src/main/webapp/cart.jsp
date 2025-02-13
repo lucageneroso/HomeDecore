@@ -21,11 +21,11 @@
 
     <div class="total_price"><p>Totale complessivo: <span id="cartTotal"><%= session.getAttribute("cartTotal") != null ? session.getAttribute("cartTotal") : "0.00" %></span></p></div>
 
-    <table class="table table-light tabella_intera" >
+    <table class=" table-light tabella_intera" >
 
         <thead>
-        <tr class="tabella">
-            <th scope="col">Nome</th>
+        <tr class="tabella" >
+            <th scope="col" >Nome</th>
             <th scope="col">Categoria</th>
             <th scope="col">Prezzo</th>
             <th scope="col">Quantità</th>
@@ -49,16 +49,17 @@
             <td><%= prodotto.getCategoria()%></td>
             <td>€<%= prodotto.getPrezzo()%></td>
             <td><%= item.getQuantity()%></td>
+        </tr>
+        <tr>
+            <td colspan="4"  style="display: flex; gap: 10px;align-items: center; width: 100%">
 
-            <td >
+                <form style="display: flex; gap: 10px;align-items: center;" action="updateQuantity" method="post" onsubmit="setTimeout(updateTotal, 500)" >
+                    <input type="number" name="quantity" value="<%= item.getQuantity() %>" min="1" max="<%= prodotto.getDisponibilita()%>">
+                    <input type="hidden" name="id" value="<%= prodotto.getId() %>" >
 
-                <form action="updateQuantity" method="post" onsubmit="setTimeout(updateTotal, 500)" class="form-inline">
-
-                    <input type="hidden" name="id" value="<%= prodotto.getId() %>" class="form-input">
-                    <div class="form-group d-flex justify-content-between w-50">
                         <input type="hidden" name="cartId" value="<%= cart.getId() %>">
                         <input type="hidden" name="productId" value="<%= prodotto.getId() %>">
-                        <input type="number" name="quantity" value="<%= item.getQuantity() %>" min="1"></div>
+
                         <button class= "link_bottone_rimuovi">Aggiorna</button>
 
                 </form >
@@ -102,13 +103,12 @@
 
 
 
-</div>
 
 <script>
     $(document).ready(function(){
         $(".header_icon-bar").click(function(e){
             $(".header_menu").toggleClass('is-open');
-            e.preventDefault();/*mettiamo questo codice in questo modo dato che la rimozone e l inerimento della classe is open avviene su un link dobbiamo far si che la pagina non venga ricaricata cosi da poter attivare l evento*/
+            e.preventDefault();
         });
 
     });
