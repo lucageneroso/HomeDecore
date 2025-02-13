@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import model.OrderManagement.Prodotto;
+import model.RequestManagement.ProductRequest;
 import model.RequestManagement.Request;
 import remoteInterfaces.RequestServiceRemote;
 
@@ -27,7 +28,8 @@ public class RequestService implements RequestServiceRemote {
 
     @Override
     public void removeRequest(Request request) {
-        em.remove(request);
+        ProductRequest managedRequest = (ProductRequest) em.merge(request);
+        em.remove(managedRequest);
     }
 
     @Override
