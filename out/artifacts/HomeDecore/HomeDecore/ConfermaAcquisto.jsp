@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Conferma Acquisto</title>
-    <meta http-equiv="refresh" content="5;url=cart.jsp">
+    <meta http-equiv="refresh" content="5;url=CompleteOrderServlet">
     <style>
         body {
             text-align: center;
