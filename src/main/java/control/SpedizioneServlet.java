@@ -18,12 +18,18 @@ public class SpedizioneServlet extends HttpServlet {
         String metodoConsegna = request.getParameter("metodoConsegna");
         String spedizioneRapida = request.getParameter("spedizioneRapida") != null ? "Sì" : "No";
 
+        if (indirizzo == null || indirizzo.trim().isEmpty()) {
+            session.setAttribute("spedizioneError", "Compila tutti i campi obbligatori!");
+            response.sendRedirect("Spedizione.jsp");
+            return;
+        }
+
         // Salvo i dati nella sessione
         session.setAttribute("indirizzo", indirizzo);
         session.setAttribute("metodoConsegna", metodoConsegna);
         session.setAttribute("spedizioneRapida", spedizioneRapida);
 
         // Reindirizza alla pagina di pagamento
-        response.sendRedirect("RiepilogoAcquisto.jsp");
+        response.sendRedirect("Pagamento.jsp");
     }
 }

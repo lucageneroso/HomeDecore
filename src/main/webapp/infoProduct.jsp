@@ -51,7 +51,7 @@
 
 
             <% if (prodotto.getImageBytes() != null) { %>
-            <img class="banner_image" src="data:image/png;base64,<%= java.util.Base64.getEncoder().encodeToString(prodotto.getImageBytes()) %>"
+            <img class="banner_image"  src="data:image/png;base64,<%= java.util.Base64.getEncoder().encodeToString(prodotto.getImageBytes()) %>"
                  alt="Immagine prodotto">
             <% } else { %>
             <p>Immagine non disponibile</p>
