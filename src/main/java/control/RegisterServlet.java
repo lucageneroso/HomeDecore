@@ -24,6 +24,27 @@ import java.io.IOException;
 public class RegisterServlet extends HttpServlet {
     @EJB
     private UserServiceRemote userService;
+
+
+
+    // Regex per validazione email
+    private static final String EMAIL_REGEX = "^(?=.{7,})[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+$";
+
+    // Regex per validazione password (minimo una maiuscola, un numero, tra 4 e 20 caratteri)
+    private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{4,20}$";
+
+    // Metodo per validare l'email
+    public boolean validateEmail(String email) {
+        return email != null && email.matches(EMAIL_REGEX);
+    }
+
+    // Metodo per validare la password
+    public boolean validatePassword(String password) {
+        return password != null && password.matches(PASSWORD_REGEX);
+    }
+
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Recupera i dati dal form

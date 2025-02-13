@@ -28,16 +28,21 @@
 
         <div class="form-group">
             <label for="email">Email*</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" required
+                   pattern="^[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\.[a-zA-Z0-9]+)+$"
+                   minlength="7" maxlength="50"
+                   title="Inserisci un'email valida tra 4 e 50 caratteri (es: nome.cognome@email.com), con almeno un punto dopo la chiocciola.">
         </div>
+
+
+
         <div class="form-group">
             <label for="password">Password*</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" required
+                   pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{4,20}$"
+                   title="La password deve contenere almeno una maiuscola, un numero e avere tra 4 e 20 caratteri.">
         </div>
-        <div class="form-group">
-            <label for="stato">Stato*</label>
-            <input type="text" id="stato" name="stato" placeholder="Es. Italia" required>
-        </div>
+
         <div class="form-group">
             <label for="provincia">Provincia*</label>
             <input type="text" id="provincia" name="provincia" placeholder="Es. Milano" required>
