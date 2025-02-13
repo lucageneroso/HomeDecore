@@ -17,7 +17,7 @@
             }
 
             if (!regexNumeroCivico.test(indirizzo)) {
-                alert("L'indirizzo deve contenere un numero civico (es: Via Roma 10).");
+                alert("L'indirizzo deve contenere il nome della via e un numero civico (es: Via Roma 10).");
                 return false;
             }
 
