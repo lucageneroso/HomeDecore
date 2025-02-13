@@ -81,6 +81,8 @@ public class RequestServlet extends HttpServlet {
                         .collect(Collectors.toList());
 
                 System.out.println(richieste);
+                request.setAttribute("richiesteOrdini", richieste);
+                request.getRequestDispatcher("/GestoreOrdiniRichieste.jsp").forward(request, response);
 
             }
 

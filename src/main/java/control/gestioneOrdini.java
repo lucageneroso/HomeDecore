@@ -51,8 +51,11 @@ public class gestioneOrdini extends HttpServlet {
 
             if (utente.getRuolo().equals(Ruolo.GESTOREORDINI)){
 
+                System.out.println("GESTOREORDINI: "+userID);
+
                 List<Ordine> ordini= orderService.findOrdersByGestore(userID);
-                System.out.println(ordini);
+                request.setAttribute("ordini", ordini);
+                request.getRequestDispatcher("/GestisciOrdini.jsp").forward(request, response);
 
             }
 
@@ -88,7 +91,7 @@ public class gestioneOrdini extends HttpServlet {
             }
 
             else{
-                System.out.println("Stupido idiota che ci fai qui");
+                System.out.println("Ruolo errato");
             }
 
 
