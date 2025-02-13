@@ -49,7 +49,7 @@
 %>
 <div class="message-box">
     <h1><%= (paymentMessage != null) ? paymentMessage : "Errore nel recupero del messaggio di pagamento!" %></h1>
-    <p class="redirect-message">Verrai reindirizzato al carrello in 5 secondi...</p>
+    <p class="redirect-message">Verrai reindirizzato al riepilogo acquisto in 5 secondi...</p>
 </div>
 </body>
 </html>
