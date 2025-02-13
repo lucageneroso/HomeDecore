@@ -99,7 +99,7 @@ public class PaymentServlet extends HttpServlet {
         }
 
         if (paymentSuccess) {
-            session.removeAttribute("order"); // Rimuove l'ordine dalla sessione
+            session.removeAttribute("order");
             session.removeAttribute("cartTotal");
             response.sendRedirect("ConfermaAcquisto.jsp");  //convalida acquisto
         } else {
