@@ -43,13 +43,15 @@ public class RequestServlet extends HttpServlet {
                 System.out.println(richieste);
             }
 
-            if (utente.getRuolo().equals(Ruolo.FORNITORE)) {
+            if (utente.getRuolo() != null && utente.getRuolo().equals(Ruolo.FORNITORE)){
                 //Selezionamo tutti i tipi di Richiesta che siano ProductRequest
                 List<ProductRequest> richieste = requestServiceRemote.findByDestinatario(userID)
                         .stream()
                         .filter(r -> r instanceof ProductRequest)
                         .map(r -> (ProductRequest) r)
                         .collect(Collectors.toList());
+                request.setAttribute("richiesteFornitore", richieste);
+                request.getRequestDispatcher("/Fornitore.jsp").forward(request, response);
 
                 System.out.println(richieste);
             }

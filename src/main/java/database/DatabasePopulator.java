@@ -13,6 +13,7 @@ import model.OrderManagement.ItemCartDTO;
 import model.OrderManagement.Ordine;
 import model.OrderManagement.Prodotto;
 import model.RequestManagement.OrderRequest;
+import model.RequestManagement.ProductRequest;
 import model.UserManagement.*;
 
 import java.time.LocalDateTime;
@@ -137,7 +138,6 @@ public class DatabasePopulator {
 
 
 
-
     @PostConstruct
     public void populateDB(){
         System.out.println("HO INIZIATO IL POPOLAMENTOOOOOOOOO!! \n");
@@ -255,7 +255,10 @@ public class DatabasePopulator {
         em.persist(orderRequest);
 
         em.flush();
+        ProductRequest productRequest = new ProductRequest(magazziniere.getId(), fornitore1.getId(), LocalDateTime.now(), p4.getId(), 3, "ProvaRichiesta");
 
+        em.persist(productRequest);
+        em.flush();
         System.out.println("Popolamento completato");
 
 

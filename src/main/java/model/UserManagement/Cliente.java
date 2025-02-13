@@ -12,7 +12,7 @@ public class Cliente extends Utente{
 
     // Constructor for Cliente
     public Cliente(String nome, String cognome, String email, String password, Indirizzo indirizzo) {
-        super(nome, cognome, email, password); // Call the superclass constructor
+        super(nome, cognome, email, password, Ruolo.CLIENTE); // Call the superclass constructor
         this.indirizzo = indirizzo;
     }
 
