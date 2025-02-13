@@ -54,7 +54,7 @@ public class FornitoreServlet extends HttpServlet {
             }
 
             else{
-                System.out.println("Stupido idiota che ci fai qui");
+                System.out.println("Ruolo errato");
             }
 
 
