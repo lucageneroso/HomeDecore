@@ -48,13 +48,23 @@ public class AddToCartServlet extends HttpServlet {
             Utente utente = (Utente) session.getAttribute("loggedUser");
             Cart cart = (Cart) session.getAttribute("cart");
 
+
             if (cart == null) {
                 cart = new Cart();
                 session.setAttribute("cart", cart);
             }
-
-            ItemCart item = new ItemCart(prodotto, quantity);
-            cart.addItem(item);
+            boolean found = false;
+            for (ItemCart item : cart.getItems()) {
+                if (item.getProdotto().getId() == productId) {
+                    item.setQuantity(item.getQuantity() + quantity);
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                ItemCart item = new ItemCart(prodotto, quantity);
+                cart.addItem(item);
+            }
 
             session.setAttribute("cartTotal", cart.calculateTotal());
             response.sendRedirect("cart.jsp");
