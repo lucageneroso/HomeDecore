@@ -47,12 +47,14 @@
         </tr>
         <%
             }
-        } else {
+        }
+            else {
         %>
         <tr>
             <td colspan="4">Nessun prodotto nel riepilogo.</td>
         </tr>
-        <% } %>
+        <% }
+            session.removeAttribute("items");%>
         </tbody>
     </table>
 
@@ -69,12 +71,11 @@
         }
     %>
 
-    <h3>Totale da Pagare</h3>
+
     <p><strong>Totale:</strong> €<%= String.format("%.2f", totale) %></p>
 
     <div class="button-container">
-        <a href="Spedizione.jsp"><button class="modify-button">Modifica Dettagli di Spedizione</button></a>
-        <a href="Pagamento.jsp"><button class="payment-button">Procedi al Pagamento</button></a>
+        <a href="home2.jsp"><button class="payment-button">Ritorna alla Home</button></a>
     </div>
 </div>
 </body>
