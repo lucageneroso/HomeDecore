@@ -33,7 +33,7 @@
     <% String errorMessage = (String) request.getAttribute("loginError"); %>
     <% if (errorMessage != null) { %>
 
-      <p><%= errorMessage %></p>  
+      <p><%= errorMessage %></p>
 
     <% } %>
 </div>

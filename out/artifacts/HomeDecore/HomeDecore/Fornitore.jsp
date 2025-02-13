@@ -60,7 +60,7 @@
     <tr>
         <th>Prodotto</th>
         <th>Quantità</th>
-        <th>Magazziniere</th>
+        <th>Messaggio</th>
         <th>Azioni</th>
     </tr>
     <%

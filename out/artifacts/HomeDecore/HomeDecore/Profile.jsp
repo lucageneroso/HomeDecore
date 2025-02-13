@@ -2,6 +2,7 @@
 <%@ page import="model.UserManagement.Utente" %>
 <%@ page import="java.util.List" %>
 <%@ page import="model.OrderManagement.Ordine" %>
+<%@ page import="enumerativeTypes.Ruolo" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     // Recupera l'oggetto utente dalla sessione
@@ -24,12 +25,32 @@
 
 <header class="header">
     <nav class="navbar">
+
+
         <div class="navbar_item"><a href="Profile.jsp">Profilo</a></div>
-        <div class="navbar_item"><a href="request">Richieste</a></div>
-        <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
+        <%
+            if(utente.getRuolo() == Ruolo.MAGAZZINIERE){
+        %>
+        <!-- Magazziniere-->
         <div class="navbar_item"><a href="magazzinoProdotti">Magazzino</a></div>
         <div class="navbar_item"><a href="ProductNotInMagazzino">Aggiungi prodotti in Magazzino</a></div>
         <div class="navbar_item"><a href="ordini">Gestisci ordini</a></div>
+        <%}%>
+        <%
+            if(utente.getRuolo() == Ruolo.FORNITORE){
+        %>
+        <!-- Fornitore-->
+        <div class="navbar_item"><a href="request">Richieste</a></div>
+        <div class="navbar_item"><a href="CreaProdotto.jsp">Crea Prodotto</a></div>
+        <%}%>
+        <%
+            if(utente.getRuolo() == Ruolo.GESTOREORDINI){
+        %>
+        <!-- Geestore Ordini-->
+        <div class="navbar_item"><a href="request">Richieste</a></div>
+        <div class="navbar_item"><a href="request">Gestisci ordini</a></div>
+        <%}%>
+        <div class="navbar_item"><a href="logout.jsp">Logout</a></div>
     </nav>
 </header>
 
