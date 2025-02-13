@@ -29,11 +29,11 @@
         <a class="link_register" href="register.jsp"><i>Non sei ancora registrato?</i></a>
     </form>
 
-    <!--Messaggio di errore-->
+    <!-- Success/Error message -->
     <% String errorMessage = (String) request.getAttribute("loginError"); %>
     <% if (errorMessage != null) { %>
 
-    <p><%= errorMessage %></p>
+      <p><%= errorMessage %></p>  
 
     <% } %>
 </div>
