@@ -101,4 +101,15 @@ public class Ordine implements Serializable {
     public void setIdGestore(Long idGestore) { this.idGestore = idGestore; }
     public void setIdGestore(GestoreOrdini gestore) { this.idGestore = gestore.getId(); }
 
+
+    @Override
+    public String toString() {
+        return "Ordine:[ "+
+                " Id:"+id+
+                ", totale:"+totale+
+                ", UserID:"+userId+
+                ", Stato:"+stato+
+                ", Gestore:"+idGestore+
+            " ]";
+    }
 }

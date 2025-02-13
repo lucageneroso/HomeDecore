@@ -5,7 +5,9 @@ import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.Order;
 import model.OrderManagement.Prodotto;
+import model.RequestManagement.OrderRequest;
 import model.RequestManagement.ProductRequest;
 import model.RequestManagement.Request;
 import remoteInterfaces.RequestServiceRemote;
@@ -28,8 +30,17 @@ public class RequestService implements RequestServiceRemote {
 
     @Override
     public void removeRequest(Request request) {
-        ProductRequest managedRequest = (ProductRequest) em.merge(request);
-        em.remove(managedRequest);
+
+        if (request instanceof ProductRequest) {
+            ProductRequest managedRequest = em.merge((ProductRequest) request);
+            em.remove(managedRequest);
+        }
+
+        if (request instanceof OrderRequest) {
+            OrderRequest managedRequest = em.merge((OrderRequest) request);
+            em.remove(managedRequest);
+        }
+
     }
 
     @Override
