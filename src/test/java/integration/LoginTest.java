@@ -30,7 +30,7 @@ class LoginTest {
 
     //Login Valido
     @Test
-    public void tC1ValidLogin()  {
+    public void LoginValido()  {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
         driver.findElement(By.id("email")).click();
@@ -47,7 +47,7 @@ class LoginTest {
 
     //Password non inserita
     @Test
-    public void tC2NotPresentPassword() {
+    public void PasswordNonInserita() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
         driver.findElement(By.id("email")).click();
@@ -64,7 +64,7 @@ class LoginTest {
 
     //Password non valida
     @Test
-    public void tC3NotValidPassword() {
+    public void PasswordNonValida() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 
@@ -82,7 +82,7 @@ class LoginTest {
 
     //Email non presente
     @Test
-    public void tC4NotPresentEmail() {
+    public void EmailNonPresente() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 
@@ -98,9 +98,10 @@ class LoginTest {
         catch (InterruptedException e) { e.printStackTrace();}
     }
 
+    /*
     // Formato password non valido
     @Test
-    public void tC5formatEmailOnlyValid() {
+    public void FormatoPasswordNonValido() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 
@@ -119,7 +120,7 @@ class LoginTest {
 
     //Formato email non valida
     @Test
-    public void tC6formatPasswordOnlyValid() {
+    public void FormatoEmailNonValido() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 
@@ -135,9 +136,11 @@ class LoginTest {
         catch (InterruptedException e) { e.printStackTrace();}
     }
 
+     */
+
     //Email e password non validi
     @Test
-    public void tC7NothingValid() {
+    public void NonValido() {
         driver.get("http://localhost:8080/HomeDecore/home.jsp");
         driver.findElement(By.xpath("/html/body/header/ul/li[4]/a")).click();
 

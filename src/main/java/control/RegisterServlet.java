@@ -28,7 +28,8 @@ public class RegisterServlet extends HttpServlet {
 
 
     // Regex per validazione email
-    private static final String EMAIL_REGEX = "^(?=.{7,})[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+$";
+    private static final String EMAIL_REGEX = "^(?=.{7,})[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+(?<!\\.)$";
+
 
     // Regex per validazione password (minimo una maiuscola, un numero, tra 4 e 20 caratteri)
     private static final String PASSWORD_REGEX = "^(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{4,20}$";

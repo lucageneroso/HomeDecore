@@ -24,25 +24,20 @@ public class LoginTest {
 
     @Test
     public void testValidateLogin_validLogin() {
-        boolean isValid = loginServlet.validateLogin("validUsername123", "user@example.com", "correctPassword123");
-        assertTrue(isValid); // Verifica che il login sia valido
+        boolean isValid = loginServlet.validateLogin("user@example.com", "correctPassword123");
+        assertTrue(isValid);
     }
 
     @Test
     public void testValidateLogin_invalidEmail() {
-        boolean isValid = loginServlet.validateLogin("validUsername123", "user@example", "correctPassword123");
+        boolean isValid = loginServlet.validateLogin( "user@example", "correctPassword123");
         assertFalse(isValid); // Verifica che un'email non valida renda il login invalido
     }
 
-    @Test
-    public void testValidateLogin_invalidUsername() {
-        boolean isValid = loginServlet.validateLogin("usr", "user@example.com", "correctPassword123");
-        assertFalse(isValid); // Verifica che uno username non valido renda il login invalido
-    }
 
     @Test
     public void testValidateLogin_invalidPassword() {
-        boolean isValid = loginServlet.validateLogin("validUsername123", "user@example.com", "wrongPassword");
+        boolean isValid = loginServlet.validateLogin("user@example.com", "wrongPassword");
         assertFalse(isValid); // Verifica che una password errata renda il login invalido
     }
 
