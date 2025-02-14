@@ -8,8 +8,8 @@
             <img src="image/logohome.png" >
         </div>
         <div class="copyright">
-            <p>&copy; 2025 HOMEDECORE. Tutti i diritti riservati.<a href=""> Privacy policy</a> Developed by: M.Marino L.Cammarota R.Alfieri P.Fasolino </p>
-            <p>p.iva 00000000000</p>
+            <p>&copy; 2025 HOMEDECORE. Tutti i diritti riservati.<a href="privacyPolicy.jsp"> Privacy policy</a> Developed by: M.Marino L.Cammarota R.Alfieri P.Fasolino </p>
+
         </div>
     </div>
 </footer>
