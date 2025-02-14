@@ -27,7 +27,7 @@ public class RegistrationTest {
 
     @Test
     public void validatePassword_Wrong_NoMaiuscola() {
-        boolean isValid = registerServlet.validatePassword("ciaoometai200");
+        boolean isValid = registerServlet.validatePassword("ciaocomestai200");
         assertFalse(isValid);
     }
 
@@ -43,28 +43,40 @@ public class RegistrationTest {
         assertFalse(isValid);
     }
 
+
+
+
+
+
+
     @Test
     public void validateEmail_Right() {
         boolean isValid = registerServlet.validateEmail("ric.alfa.2003@gmail.com");
-        assertTrue(isValid); // Verifica che una password errata renda il login invalido
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void validateEmail_PuntoFinale() {
+        boolean isValid = registerServlet.validateEmail("ric.alfa.2003@gmail.com.");
+        assertFalse(isValid);
     }
 
     @Test
     public void validateEmail_Wrong_CaratteriSpeciali() {
         boolean isValid = registerServlet.validateEmail("ric.al,fa.2003@gmail.com");
-        assertFalse(isValid); // Verifica che uno username non valido renda il login invalido
+        assertFalse(isValid);
     }
 
     @Test
     public void validateEmail_Wrong_Corta() {
         boolean isValid = registerServlet.validateEmail("r@g.a");
-        assertFalse(isValid); // Verifica che uno username non valido renda il login invalido
+        assertFalse(isValid);
     }
 
     @Test
     public void validateEmail_Wrong_PuntiDiFila() {
         boolean isValid = registerServlet.validateEmail("ric..alfa.2003@gmail.com");
-        assertFalse(isValid); // Verifica che uno username non valido renda il login invalido
+        assertFalse(isValid);
     }
 
 

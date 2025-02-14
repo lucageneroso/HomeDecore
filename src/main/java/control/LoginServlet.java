@@ -28,27 +28,30 @@ public class LoginServlet extends HttpServlet {
     private OrderServiceRemote orderService;
 
 
+    private static final String CORRECT_EMAIL = "user@example.com";
     private static final String CORRECT_PASSWORD = "correctPassword123";
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-    private static final int MIN_USERNAME_LENGTH = 5;
-    private static final int MAX_USERNAME_LENGTH = 20;
+
+
+
+    //private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
     public boolean validateEmail(String email) {
+        /*
         Pattern pattern = Pattern.compile(EMAIL_REGEX);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+
+         */
+        return CORRECT_EMAIL.equals(email);
     }
 
     public static boolean validatePassword(String password) {
         return CORRECT_PASSWORD.equals(password);
     }
 
-    public boolean validateUsername(String username) {
-        return username.length() >= MIN_USERNAME_LENGTH && username.length() <= MAX_USERNAME_LENGTH;
-    }
 
-    public boolean validateLogin(String username, String email, String password) {
-        return validateUsername(username) && validateEmail(email) && validatePassword(password);
+    public boolean validateLogin(String email, String password) {
+        return validateEmail(email) && validatePassword(password);
     }
 
 

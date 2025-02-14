@@ -50,7 +50,7 @@ public class MagazzinoTest {
         assertFalse(isValid);
     }
 
-    // Prezzo >0
+    // Prezzo >=0.99
     @Test public void testPricehange_Right() {
         boolean isValid= catalogo.validatePriceChange(2.0);
         assertTrue(isValid);
@@ -85,7 +85,7 @@ public class MagazzinoTest {
 
     //Supponiamo che il prodotto non sia in catalogo
     @Test public void testAddToCatalogo_Right() {
-        prodotto.setInCatalogo(false); //eliminiamo il prodotto dal magazzino per comodità
+        prodotto.setInCatalogo(false); //eliminiamo il prodotto dal catalogo per comodità
         boolean isValid= catalogo.validateAddToCatalogo(prodotto);
         assertTrue(isValid);
     }
