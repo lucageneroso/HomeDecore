@@ -8,6 +8,10 @@
 <head>
   <title>Magazzino</title>
   <style>
+    body{
+      background: #8B4000;
+      color:white;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -18,8 +22,48 @@
       text-align: left;
     }
     th {
-      background-color: #f2f2f2;
+      background-color:#8B4000;
     }
+    .spazio_div{
+      width: 100%;
+      height: 10%;
+    }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(139, 64, 0, 0) 0%, rgba(139, 64, 0, 0.003) 43%);
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(5px);
+    }
+
+    .navbar {
+      display: flex;
+      gap: 30px;
+      padding: 10px 20px;
+    }
+
+    .navbar_item a {
+      text-decoration: none;
+      color: white;
+      font-size: 18px;
+      padding: 10px 15px;
+      border-radius: 13.5px;
+      transition: background-color 0.3s ease-in-out;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar_item a:hover {
+      background-color: white;
+      color: black;
+    }
+
     .btn-edit {
       background-color: #4CAF50;
       color: white;
@@ -59,6 +103,22 @@
 
 
 <body>
+<header class="header">
+  <nav class="navbar">
+
+
+    <!-- Magazziniere-->
+    <div class="navbar_item"><a href="Profile.jsp">Profilo</a></div>
+    <div class="navbar_item"><a href="magazzinoProdotti">Magazzino</a></div>
+    <div class="navbar_item"><a href="ProductNotInMagazzino">Aggiungi prodotti in Magazzino</a></div>
+    <div class="navbar_item"><a href="ordini">Gestisci ordini</a></div>
+    <div class="navbar_item"><a href="logout.jsp">Logout</a></div>
+  </nav>
+</header>
+
+<div class="spazio_div">
+
+</div>
 <h2>Ordini</h2>
 
 <table>
